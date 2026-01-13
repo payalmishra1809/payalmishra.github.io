@@ -3,169 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payal Mishra | B.Tech CS | Data Science & Research</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- AOS Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <title>Payal Mishra | Data Science & Research Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Transparent Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+
+    <header id="navbar">
+        <nav class="container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content" data-aos="fade-up">
-                <h1 class="hero-title">Payal Mishra</h1>
-                <h2 class="hero-subtitle">B.Tech Computer Science<br>Data Science & Research</h2>
-                <p class="hero-desc">Port Blair, Andaman & Nicobar Islands</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="https://github.com/payalmishra1809" class="btn-secondary" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <main>
+        <section id="home" class="hero section">
+            <div class="container hero-wrapper reveal">
+                <h1 class="hero-name">Payal Mishra</h1>
+                <p class="hero-tagline">Data Science & Research Enthusiast | Quick Learner | Multi-disciplinary Proficiency</p>
+                <div class="hero-ctas">
+                    <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-glow" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/payal-mishra1894/" class="btn btn-curvy btn-glow" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#contact" class="btn btn-curvy btn-glow">Contact Me</a>
+                    <a href="Payal_Mishra_Resume.pdf" class="btn btn-curvy btn-glow" download><i class="fas fa-file-download"></i> Download CV</a>
                 </div>
             </div>
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-                <img src="ABC2.png" alt="Payal Mishra" loading="lazy">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Me</h2>
-            <div class="about-content">
-                <p data-aos="fade-up" data-aos-delay="100">
-                    2nd year B.Tech CS student from Port Blair, Andaman & Nicobar Islands. Data Analyst intern at Uptoskills | Web Developer for Andaman Dream Yatra. Building ML projects: TensorFlow facial recognition, fraud detection, time-series forecasting. Mastering Python data science, Figma design, and analysis/visualization. Targeting medico-engineering research.
+        <section id="about" class="about section">
+            <div class="container reveal center-align">
+                <h2 class="section-title">About Me</h2>
+                <p class="premium-text-extended">
+                    I am a highly motivated BTech student with a strong foundation in design, coding, and communication. 
+                    I specialize in crafting intuitive user experiences that bridge complex data with functional, visually appealing design. 
+                    I thrive in dynamic environments and am adept at adapting to new challenges in the tech industry.
+                    <br><br>
+                    <span style="color: var(--neon-cyan); font-weight: 800;">I am currently open to Research Collaborations and Data-driven Projects.</span>
                 </p>
-                <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-card">Python</div>
-                    <div class="skill-card">Data Analysis</div>
-                    <div class="skill-card">TensorFlow</div>
-                    <div class="skill-card">Pandas</div>
-                    <div class="skill-card">Figma</div>
-                    <div class="skill-card">SQL</div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image"><i class="fas fa-video"></i></div>
-                    <h3>Facial Attendance System</h3>
-                    <p>TensorFlow Lite + Webcam real-time attendance tracking with CSV export. Handles multiple faces with high accuracy.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/payalmishra1809/FACIAL-ATTENDANCE-SYSTEM" target="_blank">View Code →</a>
+        <section id="skills" class="skills section">
+            <div class="container">
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="glow-tab reveal">
+                        <i class="fas fa-brain"></i>
+                        <h3>Data Science</h3>
+                        <p class="skill-popup">Advanced data analytics, regression analysis, and machine learning fundamentals.</p>
                     </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Fraud Detection System</h3>
-                    <p>Multiple ML models (XGBoost, Random Forest) trained on transaction data. Model comparison + deployment ready.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/payalmishra1809/FRAUD-DETECTION-SYSTEM" target="_blank">View Code →</a>
+                    <div class="glow-tab reveal">
+                        <i class="fab fa-python"></i>
+                        <h3>Programming</h3>
+                        <p class="skill-popup">Proficient in Python (Pandas), Java, JavaScript, and C++.</p>
                     </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image"><i class="fas fa-chart-line"></i></div>
-                    <h3>Time-Series Forecasting</h3>
-                    <p>Sales prediction system processing 1M+ rows. LSTM + ARIMA models with visualization dashboard.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/payalmishra1809/TIME-SERIES-SALES-FORECASTING" target="_blank">View Code →</a>
+                    <div class="glow-tab reveal">
+                        <i class="fas fa-shield-halved"></i>
+                        <h3>Cybersecurity</h3>
+                        <p class="skill-popup">Threat intelligence, vulnerability management, and automated security tasks.</p>
                     </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image"><i class="fas fa-syringe"></i></div>
-                    <h3>Vaccination Management</h3>
-                    <p>Complete child vaccination tracking system with reminders, reports, and healthcare provider interface.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/payalmishra1809/CHILD-VACCINATION-SYSTEM" target="_blank">View Code →</a>
+                    <div class="glow-tab reveal">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Web Dev</h3>
+                        <p class="skill-popup">Full-stack development, WordPress, and SQL database management.</p>
+                    </div>
+                    <div class="glow-tab reveal">
+                        <i class="fas fa-pen-nib"></i>
+                        <h3>UI/UX Design</h3>
+                        <p class="skill-popup">Figma prototyping, wireframing, and Google-certified UX research.</p>
+                    </div>
+                    <div class="glow-tab reveal">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Business Analysis</h3>
+                        <p class="skill-popup">Tableau visualization, Tally ERP, and Goods & Services Tax (GST) filing.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-date">December 2025 - Present</div>
-                    <h3>Data Analyst Intern</h3>
-                    <p>Uptoskills | Data analysis, visualization & insights</p>
-                </div>
-                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-                    <div class="timeline-date">April 2025-present</div>
-                    <h3>Web Developer</h3>
-                    <p>Andaman Dream Yatra | WordPress sites & Figma designs for tourism platform</p>
-                </div>
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
-                    <div class="timeline-date">2024 - Present</div>
-                    <h3>B.Tech Computer Science (2nd Year)</h3>
-                    <p>Port Blair | Data Science & Research focus</p>
+        <section id="experience" class="experience section alt-bg">
+            <div class="container narrow-container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="exp-list">
+                    <div class="glow-tab reveal-left">
+                        <span class="ref-date">DEC 2025 – PRESENT</span>
+                        <h3 class="ref-post">Data Analyst Intern</h3>
+                        <h4 class="ref-company">Uptoskills</h4>
+                        <p class="ref-details">Analyzed datasets using Python and SQL to derive actionable insights for business decision-making.</p>
+                    </div>
+                    <div class="glow-tab reveal-right">
+                        <span class="ref-date">MAY 2025 – OCT 2025</span>
+                        <h3 class="ref-post">Tally Accountant</h3>
+                        <h4 class="ref-company">Dweep Packers Movers</h4>
+                        <p class="ref-details">Managed company accounts and assisted with GST filing in Sri Vijaya Puram.</p>
+                    </div>
+                    <div class="glow-tab reveal-left">
+                        <span class="ref-date">APRIL 2025 – SEP 2025</span>
+                        <h3 class="ref-post">Web Developer</h3>
+                        <h4 class="ref-company">Andaman Dream Yatra</h4>
+                        <p class="ref-details">Built agency website and currently handle remote maintenance.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-            <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
-                <p>Available for Data Science internships & medico-engineering research opportunities.<br>Get in touch via:</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/payal-mishra1894/" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/payalmishra1809" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:payalmishra.tech@gmail.com" target="_blank" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+        <section id="education" class="education section">
+            <div class="container narrow-container">
+                <h2 class="section-title">Education</h2>
+                <div class="exp-list">
+                    <div class="glow-tab reveal-right">
+                        <span class="ref-date">NOV 2024 – PRESENT</span>
+                        <h3 class="ref-post">B.Tech in Computer Science Engineering</h3>
+                        <h4 class="ref-company">Dr. B.R. Ambedkar Institute of Technology</h4>
+                    </div>
+                    <div class="glow-tab reveal-left">
+                        <span class="ref-date">JULY 2007 – MAY 2022</span>
+                        <h3 class="ref-post">Intermediate (PCM with Computer Science)</h3>
+                        <h4 class="ref-company">St. Mary's Senior Secondary School</h4>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <section id="projects" class="projects section alt-bg">
+            <div class="container">
+                <h2 class="section-title">Research & Projects</h2>
+                <div class="projects-square-grid">
+                    <div class="glow-tab project-square reveal">
+                        <i class="fas fa-piggy-bank card-icon"></i>
+                        <h3>Bank Marketing Prediction</h3>
+                        <p>Developed a Random Forest model with SkillCraft Technology to determine client term deposit subscriptions via feature importance analysis.</p>
+                        <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-project" target="_blank">View Code</a>
+                    </div>
+                    <div class="glow-tab project-square reveal">
+                        <i class="fas fa-ship card-icon"></i>
+                        <h3>Titanic Survival EDA</h3>
+                        <p>Conducted exploratory analysis for SkillCraft Technology to identify factors influencing survival rates using Seaborn and Matplotlib visualization.</p>
+                        <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-project" target="_blank">View Code</a>
+                    </div>
+                    <div class="glow-tab project-square reveal">
+                        <i class="fas fa-car-crash card-icon"></i>
+                        <h3>US Accidents Analysis</h3>
+                        <p>Analyzed 7.7 million traffic records with SkillCraft Technology to visualize hotspots and peak risk times through geospatial modeling.</p>
+                        <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-project" target="_blank">View Code</a>
+                    </div>
+                    <div class="glow-tab project-square reveal">
+                        <i class="fas fa-users card-icon"></i>
+                        <h3>World Population Analysis</h3>
+                        <p>Used Python and Pandas to track global growth trends (1960–2023). Implemented automated cleaning and programmatic path management.</p>
+                        <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-project" target="_blank">View Code</a>
+                    </div>
+                    <div class="glow-tab project-square reveal">
+                        <i class="fas fa-shield-halved card-icon"></i>
+                        <h3>Fraud Detection</h3>
+                        <p>Credit Card Fraud Detection system achieving 98.21% AUC on 284K transaction datasets using ML algorithms.</p>
+                        <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-project" target="_blank">View Code</a>
+                    </div>
+                    <div class="glow-tab project-square reveal">
+                        <i class="fas fa-chart-line card-icon"></i>
+                        <h3>Sales Forecasting</h3>
+                        <p>Time-series analytics visualizing trends and creating 6-month forecasts using Python, Pandas, and Scikit-Learn.</p>
+                        <a href="https://github.com/payalmishra1809" class="btn btn-curvy btn-project" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <div class="container reveal">
+                <h2 class="section-title">Let's Collaborate</h2>
+                <div class="contact-split-wrapper">
+                    <div class="contact-details-panel">
+                        <h3>Connect Directly</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                            I am actively seeking <strong>Research Collaborations</strong> and <strong>Data Analytics Projects</strong>. Reach out for inquiries.
+                        </p>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><p>payalmishra.tech@gmail.com</p></div>
+                        <div class="contact-item"><i class="fas fa-phone"></i><p>(+91) 7695075257</p></div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><p>Sri Vijaya Puram, Andaman</p></div>
+                    </div>
+                    <div class="inquiry-form-panel glow-tab">
+                        <form action="https://formspree.io/f/mqeekoyj" method="POST" class="modern-form">
+                            <div class="form-group-split">
+                                <input type="text" name="name" placeholder="Name" required>
+                                <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <input type="text" name="_subject" placeholder="Collaboration / Inquiry Subject" style="width: 100%; padding: 1.2rem; background: var(--bg-main); border: 1px solid #333; border-radius: 12px; color: #fff; outline: none; margin-bottom: 1.2rem;">
+                            <textarea name="message" placeholder="Describe your project or research goal..." rows="5" required></textarea>
+                            <input type="text" name="_gotcha" style="display:none">
+                            <button type="submit" class="btn btn-curvy btn-glow">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Payal Mishra | Open for Data Science Research & Projects</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
-
-
