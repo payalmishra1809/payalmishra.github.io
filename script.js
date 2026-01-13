@@ -1,31 +1,50 @@
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-});
-
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-});
-
-// Navbar scroll + hamburger
-const hamburger = document.querySelector('.nav-hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
+// --- Sticky Navbar with Blur Effect ---
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
+    const nav = document.getElementById('navbar');
     if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
+        nav.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+        nav.classList.remove('scrolled');
     }
+});
+
+// --- Slow Staggered Intersection Observer ---
+const observerOptions = {
+    threshold: 0.2, // Triggers when 20% is in view for better visibility
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Stop observing once animated to maintain performance
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Target all tabs, side-entries, and reveal sections
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .glow-tab').forEach(el => {
+    revealObserver.observe(el);
+});
+
+// --- Smooth Scrolling for Navigation Links ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.offsetTop;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
