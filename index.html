@@ -94,6 +94,23 @@ nav {
 
 .nav-links a:hover { color: var(--accent); }
 
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
 /* SECTIONS */
 section {
   position: relative;
@@ -969,17 +986,54 @@ footer {
 
 /* RESPONSIVE */
 /* ── RESPONSIVE ── */
+
+/* TABLET / LAPTOP (large tablets, small laptops) */
 @media (max-width: 1200px) {
   .hero-grid { gap: 48px; }
   .bento-xl { grid-column: span 12; }
   .bento-lg { grid-column: span 12; }
 }
 
+/* TABLET (portrait tablets, e.g. iPad) — keep a 2-up layout instead of
+   dropping straight to full mobile stacking */
+@media (max-width: 900px) and (min-width: 641px) {
+  .bento-md, .bento-sm { grid-column: span 6; }
+  .edu-grid { grid-template-columns: 1fr 1fr; }
+  .binary-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+
 @media (max-width: 900px) {
   nav { padding: 14px 20px; }
-  .nav-links { display: none; }
+
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 63px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(8,12,16,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 20px 16px;
+    z-index: 99;
+    max-height: calc(100vh - 63px);
+    overflow-y: auto;
+  }
+  .nav-links.mobile-open { display: flex; }
+  .nav-links li { width: 100%; border-bottom: 1px solid var(--border); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a { display: block; padding: 16px 4px; font-size: 15px; }
+
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-photo-wrap { order: -1; max-width: 220px; margin: 0 auto; }
+  .photo-frame { aspect-ratio: 3/4.3; }
+  .photo-frame img { transform: scale(1.15); transform-origin: center 80%; }
+  .photo-tag { padding: 10px 14px; bottom: 14px; left: 14px; right: 14px; }
+  .photo-tag-name { font-size: 16px; }
+  .photo-tag-role { font-size: 9px; letter-spacing: 0.05em; line-height: 1.45; }
   .bento-xl, .bento-lg, .bento-md, .bento-sm { grid-column: span 12; }
   .binary-grid { grid-template-columns: 1fr; }
   .edu-grid { grid-template-columns: 1fr; }
@@ -1003,9 +1057,24 @@ footer {
   .skill-card-title { font-size: 19px; }
   .skill-chip { font-size: 12px; padding: 6px 12px; }
   .github-btn { width: 100%; justify-content: center; }
+
+  /* inline two-column grids (LLM fine-tuning block, contact form fields) */
+  .two-col-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  #contact { padding: 90px 0; }
+  .contact-desc { font-size: 16px; }
+}
+
+@media (max-width: 640px) {
+  .metric-row-flex { flex-wrap: wrap; gap: 16px !important; justify-content: center; }
+  .metric-row-flex > div { min-width: 90px; }
 }
 
 @media (max-width: 480px) {
+  nav { padding: 12px 16px; }
+  .nav-logo { font-size: 11px; }
+  .nav-toggle { width: 36px; height: 36px; }
+
   .hero-stats { gap: 16px; }
   .stat-num { font-size: 22px; }
   .btn-primary, .btn-ghost { padding: 12px 20px; font-size: 12px; width: 100%; justify-content: center; }
@@ -1015,6 +1084,28 @@ footer {
   .edu-card { padding: 22px; }
   .section-divider { margin: 40px 0; }
   .section-label { font-size: 14px; }
+
+  .hero-photo-wrap { max-width: 180px; }
+  .photo-frame { aspect-ratio: 3/4.4; }
+  .photo-frame img { transform: scale(1.16); transform-origin: center 80%; }
+  .photo-tag { left: 10px; right: 10px; bottom: 10px; padding: 8px 10px; }
+  .photo-tag-name { font-size: 15px; }
+  .photo-tag-role { font-size: 8px; letter-spacing: 0.03em; line-height: 1.4; }
+
+  .hero-badge { white-space: normal; text-align: center; padding: 8px 14px; }
+
+  .project-title { font-size: 26px; }
+  .metric-highlight { font-size: 30px; }
+
+  #contact { padding: 70px 0; }
+  .contact-inner { max-width: 100% !important; }
+  .contact-form-box { padding: 24px 18px !important; }
+}
+
+@media (max-width: 360px) {
+  .hero-title { font-size: 28px; }
+  .stat-num { font-size: 19px; }
+  .stat-label { font-size: 10px; }
 }
 </style>
 </head>
@@ -1022,7 +1113,7 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Last updated - 13th Jun'26</div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#hero">Home</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -1030,6 +1121,9 @@ footer {
     <li><a href="#binary">Profile</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -1266,7 +1360,7 @@ footer {
       <div class="bento-card fade-in" style="grid-column: span 12;">
         <div class="project-num">03 // LLM Research</div>
         <div class="project-title">Custom LLM Fine-Tuning for Hinglish NLP</div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
+        <div class="two-col-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
           <div>
             <div class="project-desc">Fine-tuned Llama-3-8B on a curated 15,000+ multilingual Hinglish dataset for e-commerce review moderation. Applied QLoRA (4-bit quantization) on consumer-grade hardware, achieving an 18% improvement in intent classification accuracy over the base model. Rigorously evaluated with ROUGE-1/2/L and BERTScore metrics.</div>
             <div class="stack-chips" style="margin-top:16px;">
@@ -1290,7 +1384,7 @@ footer {
               <div class="insight-label">Key Result</div>
               <div class="insight-text">+18% intent classification accuracy over base Llama-3-8B. Error analysis on low-confidence predictions directly identified dataset gaps, closing the loop between evaluation and data curation.</div>
             </div>
-            <div style="display:flex; gap:24px; text-align:center; padding-top:4px;">
+            <div class="metric-row-flex" style="display:flex; gap:24px; text-align:center; padding-top:4px;">
               <div>
                 <div class="metric-highlight" style="font-size:32px;">15K+</div>
                 <div class="metric-label">Hinglish Samples</div>
@@ -1775,10 +1869,10 @@ footer {
       </div>
       
       <!-- Contact Form -->
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:left;">
+      <div class="contact-form-box" style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:left;">
         <div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:24px;">Send a Message</div>
         <form id="contact-form" action="https://formspree.io/f/xkoapdlp" method="POST" style="display:flex;flex-direction:column;gap:18px;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
             <div>
               <label style="display:block;font-family:'Space Mono',monospace;font-size:13px;color:var(--text2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Full Name *</label>
               <input type="text" name="name" required placeholder="Your full name" style="width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:12px 14px;color:var(--text);font-family:'Syne',sans-serif;font-size:16px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border2)'">
@@ -1863,6 +1957,28 @@ setTimeout(() => {
     el.classList.add('visible');
   });
 }, 100);
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove('mobile-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
 </script>
 
 </body>
