@@ -1,25 +1,20 @@
-Portfolio Website: Payal Mishra
-This repository hosts the personal portfolio website for Payal Mishra, a B.Tech Computer Science Engineering student specializing in data science, machine learning, and full-stack web development. The site is designed to showcase academic achievements, engineering projects, and technical research.
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-Technical Profile
-The portfolio highlights a specialized skill set focused on data-driven applications and secure systems development:
+# Run and deploy your AI Studio app
 
-Languages: Python, JavaScript, HTML, CSS.
+This contains everything you need to run your app locally.
 
-Data Science & Analytics: Predictive modeling, big data analytics, and dataset manipulation.
+View your app in AI Studio: https://ai.studio/apps/fe2785ab-999e-4c32-95a5-d6d2eb291db0
 
-Web Development & Architecture: Full-stack development utilizing Supabase for backend infrastructure.
+## Run Locally
 
-Systems & Security: Blockchain integration using SHA-256 hashing for data integrity and Zero-Trust architecture.
+**Prerequisites:**  Node.js
 
-UI/UX Design: Implementation of specialized design aesthetics, focusing on dark themes, luxury palettes, and 3D geospatial rendering.
 
-Professional Goals and Academic Background
-Education: Currently pursuing a B.Tech in Computer Science Engineering at Dr. B.R. Ambedkar Institute of Technology (DBRAIT).
-
-Aspirations: Aiming to transition into professional roles as a Data Scientist and eventually pursue a PhD in the field.
-
-Contact and Links
-Personal Website: payalmishra.com
-
-GitHub Repository: github.com/payalmishra1809/payalmishra.github.io
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
