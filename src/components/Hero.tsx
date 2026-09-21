@@ -1,65 +1,40 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Github, Linkedin, FileText, ArrowDown, Check, Copy, Maximize2, X, Upload, RotateCcw, ArrowUpRight, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Github, Linkedin, FileText, ArrowDown, Check, Copy, Maximize2, X, ArrowUpRight, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { AUTHENTIC_PORTRAIT_SRC } from '../data/portraitImage';
+import { CANDIDATE_PORTRAITS, AUTHENTIC_PORTRAIT_SRC } from '../data/portraitImage';
 
 interface HeroProps {
   onOpenCvModal: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
-  const [customPhotoSrc, setCustomPhotoSrc] = useState<string | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Clear any legacy client-side uploaded test portrait from localStorage
   useEffect(() => {
     try {
-      const savedCustom = localStorage.getItem('payal_custom_portrait');
-      if (savedCustom) {
-        setCustomPhotoSrc(savedCustom);
-      }
+      localStorage.removeItem('payal_custom_portrait');
     } catch {
       // sandbox safe
     }
   }, []);
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const result = event.target?.result as string;
-        if (result) {
-          setCustomPhotoSrc(result);
-          try {
-            localStorage.setItem('payal_custom_portrait', result);
-          } catch {
-            // noop
-          }
-        }
-      };
-      reader.readAsDataURL(file);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
+
+  const handlePhotoError = () => {
+    if (photoIndex < CANDIDATE_PORTRAITS.length - 1) {
+      setPhotoIndex((prev) => prev + 1);
     }
   };
 
-  const handleResetCustom = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCustomPhotoSrc(null);
-    try {
-      localStorage.removeItem('payal_custom_portrait');
-    } catch {
-      // noop
-    }
-  };
+  const activePhoto = CANDIDATE_PORTRAITS[photoIndex] || AUTHENTIC_PORTRAIT_SRC;
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2400);
   };
-
-  const activePhoto = customPhotoSrc || AUTHENTIC_PORTRAIT_SRC;
 
   return (
     <section
@@ -208,11 +183,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
                 className="relative w-full aspect-[9/13.5] sm:aspect-[9/14] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-700/80 bg-white dark:bg-[#0f121d] shadow-xl group cursor-pointer transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-zinc-400 dark:hover:border-blue-500/60"
                 title="Click to view full uncropped photograph"
               >
-                {/* Authentic Unaltered Photograph - Calibrated position to show till shoulders with ample breathing room */}
+                {/* Authentic Portrait - Calibrated framing for head and shoulders */}
                 <img
                   src={activePhoto}
                   alt="Payal Mishra"
-                  className="w-full h-full object-cover object-[center_12%] filter contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  onError={handlePhotoError}
+                  className="w-full h-full object-cover object-[center_18%] filter contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
 
                 {/* Subtle soft gradient highlight */}
@@ -249,45 +225,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
 
             </div>
 
-            {/* Photo Controls */}
-            <div className="mt-4 flex items-center justify-center gap-2 p-1.5 rounded-full bg-white dark:bg-[#0f121d] border border-zinc-200 dark:border-zinc-700/80 shadow-xs">
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
-
+            {/* Read-Only Portrait View Button */}
+            <div className="mt-3.5 flex items-center justify-center">
               <button
                 type="button"
                 onClick={() => setIsLightboxOpen(true)}
-                className="px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center gap-1.5"
+                className="px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/80 border border-zinc-200/70 dark:border-zinc-800 transition-all flex items-center gap-1.5 shadow-2xs"
               >
                 <Maximize2 className="w-3.5 h-3.5" />
-                <span>View Full Photo</span>
+                <span>View Full Portrait</span>
               </button>
-
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                title="Upload PIC.jpg from your device"
-                className="px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center gap-1.5 border border-zinc-200/80 dark:border-zinc-800"
-              >
-                <Upload className="w-3.5 h-3.5" />
-                <span>Upload New Pic</span>
-              </button>
-
-              {customPhotoSrc && (
-                <button
-                  type="button"
-                  onClick={handleResetCustom}
-                  title="Reset to default original photo"
-                  className="p-1.5 rounded-full text-zinc-400 hover:text-rose-500 transition-colors"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                </button>
-              )}
             </div>
 
           </div>
@@ -332,7 +279,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
             <div className="relative rounded-2xl overflow-hidden max-h-[75vh] mb-3 bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center">
               <img
                 src={activePhoto}
-                alt="Payal Mishra Original Portrait"
+                alt="Payal Mishra Portrait"
+                onError={handlePhotoError}
                 className="w-full h-auto max-h-[75vh] object-contain"
               />
             </div>
