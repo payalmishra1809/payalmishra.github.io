@@ -604,11 +604,11 @@ ${evaluation.summary}`,
   }
 
   // 10. Cat banter, easter eggs, greetings
-  if (lower.includes('meow') || lower.includes('purr') || lower.includes('cat') || lower.includes('pihu') || lower.includes('neko') || lower.includes('pet') || lower.includes('cute') || lower.includes('good bot') || lower.includes('good cat') || lower.includes('who are you')) {
+  if (lower.includes('meow') || lower.includes('purr') || lower.includes('cat') || lower.includes('nova') || lower.includes('pihu') || lower.includes('neko') || lower.includes('pet') || lower.includes('cute') || lower.includes('good bot') || lower.includes('good cat') || lower.includes('who are you')) {
     return {
       id,
       sender: 'cat',
-      text: `*Purrrrrrrrrr...* 🐾 *Happy headbutts!* Thank you! I am **Pihu**, Payal's resident AI cat companion. I keep her servers running cool, chase away latency bugs, and help visitors navigate her portfolio and check role applicability! What can I show you next?`,
+      text: `*Purrrrrrrrrr...* 🐾 *Happy headbutts!* Thank you! I am **Nova**, Payal's resident AI cat companion. I keep her servers running cool, chase away latency bugs, and help visitors navigate her portfolio and check role applicability! What can I show you next?`,
       timestamp,
       actions: [
         { label: '🎯 Check Role Applicability', actionType: 'query', target: 'Check Role Applicability', iconName: 'Sparkles' },
@@ -622,7 +622,7 @@ ${evaluation.summary}`,
     return {
       id,
       sender: 'cat',
-      text: `*Meow!* 🐾 Welcome to Payal Mishra's portfolio! I'm **Pihu**, her AI assistant. I can help you:
+      text: `*Meow!* 🐾 Welcome to Payal Mishra's portfolio! I'm **Nova**, her AI assistant. I can help you:
 
 1. **Check Role Applicability**: Tell me what role you're hiring for (e.g., *ML Engineer*, *Lead Data Analyst*, *AI Researcher*, *Quant Developer*).
 2. **Navigate the Site**: Say "Take me to projects", "Show research paper", or "Go to experience".

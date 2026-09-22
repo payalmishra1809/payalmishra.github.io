@@ -72,7 +72,7 @@ function PortfolioMain() {
         onClose={() => setIsCvModalOpen(false)}
       />
 
-      {/* Floating Cat-Faced AI Assistant (Pihu) */}
+      {/* Floating Cat-Faced AI Assistant (Nova) */}
       <CatChatbot onOpenCvModal={() => setIsCvModalOpen(true)} />
     </div>
   );

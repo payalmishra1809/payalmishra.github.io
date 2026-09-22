@@ -39,7 +39,7 @@ export const CatChatbot: React.FC<CatChatbotProps> = ({ onOpenCvModal }) => {
     const welcomeMsg: ChatMessage = {
       id: 'welcome-1',
       sender: 'cat',
-      text: `*Purrr!* 🐾 Hello! I am **Pihu**, Payal Mishra's AI Cat Assistant.
+      text: `*Purrr!* 🐾 Hello! I am **Nova**, Payal Mishra's AI Cat Assistant.
 
 I'm here to help you navigate her portfolio and evaluate if Payal is a great match for your team or research lab!
 
@@ -197,7 +197,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
   };
 
   return (
-    <aside aria-label="Pihu AI Portfolio Cat Assistant" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 select-none">
+    <aside aria-label="Nova AI Portfolio Cat Assistant" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 select-none">
       {/* 1. FLOATING PROMPT TOOLTIP (When Chatbot is Closed) */}
       {!isOpen && hasUnreadTooltip && (
         <div className="absolute bottom-16 right-0 mb-2 w-72 sm:w-80 p-3.5 rounded-2xl bg-white dark:bg-[#0f121d] border border-zinc-200 dark:border-zinc-700/80 shadow-xl text-left animate-in fade-in slide-in-from-bottom-3 duration-300">
@@ -205,7 +205,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
             <div className="flex items-center gap-2">
               <CatAvatar size="xs" />
               <span className="font-display font-bold text-xs text-zinc-950 dark:text-white">
-                Pihu · Portfolio AI Cat
+                Nova · Portfolio AI Cat
               </span>
             </div>
             <button
@@ -231,7 +231,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
               }}
               className="text-[11px] font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
             >
-              <span>Chat with Pihu</span>
+              <span>Chat with Nova</span>
               <ArrowRight className="w-3 h-3" />
             </button>
             <span className="text-[10px] text-zinc-400 font-mono-code">Press to open</span>
@@ -263,7 +263,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
 
             <div className="text-left">
               <span className="block font-display font-bold text-xs text-zinc-950 dark:text-white leading-none">
-                Pihu AI
+                Nova AI
               </span>
               <span className="block text-[10px] font-medium text-zinc-500 dark:text-zinc-300 mt-0.5 leading-none">
                 Role Fit &amp; Nav 🐾
@@ -284,9 +284,9 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
                 onClick={() => {
                   if (soundEnabled) playCatAudio('purr');
                 }}
-                title="Click to pet Pihu!"
+                title="Click to pet Nova!"
                 className="relative cursor-pointer hover:scale-110 transition-transform"
-                aria-label="Pet Pihu"
+                aria-label="Pet Nova"
               >
                 <CatAvatar size="sm" />
                 <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 border border-white dark:border-zinc-900" />
@@ -294,7 +294,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
               <div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-display font-bold text-sm text-zinc-950 dark:text-white leading-none">
-                    Pihu
+                    Nova
                   </h3>
                   <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold uppercase tracking-wider">
                     Portfolio AI
@@ -493,7 +493,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
             {isTyping && (
               <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 text-xs">
                 <CatAvatar size="xs" isPurring={true} />
-                <span className="italic text-[11px]">Pihu is thinking &amp; typing... 🐾</span>
+                <span className="italic text-[11px]">Nova is thinking &amp; typing... 🐾</span>
               </div>
             )}
 
@@ -551,7 +551,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask Pihu (e.g. 'Is Payal fit for ML Engineer?')..."
+                placeholder="Ask Nova (e.g. 'Is Payal fit for ML Engineer?')..."
                 className="flex-1 text-xs px-3.5 py-2.5 rounded-xl bg-zinc-100 dark:bg-[#161b2c] border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400"
               />
               <button
@@ -565,7 +565,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
             </div>
             <div className="flex items-center justify-between mt-2 text-[10px] text-zinc-400 px-1">
               <span>*Press Enter to send · Meow! 🐾*</span>
-              <span className="font-mono-code">Pihu v1.0</span>
+              <span className="font-mono-code">Nova v1.0</span>
             </div>
           </div>
         </div>
