@@ -39,10 +39,11 @@ I am a **B.Tech Computer Science Engineering student**[cite: 1] with a deep focu
 
 | Category | Technologies & Tools |
 | :--- | :--- |
-| **Languages** | `Python` `Java` `JavaScript` `SQL` `Bash`[cite: 1] |
-| **AI / ML / LLMs** | `Llama-3` `LangChain` `Multi-Agent RAG` `FAISS` `Hugging Face` `QLoRA` `Scikit-Learn` `OpenCV`[cite: 1] |
-| **Data & Backend** | `Pandas` `NumPy` `Redis` `WebSocket` `REST APIs` `Linux` `Git`[cite: 1] |
-| **Web & Design** | `Full-Stack Dev` `WordPress` `Figma` `Tailwind CSS`[cite: 1] |
+| **Languages & Core** | `Python` `Java` `SQL` |
+| **Data Analysis & Visualization** | `Pandas` `NumPy` `EDA` `Statistical Modeling` `Power BI` `Tableau` `Matplotlib` `Seaborn` |
+| **Engineering & Development** | `Git` `REST APIs` `Streamlit` `Workflow Automation` `Code Quality Standards` |
+| **Management & Operations** | `Cross-Functional Leadership` `Agile/Sprint Planning` `OKR Execution` `Stakeholder Management` `Process Standardization` |
+| **Documentation & Communication** | `Technical Documentation` `PRDs` `Client Requirement Translation` `SOP Writing` |
 
 ---
 
@@ -58,7 +59,7 @@ I am a **B.Tech Computer Science Engineering student**[cite: 1] with a deep focu
 > **<5ms Execution Latency**[cite: 1]
 * Built a low-latency order-book execution pipeline with sub-millisecond state caching in **Redis**[cite: 1].
 * Includes real-time multi-instrument P&L tracking over WebSocket[cite: 1].
-* **Stack:** `Python` `WebSocket` `Redis` `Asyncio`[cite: 1]
+* **Stack:** `Python` `WebSocket` `Redis`[cite: 1]
 
 ### 3. [Credit Card Fraud Detection System](https://github.com/payalmishra1809)[cite: 1]
 > **98.21% AUC Score**[cite: 1]
@@ -68,7 +69,7 @@ I am a **B.Tech Computer Science Engineering student**[cite: 1] with a deep focu
 ### 4. [Hinglish NLP Custom LLM Fine-Tuning](https://github.com/payalmishra1809)[cite: 1]
 > **+18% Accuracy Improvement**[cite: 1]
 * Fine-tuned Llama-3-8B via 4-bit QLoRA on 15K+ curated Hinglish intent classification samples[cite: 1].
-* **Stack:** `Hugging Face` `LoRA/QLoRA` `PyTorch`[cite: 1]
+* **Stack:** `Hugging Face` `LoRA/QLoRA`[cite: 1]
 
 ---
 

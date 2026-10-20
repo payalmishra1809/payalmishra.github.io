@@ -74,12 +74,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
 
             {/* Sub-headline summary */}
             <p className="text-zinc-600 dark:text-zinc-200 text-base sm:text-lg leading-relaxed max-w-2xl mb-8 font-normal">
-              B.Tech Computer Science Engineering student, independent researcher, and{' '}
-              <strong className="text-zinc-950 dark:text-white font-semibold">Senior Lead Data Analyst</strong>. Rapidly promoted
-              from Intern to Senior Lead within 4 months. Author of{' '}
-              <span className="font-semibold text-zinc-950 dark:text-white">NeuroMemBench</span> (evaluating LLM agent memory architectures),
-              builder of low-latency order execution pipelines (<span className="font-mono-code font-semibold text-zinc-900 dark:text-white">&lt;5ms</span>),
-              and high-precision ML models (<span className="font-mono-code font-semibold text-zinc-900 dark:text-white">98.2% AUC</span>).
+              B.Tech Computer Science Engineering student and{' '}
+              <strong className="text-zinc-950 dark:text-white font-semibold">Senior Lead Data Analyst</strong>. Promoted
+              from Data Analyst Intern to Senior Lead in 4 months, bridging technical execution and management. Combines{' '}
+              <span className="font-semibold text-zinc-950 dark:text-white">Python &amp; SQL</span>, data visualization (Power BI / Tableau),
+              and end-to-end documentation, leading cross-functional teams to{' '}
+              <span className="font-mono-code font-semibold text-zinc-900 dark:text-white">100%</span> on-time delivery.
             </p>
 
             {/* Key Statistics Grid */}

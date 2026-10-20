@@ -7,10 +7,10 @@ export const SkillsSection: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
 
   const getCategoryIcon = (title: string) => {
-    if (title.includes('Programming')) return <Code2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
-    if (title.includes('AI') || title.includes('Language')) return <Brain className="w-5 h-5 text-purple-600 dark:text-purple-400" />;
+    if (title.includes('Languages')) return <Code2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
     if (title.includes('Data')) return <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
-    if (title.includes('Systems')) return <Server className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
+    if (title.includes('Engineering')) return <Server className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
+    if (title.includes('Management')) return <Brain className="w-5 h-5 text-purple-600 dark:text-purple-400" />;
     return <Layers className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />;
   };
 
@@ -33,7 +33,7 @@ export const SkillsSection: React.FC = () => {
               Technical Domain Mastery
             </h2>
             <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-              Applied expertise across statistical data science, scalable distributed architectures, agent evaluation benchmarks, and production-grade machine learning.
+              Applied expertise across Python and SQL, data analysis and visualization, engineering workflows, cross-functional management, and technical documentation.
             </p>
           </div>
 
@@ -41,10 +41,11 @@ export const SkillsSection: React.FC = () => {
           <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-zinc-100 dark:bg-[#0f121d] border border-zinc-200/80 dark:border-zinc-700/80 self-start md:self-auto shadow-xs">
             {[
               { label: 'All Domains', id: 'all' },
-              { label: 'Languages', id: 'programming' },
-              { label: 'AI & NLP', id: 'ai' },
-              { label: 'Data & DB', id: 'data' },
-              { label: 'Systems', id: 'systems' },
+              { label: 'Languages', id: 'languages' },
+              { label: 'Data & Viz', id: 'data' },
+              { label: 'Engineering', id: 'engineering' },
+              { label: 'Management', id: 'management' },
+              { label: 'Docs', id: 'documentation' },
             ].map((f) => (
               <button
                 key={f.id}

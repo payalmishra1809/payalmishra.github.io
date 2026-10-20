@@ -18,8 +18,7 @@ export const ExperienceTimeline: React.FC = () => {
             Professional Experience &amp; Leadership
           </h2>
           <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-            Demonstrated rapid upward progression from technical intern to Domain Senior Team Lead at RSL,
-            delivering production data pipelines, client-facing software, and organizational operational systems.
+            Rapid progression from Data Analyst Intern to Senior Lead Data Analyst in 4 months, alongside ongoing Machine Learning & AI internships, product design, operations management, and business analysis.
           </p>
         </div>
 

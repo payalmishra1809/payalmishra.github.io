@@ -7,7 +7,7 @@ export interface Project {
   shortDesc: string;
   fullDesc: string;
   stack: string[];
-  githubUrl: string;
+  githubUrl?: string;
   metrics?: {
     primary: string;
     label: string;

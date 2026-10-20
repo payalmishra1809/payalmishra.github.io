@@ -59,12 +59,12 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
     roleTitle: 'Senior Lead Data Analyst / Analytics Lead',
     matchScore: 98,
     matchTier: 'Exceptional Fit',
-    summary: 'Direct verifiable match. Payal rapidly earned a promotion from Data Analyst Intern to Domain Senior Team Lead in 4 months at UpToSkills, standardizing Python pipelines and directing cross-functional teams with 100% on-time delivery.',
+    summary: 'Direct verifiable match. Payal rapidly earned a promotion from Data Analyst Intern to Senior Lead Data Analyst in 4 months at UpToSkills, standardizing Python pipelines and directing cross-functional teams with 100% on-time delivery.',
     verifiedStrengths: [
-      'Rapid promotion track from Intern to Domain Senior Team Lead within 4 months',
+      'Rapid promotion track from Intern to Senior Lead Data Analyst within 4 months',
       'Team leadership managing 15+ intern data cohorts with 100% on-time sprint completions',
       'Standardized Python EDA, data preprocessing, and reproducibility workflows',
-      'Advanced SQL, Pandas, NumPy, statistical inference, and executive dashboarding'
+      'SQL, Pandas, NumPy, EDA, statistical modeling, and Power BI'
     ],
     proofPoints: [
       'Leadership: 100% on-time project completion rate across all concurrent tracks',
@@ -93,8 +93,8 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
     ],
     proofPoints: [
       'Systems: HFT Alpha Generator handles live order-book tick data in under 5 milliseconds',
-      'Edge ML: Facial Attendance with TensorFlow Lite running offline on edge devices',
-      'Stack: PyTorch, Scikit-Learn, Hugging Face, Redis, FastAPI/REST, Docker basics'
+      'Multi-Agent RAG: three parallel agents (vision LLM, OCR, dense retrieval) cutting analysis time ~70%',
+      'Stack: Scikit-Learn, Hugging Face, LangChain, FAISS, Redis, WebSocket, REST'
     ],
     considerations: [
       'Transparently expanding from single-node high-throughput systems into large-scale distributed clusters (Ray/PySpark) as noted in the Binary Profile.'
@@ -138,7 +138,7 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
     verifiedStrengths: [
       'Sub-5ms order execution and decision latency engine processing live WebSocket tick data',
       'Redis sub-millisecond in-memory cache for ultra-fast state retrieval and tick replay',
-      'Asynchronous concurrency in Python using AsyncIO, NumPy, and Pandas for parallel P&L calculation',
+      'Python, NumPy, and Pandas for real-time P&L tracking across multiple simulated instruments',
       'Statistical alpha signal generation with dynamic threshold tuning and risk bounds'
     ],
     proofPoints: [
@@ -159,7 +159,7 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
     matchTier: 'Exceptional Fit',
     summary: 'Comprehensive foundation across statistical modeling, machine learning, hypothesis testing, time series forecasting, and spatial big data analytics (7.7M record US accidents dataset).',
     verifiedStrengths: [
-      'Statistical modeling: Regression, classification, seasonal decomposition (ARIMA benchmark)',
+      'Statistical modeling, time series, and seasonal decomposition (ARIMA benchmark)',
       'Big data scale: Analyzed 7.7M records of US traffic data with geospatial modeling',
       'Class imbalance expertise: SMOTE oversampling, precision-recall curve optimization, 98.2% AUC',
       'Longitudinal analysis: 63-year demographic tracking of World Bank data with automated cleaning pipelines'
@@ -183,7 +183,7 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
     summary: 'Proven ability to bridge executive business requirements and technical data pipelines. Real-world experience at PSN Shipping Agency identifying workflow bottlenecks and revenue opportunities.',
     verifiedStrengths: [
       'Operational workflow modeling: Identified shipment delays, revenue leakage, and cost drivers',
-      'Financial data acumen: Tally accounting, cash-flow visibility, and audit-ready reconciliation',
+      'Operations management: Account reconciliation, SOP authoring, and stakeholder coordination at Dweep Packers & Movers',
       'Stakeholder communication: Delivered executive-ready presentations and KPI dashboards',
       'Process automation: Standardized team onboarding and workflow templates'
     ],
@@ -333,13 +333,13 @@ export function generateCatAssistantResponse(input: string): ChatMessage {
       return {
         id,
         sender: 'cat',
-        text: `*Head bump!* 🐾 Navigating to the **Technical Domain Mastery** section! Payal's stack spans Python, PyTorch, LangChain, FAISS, Redis, SQL, QLoRA, and Time Series Forecasting.`,
+        text: `*Head bump!* 🐾 Navigating to the **Technical Domain Mastery** section! Payal's stack spans Python, LangChain, FAISS, Redis, SQL, QLoRA, and Time Series.`,
         timestamp,
         actions: [
           { label: '🛠️ Jump to Skills Section', actionType: 'navigate', target: 'skills', iconName: 'ArrowRight' },
           { label: '📜 View Certifications (65+)', actionType: 'navigate', target: 'certifications', iconName: 'ArrowRight' }
         ],
-        quickSuggestions: ['What are her top 3 skills?', 'Does Payal know PyTorch & LLMs?', 'Role Fit Checker']
+        quickSuggestions: ['What are her top 3 skills?', 'Does Payal know LLMs & RAG?', 'Role Fit Checker']
       };
     }
     if (lower.includes('binary') || lower.includes('strength') || lower.includes('weakness') || lower.includes('growth') || lower.includes('audit')) {
@@ -448,8 +448,7 @@ ${evaluation.summary}`,
     lower.includes('what can she do') ||
     lower.includes('what does she know') ||
     lower.includes('python') ||
-    lower.includes('pytorch') ||
-    lower.includes('sql')
+        lower.includes('sql')
   ) {
     return {
       id,
@@ -467,11 +466,11 @@ ${evaluation.summary}`,
 
 3. **Systems & Low-Latency Architecture**:
    • High-frequency tick data pipeline with sub-5ms order latency
-   • Redis in-memory caching, AsyncIO concurrency, and WebSocket streams
+   • Redis in-memory caching and WebSocket streams
 
 4. **Analytics & Data Leadership**:
    • Promoted to Senior Lead Data Analyst in 4 months at UpToSkills
-   • Advanced SQL, Pandas, NumPy, statistical inference, and executive reporting`,
+   • SQL, Pandas, NumPy, EDA, statistical modeling, and Power BI`,
       timestamp,
       actions: [
         { label: '🛠️ Inspect All Skills', actionType: 'navigate', target: 'skills', iconName: 'ArrowRight' },
@@ -519,16 +518,16 @@ ${evaluation.summary}`,
       text: `*Paws up!* 🐾 Payal's career trajectory demonstrates rapid compounding leadership:
 
 • **Senior Lead Data Analyst** at UpToSkills:
-  Promoted from Intern to Team Lead to Domain Senior Lead in **just 4 months**. Coordinated multiple concurrent ML cohorts, standardized Python EDA workflows, and achieved **100% on-time delivery**.
+  Promoted from Intern to Team Lead to Senior Lead Data Analyst in **just 4 months**. Coordinated multiple concurrent ML cohorts, standardized Python EDA workflows, and achieved **100% on-time delivery**.
 
 • **Current Active Roles**:
   • *Machine Learning & AI Intern* at **Skill Nexis** (Aug 2026 — Present)
   • *Artificial Intelligence Intern* at **Codec Technologies** (Aug 2026 — Present)
 
 • **Previous Experience**:
-  • Web Developer at Andaman Dream Yatra (Commercial client portal with SEO lift)
-  • Business Analyst Intern at PSN Shipping Agency (Cargo bottleneck & financial analysis)
-  • Tally Accountant at Dweep Packers & Movers (Audit-ready bookkeeping)`,
+  • Lead Product Designer & UX Strategist at Andaman Dream Yatra (PRDs, wireframes, Power BI audience analysis)
+  • Operations Manager at Dweep Packers & Movers (Workflow oversight, SOPs, reconciliation)
+  • Business Analyst at PSN Shipping Agency (Cargo revenue-leakage analysis, management briefs)`,
       timestamp,
       actions: [
         { label: '💼 View Career Timeline', actionType: 'navigate', target: 'experience', iconName: 'Briefcase' },
@@ -654,7 +653,7 @@ What would you like to explore?`,
 
 Payal brings a blend of **applied ML engineering**, **empirical neuro-AI benchmarking** (*NeuroMemBench*), and **demonstrated team leadership** (Senior Lead Data Analyst promotion in 4 months).
 
-• **Core Tech**: Python, PyTorch, Scikit-Learn, Llama-3-8B (QLoRA), Redis, WebSockets, SQL, Pandas.
+• **Core Tech**: Python, Scikit-Learn, Llama-3-8B (QLoRA), Redis, WebSocket, SQL, Pandas.
 • **Verifiable Metrics**: 98.2% ROC-AUC, sub-5ms latency, 100% on-time sprint completions.
 • **Continuous Learning**: 65+ industry credentials and B.Tech CSE (8.33 CGPA).
 

@@ -5,6 +5,8 @@ import { Project } from '../types';
 import { SpotlightCard } from './SpotlightCard';
 import { ProjectDetailModal } from './ProjectDetailModal';
 
+const NEW_IDS = ['supply-chain-dashboard', 'requirement-pipeline', 'data-profiling-utility', 'sprint-tracker'];
+
 export const ProjectsBento: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -69,7 +71,9 @@ export const ProjectsBento: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {filteredProjects.map((project) => {
             let colSpanClasses = 'lg:col-span-6';
-            if (project.id === 'hinglish-nlp') {
+            if (NEW_IDS.includes(project.id)) {
+              colSpanClasses = 'lg:col-span-6';
+            } else if (project.id === 'hinglish-nlp') {
               colSpanClasses = 'lg:col-span-12';
             } else if (project.id === 'hft-pipeline' || project.id === 'multimodal-rag' || project.id === 'fraud-detection') {
               colSpanClasses = 'lg:col-span-7';
@@ -143,6 +147,7 @@ export const ProjectsBento: React.FC = () => {
                       <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </button>
 
+                    {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -154,6 +159,7 @@ export const ProjectsBento: React.FC = () => {
                     >
                       <Github className="w-4 h-4" />
                     </a>
+                    )}
                   </div>
 
                 </SpotlightCard>

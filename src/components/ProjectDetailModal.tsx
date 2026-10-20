@@ -132,6 +132,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             Close Case Study
           </button>
 
+          {project.githubUrl && (
           <a
             href={project.githubUrl}
             target="_blank"
@@ -142,6 +143,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             <span>View Source on GitHub</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
+          )}
         </div>
       </div>
     </div>

@@ -2,23 +2,23 @@ import { Project, ExperienceItem, EducationItem, Testimonial, BinaryItem, SkillC
 
 export const PERSONAL_INFO = {
   name: "Payal Mishra",
-  headline: "Senior Lead Data Analyst & AI Researcher",
-  subHeadline: "B.Tech CSE Student · Independent Neuro-AI Researcher · ML Systems",
+  headline: "Data Science & Research Enthusiast",
+  subHeadline: "B.Tech CSE Student · Senior Lead Data Analyst · ML & AI Intern",
   location: "Sri Vijaya Puram, Andaman & Nicobar Islands, India",
   email: "payalmishra.tech@gmail.com",
   github: "https://github.com/payalmishra1809",
   linkedin: "https://www.linkedin.com/in/payal-mishra1809/",
-  cvViewUrl: "https://drive.google.com/file/d/1_BFrF4eCjQ7d_MZxH-TLV979Y6l8Aemg/view?usp=sharing",
-  cvDownloadUrl: "https://drive.google.com/uc?export=download&id=1_BFrF4eCjQ7d_MZxH-TLV979Y6l8Aemg",
+  cvViewUrl: "./PAYAL_MISHRA_CV.pdf",
+  cvDownloadUrl: "./PAYAL_MISHRA_CV.pdf",
   formspreeUrl: "https://formspree.io/f/xkoapdlp",
   availabilityBadge: "Available for Internships, Full-Time Roles & Research",
-  lastUpdated: "September 2026",
-  bio: `B.Tech Computer Science Engineering student, independent researcher, and Senior Lead Data Analyst. Rapidly progressed from Data Analyst Intern to Senior Lead Data Analyst within 4 months. Authored a solo-author working paper benchmarking LLM agent memory architectures (NeuroMemBench), delivered systems with 98%+ AUC on real-world datasets, built low-latency order-execution engines (<5ms), and led cross-functional intern teams to 100% on-time delivery. Operating at the intersection of applied ML engineering and agent-memory research with verifiable impact.`,
+  lastUpdated: "October 2026",
+  bio: `B.Tech Computer Science Engineering student and Senior Lead Data Analyst who bridges deep technical execution and management expertise, progressing from Data Analyst Intern to Senior Lead Data Analyst in 4 months. Combines robust coding capabilities in Python and SQL with strong UX design, data visualization (Power BI/Tableau), and comprehensive end-to-end project documentation. Proven track record of translating complex client requirements into technical specifications, architecting data workflows, and leading cross-functional teams to 100% on-time delivery. Equally equipped for technical software/data roles and strategic management positions, backed by 30+ shipped projects and 65+ certifications.`,
   stats: [
-    { value: "30+", label: "Applied Projects" },
-    { value: "1", label: "Review Paper (In Prep)" },
+    { value: "30+", label: "Shipped Projects" },
     { value: "65+", label: "Certifications" },
-    { value: "98.2%", label: "Best AUC Score" }
+    { value: "100%", label: "On-Time Delivery" },
+    { value: "4 Mo", label: "Intern → Senior Lead" }
   ]
 };
 
@@ -69,8 +69,64 @@ export const RESEARCH_PAPER = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "hft-pipeline",
+    id: "supply-chain-dashboard",
     number: "01",
+    category: "Analytics",
+    categoryLabel: "Data Analysis & Power BI",
+    title: "Enterprise Supply Chain Revenue Leakage & Profitability Dashboard",
+    shortDesc: "Analyzed 100K+ shipping and financial records in Python to surface bottlenecks and revenue leakage, with an interactive Power BI dashboard for executives.",
+    fullDesc: "Analyzed 100K+ shipping and financial records using Python (Pandas, NumPy) to identify operational bottlenecks and revenue leakage, designing an interactive Power BI dashboard with drill-down metrics for executive decision-making.",
+    stack: ["Python", "Pandas", "NumPy", "Power BI", "SQL", "End-to-End Business Analysis"],
+    metrics: {
+      primary: "100K+",
+      label: "Shipping & Financial Records Analyzed"
+    },
+    highlightTitle: "Analytical Insight",
+    highlightText: "Drill-down Power BI metrics turn raw shipping and financial records into clear views of where revenue leaks, supporting executive decision-making.",
+    colSpan: "md"
+  },
+  {
+    id: "requirement-pipeline",
+    number: "02",
+    category: "Systems",
+    categoryLabel: "Technical Workflow & Documentation",
+    title: "Client-to-Engineering Requirement Translation & Pipeline",
+    shortDesc: "Bridged external stakeholders and dev teams, turning client feedback into technical specs, structured Python/SQL backend workflows and Jira tickets.",
+    fullDesc: "Acted as the communication bridge between external stakeholders and internal dev teams, ingesting client feedback, drafting comprehensive technical specification documents, and turning them into structured Python/SQL backend workflows and Jira tickets.",
+    stack: ["Python", "SQL", "Git", "Markdown Documentation", "Confluence / Jira Workflow"],
+    highlightTitle: "Workflow Highlight",
+    highlightText: "Client feedback flows through written specifications into backend workflows and tracked tickets, keeping stakeholders and engineers aligned.",
+    colSpan: "md"
+  },
+  {
+    id: "data-profiling-utility",
+    number: "03",
+    category: "Analytics",
+    categoryLabel: "Python Scripting & Automation",
+    title: "Automated Python Data Profiling & Reporting Utility",
+    shortDesc: "Standalone Python tool that runs automated EDA on raw enterprise datasets, generates distribution visuals and compiles technical data dictionaries.",
+    fullDesc: "Developed a standalone Python automation tool that ingests raw enterprise datasets, executes automated exploratory data analysis (EDA), generates statistical distribution visualizations, and compiles complete technical data dictionaries.",
+    stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Automated Reporting Engine"],
+    highlightTitle: "Automation Highlight",
+    highlightText: "One run ingests a raw dataset and produces EDA, distribution visualizations and a complete data dictionary with no manual steps.",
+    colSpan: "md"
+  },
+  {
+    id: "sprint-tracker",
+    number: "04",
+    category: "Analytics",
+    categoryLabel: "Full-Stack Data Application",
+    title: "Cross-Functional Agile Sprint & Task Tracking System",
+    shortDesc: "Full-stack internal app (Python/Streamlit) with interactive dashboards for multi-team deliverables, sprint burn-down metrics and live project documentation.",
+    fullDesc: "Engineered a full-stack internal tracking application with a Python/Streamlit backend and interactive frontend dashboards to manage multi-team deliverables, track sprint burn-down metrics, and maintain real-time project documentation.",
+    stack: ["Python", "Streamlit", "Git", "REST APIs", "Documentation Framework"],
+    highlightTitle: "Application Highlight",
+    highlightText: "Interactive dashboards track sprint burn-down and multi-team deliverables while keeping project documentation current in real time.",
+    colSpan: "md"
+  },
+  {
+    id: "hft-pipeline",
+    number: "05",
     category: "Systems",
     categoryLabel: "Systems Engineering",
     title: "HFT Alpha Generator & Order Pipeline",
@@ -93,7 +149,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "multimodal-rag",
-    number: "02",
+    number: "06",
     category: "GenAI",
     categoryLabel: "Generative AI",
     title: "Enterprise Multimodal Multi-Agent RAG Workspace",
@@ -116,7 +172,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "hinglish-nlp",
-    number: "03",
+    number: "07",
     category: "Research",
     categoryLabel: "LLM Research & Fine-Tuning",
     title: "Custom LLM Fine-Tuning for Hinglish NLP",
@@ -139,7 +195,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "fraud-detection",
-    number: "04",
+    number: "08",
     category: "ML",
     categoryLabel: "Applied Machine Learning",
     title: "Credit Card Fraud Detection System",
@@ -162,7 +218,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "child-vaccination",
-    number: "05",
+    number: "09",
     category: "Healthcare",
     categoryLabel: "Healthcare Tech",
     title: "Child Vaccination Management System",
@@ -176,7 +232,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "sales-forecasting",
-    number: "06",
+    number: "10",
     category: "Analytics",
     categoryLabel: "Time Series Analytics",
     title: "Time Series Sales Forecasting",
@@ -190,7 +246,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "facial-attendance",
-    number: "07",
+    number: "11",
     category: "Vision",
     categoryLabel: "Computer Vision",
     title: "Facial Recognition Attendance System",
@@ -204,7 +260,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "us-accidents",
-    number: "08",
+    number: "12",
     category: "Analytics",
     categoryLabel: "Big Data & Spatial Analytics",
     title: "US Accidents Big Data Analysis",
@@ -218,7 +274,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "world-population",
-    number: "09",
+    number: "13",
     category: "Analytics",
     categoryLabel: "Longitudinal Study",
     title: "World Population Longitudinal Analysis",
@@ -240,10 +296,9 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: "Skill Nexis",
     isCurrent: true,
     badge: "Current Role",
-    description: "Selected for an online internship in the Machine Learning & AI domain, working on assigned real-world projects under defined deadlines to build practical, hands-on ML experience.",
+    description: "Selected for an online internship in the Machine Learning & AI domain, delivering assigned real-world projects against defined deadlines to build applied ML experience.",
     highlights: [
-      "Applying core machine learning and deep learning algorithms to structured project tasks.",
-      "Reinforcing skills in model development, validation metrics, and applied problem-solving alongside a peer intern cohort."
+      "Applied core machine learning workflows to structured project tasks, strengthening model development and applied problem-solving skills alongside a peer intern cohort."
     ]
   },
   {
@@ -253,10 +308,9 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: "Codec Technologies",
     isCurrent: true,
     badge: "Global Consultancy",
-    description: "Engaged as a Project Intern on Codec Technologies' global platform, working hybrid across assigned AI projects and structured training tasks under a dedicated project head.",
+    description: "Working as a Project Intern on a global hybrid platform, executing assigned AI projects and structured training tasks under a dedicated project head.",
     highlights: [
-      "Gained industry-level exposure to applied AI workflows within a consultancy operating across 27+ countries.",
-      "Tracked performance through rigorous weekly project reviews and architecture checkpoints."
+      "Gaining industry-level exposure to applied AI workflows within a consultancy operating across 27+ countries, with performance tracked via weekly project reviews."
     ]
   },
   {
@@ -265,44 +319,43 @@ export const EXPERIENCES: ExperienceItem[] = [
     role: "Senior Lead Data Analyst",
     organization: "UpToSkills",
     badge: "Rapid 4-Month Promotion",
-    description: "Progressed from Data Analyst Intern to Team Lead to Domain Senior Team Lead within 4 months, managing cross-functional teams across concurrent ML projects.",
+    description: "Promoted from Data Analyst Intern to Team Lead to Senior Lead Data Analyst, progressing rapidly through leadership ranks within 4 months.",
     highlights: [
-      "Headed department operations, defined team OKRs, ran sprint reviews, and enforced code quality standards, achieving 100% on-time delivery across all project tracks.",
-      "Began by performing exploratory data analysis (EDA), data cleaning, and preprocessing on real production datasets.",
-      "Standardized Python-based EDA and preprocessing pipelines adopted across the 15+ intern cohort, substantially cutting onboarding turnaround."
+      "Managed cross-functional teams across concurrent ML projects, aligning technical execution with project roadmaps.",
+      "Headed department operations as senior lead: defined team OKRs, ran sprint reviews, and enforced code-quality standards, achieving 100% on-time delivery across all project tracks.",
+      "Standardized Python-based EDA and preprocessing pipelines, adopted across a 15+ intern cohort, dramatically reducing analyst onboarding time and operational friction."
     ]
   },
   {
     id: "andaman-dream-yatra",
     period: "Apr 2025 — Sep 2025",
-    role: "Web Developer",
+    role: "Lead Product Designer & UX Strategist",
     organization: "Andaman Dream Yatra",
-    description: "Architected and launched a production-grade website for a commercial travel & tourism client, owning every phase from requirements scoping to server configuration and SEO optimization.",
+    description: "Led product design and UX strategy for a travel & tourism platform, from client consultations to final UI/UX implementation and client sign-off.",
     highlights: [
-      "Retained on a long-term remote maintenance retainer handling performance tuning, plugin updates, content management, and uptime monitoring.",
-      "Delivered a measurable lift in organic search visibility and a modernized customer booking inquiry pipeline."
-    ]
-  },
-  {
-    id: "psn-shipping",
-    period: "Feb 2025 — Sep 2025",
-    role: "Business Analyst Intern",
-    organization: "PSN Shipping Agency",
-    description: "Analyzed day-to-day business operations, cargo and shipment records, and internal financial data, working closely with operational teams to eliminate workflow bottlenecks.",
-    highlights: [
-      "Studied historical business data to identify patterns in shipment volumes, client transactions, and operational cost drivers.",
-      "Prepared structured reports highlighting areas of revenue leakage, process delays, and workflow opportunities for executive review."
+      "Conducted in-depth client consultations and audience demographic research, utilizing Power BI dashboards to analyze user behavior across age groups and validate design directions.",
+      "Authored end-to-end Product Requirement Documents (PRDs), wireframes, feature specifications, and visual design architectures tailored for public user accessibility.",
+      "Leveraged AI-assisted development tools to prototype the platform, manually refining, structuring, and directing the final UI/UX implementation to ensure seamless human-led design control and client sign-off."
     ]
   },
   {
     id: "dweep-movers",
-    period: "Dec 2024 — Feb 2025",
-    role: "Tally Accountant",
+    period: "Jul 2024 — Nov 2024",
+    role: "Operations Manager",
     organization: "Dweep Packers & Movers",
-    description: "Managed end-to-end bookkeeping and financial record-keeping using Tally, handling daily voucher entries, invoicing, and reconciliation across multiple client accounts.",
+    description: "Oversaw end-to-end operational workflows, resource coordination, account reconciliation, and stakeholder communication to optimize internal processes for peak efficiency.",
     highlights: [
-      "Maintained accurate records of receivables, payables, and expense tracking, ensuring books stayed audit-ready at all times.",
-      "Generated periodic financial statements and reports giving management real-time visibility into cash flow and operational budgeting."
+      "Authored standardized operating procedures (SOPs) and comprehensive documentation for internal bookkeeping, streamlining administrative workflows and executive decision-making."
+    ]
+  },
+  {
+    id: "psn-shipping",
+    period: "Mar 2024 — Jun 2024",
+    role: "Business Analyst",
+    organization: "PSN Shipping Agency",
+    description: "Facilitated cross-departmental alignment by bridging technical teams and executive management through detailed data reporting, presentations, and process documentation.",
+    highlights: [
+      "Analyzed cargo and shipment datasets to pinpoint revenue leakage, translating raw metrics into clear strategic insights and actionable management briefs."
     ]
   }
 ];
@@ -332,31 +385,24 @@ export const EDUCATION: EducationItem[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Programming Languages",
-    skills: ["Python", "Java", "JavaScript", "SQL", "Bash", "TypeScript", "HTML5 / CSS3"]
+    title: "Languages & Core",
+    skills: ["Python", "Java", "SQL"]
   },
   {
-    title: "AI, ML & Large Language Models",
-    skills: [
-      "Llama-3", "Mistral", "LangChain", "RAG Pipelines", "Multi-Agent Systems",
-      "TensorFlow Lite", "OpenCV", "Hugging Face", "LoRA / QLoRA", "FAISS",
-      "Scikit-Learn", "Prompt Engineering", "Fine-Tuning"
-    ]
+    title: "Data Analysis & Visualization",
+    skills: ["Pandas", "NumPy", "Exploratory Data Analysis (EDA)", "Statistical Modeling", "Power BI", "Tableau", "Matplotlib", "Seaborn"]
   },
   {
-    title: "Data Science & Statistical Modeling",
-    skills: [
-      "Pandas", "NumPy", "EDA", "Statistical Inference", "Regression Analysis",
-      "Time Series Forecasting", "Tableau", "Data Imbalance (SMOTE)", "Matplotlib & Seaborn"
-    ]
+    title: "Engineering & Development",
+    skills: ["Git", "REST APIs", "Streamlit", "Workflow Automation", "Code Quality Standards"]
   },
   {
-    title: "Systems & Infrastructure",
-    skills: ["Redis", "WebSocket", "Linux / Unix", "Git & GitHub", "REST APIs", "Docker Basics", "Async I/O"]
+    title: "Management & Operations",
+    skills: ["Cross-Functional Leadership", "Agile / Sprint Planning", "OKR Execution", "Stakeholder Management", "Process Standardization"]
   },
   {
-    title: "Product, Web & Design",
-    skills: ["Full-Stack Development", "Responsive UI", "WordPress", "Figma Prototyping", "Design Thinking"]
+    title: "Documentation & Communication",
+    skills: ["End-to-End Technical Documentation", "Product Requirement Documents (PRDs)", "Client Requirement Translation", "SOP Writing"]
   }
 ];
 
@@ -368,7 +414,7 @@ export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
     },
     {
       name: "Team Leadership under Pressure",
-      note: "Progressed from intern to Senior Team Lead within 4 months, coordinating multiple data science cohorts simultaneously with 100% on-time delivery."
+      note: "Progressed from intern to Senior Lead Data Analyst within 4 months, coordinating multiple data science cohorts simultaneously with 100% on-time delivery."
     },
     {
       name: "Statistical Rigor & Metric Honesty",
@@ -376,11 +422,11 @@ export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
     },
     {
       name: "Rapid Self-Learning & Discipline",
-      note: "65+ certifications from Google, Deloitte, Meta, Yale, and Cisco, demonstrating consistent, disciplined, self-directed skill acquisition."
+      note: "65+ certifications including Google, Deloitte, and Meta, demonstrating consistent, disciplined, self-directed skill acquisition."
     },
     {
-      name: "Computer Vision & Edge Deployment",
-      note: "Deployed edge ML models with TensorFlow Lite and OpenCV for real-world attendance and recognition systems that operate offline."
+      name: "Multi-Agent RAG & Multimodal AI",
+      note: "Orchestrated vision LLM, OCR, and dense-retrieval agents in parallel with FAISS indexing, cutting document-analysis time by ~70% versus sequential processing."
     },
     {
       name: "Research Benchmark Methodology",

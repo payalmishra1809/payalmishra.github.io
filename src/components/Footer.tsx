@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
               {PERSONAL_INFO.name}
             </div>
             <div className="text-xs text-zinc-500 dark:text-zinc-300 mt-1">
-              Senior Lead Data Analyst &amp; AI Researcher · {PERSONAL_INFO.location}
+              Data Science &amp; Research Enthusiast · {PERSONAL_INFO.location}
             </div>
           </div>
 
