@@ -69,222 +69,88 @@ export const RESEARCH_PAPER = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "supply-chain-dashboard",
+    id: "ecommerce-dashboard",
     number: "01",
     category: "Analytics",
-    categoryLabel: "Data Analysis & Power BI",
-    title: "Enterprise Supply Chain Revenue Leakage & Profitability Dashboard",
-    shortDesc: "Analyzed 100K+ shipping and financial records in Python to surface bottlenecks and revenue leakage, with an interactive Power BI dashboard for executives.",
-    fullDesc: "Analyzed 100K+ shipping and financial records using Python (Pandas, NumPy) to identify operational bottlenecks and revenue leakage, designing an interactive Power BI dashboard with drill-down metrics for executive decision-making.",
-    stack: ["Python", "Pandas", "NumPy", "Power BI", "SQL", "End-to-End Business Analysis"],
+    categoryLabel: "Data Analysis & BI",
+    title: "Interactive E-Commerce Sales & Customer Insights Dashboard",
+    shortDesc: "Streamlit dashboard analyzing revenue trends across 10,000+ customer transaction records, powered by SQL window functions and aggregations.",
+    fullDesc: "Designed and deployed an interactive Streamlit dashboard analyzing revenue trends across 10,000+ customer transaction records, using SQL window functions and aggregation queries to surface top product categories and regional sales metrics.",
+    stack: ["Python (Pandas)", "Streamlit", "Power BI", "SQL"],
     metrics: {
-      primary: "100K+",
-      label: "Shipping & Financial Records Analyzed"
+      primary: "10,000+",
+      label: "Customer Transaction Records Analyzed"
     },
     highlightTitle: "Analytical Insight",
-    highlightText: "Drill-down Power BI metrics turn raw shipping and financial records into clear views of where revenue leaks, supporting executive decision-making.",
+    highlightText: "SQL window functions and aggregation queries feed the dashboard so category and regional performance can be explored interactively.",
     colSpan: "md"
   },
   {
-    id: "requirement-pipeline",
+    id: "churn-prediction",
     number: "02",
-    category: "Systems",
-    categoryLabel: "Technical Workflow & Documentation",
-    title: "Client-to-Engineering Requirement Translation & Pipeline",
-    shortDesc: "Bridged external stakeholders and dev teams, turning client feedback into technical specs, structured Python/SQL backend workflows and Jira tickets.",
-    fullDesc: "Acted as the communication bridge between external stakeholders and internal dev teams, ingesting client feedback, drafting comprehensive technical specification documents, and turning them into structured Python/SQL backend workflows and Jira tickets.",
-    stack: ["Python", "SQL", "Git", "Markdown Documentation", "Confluence / Jira Workflow"],
-    highlightTitle: "Workflow Highlight",
-    highlightText: "Client feedback flows through written specifications into backend workflows and tracked tickets, keeping stakeholders and engineers aligned.",
-    colSpan: "md"
-  },
-  {
-    id: "data-profiling-utility",
-    number: "03",
-    category: "Analytics",
-    categoryLabel: "Python Scripting & Automation",
-    title: "Automated Python Data Profiling & Reporting Utility",
-    shortDesc: "Standalone Python tool that runs automated EDA on raw enterprise datasets, generates distribution visuals and compiles technical data dictionaries.",
-    fullDesc: "Developed a standalone Python automation tool that ingests raw enterprise datasets, executes automated exploratory data analysis (EDA), generates statistical distribution visualizations, and compiles complete technical data dictionaries.",
-    stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Automated Reporting Engine"],
-    highlightTitle: "Automation Highlight",
-    highlightText: "One run ingests a raw dataset and produces EDA, distribution visualizations and a complete data dictionary with no manual steps.",
-    colSpan: "md"
-  },
-  {
-    id: "sprint-tracker",
-    number: "04",
-    category: "Analytics",
-    categoryLabel: "Full-Stack Data Application",
-    title: "Cross-Functional Agile Sprint & Task Tracking System",
-    shortDesc: "Full-stack internal app (Python/Streamlit) with interactive dashboards for multi-team deliverables, sprint burn-down metrics and live project documentation.",
-    fullDesc: "Engineered a full-stack internal tracking application with a Python/Streamlit backend and interactive frontend dashboards to manage multi-team deliverables, track sprint burn-down metrics, and maintain real-time project documentation.",
-    stack: ["Python", "Streamlit", "Git", "REST APIs", "Documentation Framework"],
-    highlightTitle: "Application Highlight",
-    highlightText: "Interactive dashboards track sprint burn-down and multi-team deliverables while keeping project documentation current in real time.",
-    colSpan: "md"
-  },
-  {
-    id: "hft-pipeline",
-    number: "05",
-    category: "Systems",
-    categoryLabel: "Systems Engineering",
-    title: "HFT Alpha Generator & Order Pipeline",
-    shortDesc: "Simulated high-frequency trading system ingesting live order-book tick data via WebSocket, processing order decisions in under 5ms with Redis caching.",
-    fullDesc: "A simulated high-frequency trading system ingesting live order-book tick data via WebSocket, processing order decisions in under 5ms. Demonstrates systems-level performance optimization, concurrency handling, and low-latency execution with real-time P&L tracking across multiple simulated instruments.",
-    stack: ["Python", "WebSocket", "Redis", "Pandas", "NumPy", "Async I/O"],
-    githubUrl: "https://github.com/payalmishra1809/HFT-ALPHA-GENERATOR-ORDER-PIPELINE",
+    category: "ML",
+    categoryLabel: "Machine Learning",
+    title: "End-to-End Customer Churn Prediction Web App",
+    shortDesc: "Scikit-Learn churn model with 82%+ accuracy, served through a Streamlit app that returns real-time churn probabilities.",
+    fullDesc: "Built and deployed an end-to-end machine learning web app predicting customer churn with 82%+ accuracy using Scikit-Learn and Streamlit, engineering tenure and contract features and serving real-time inference.",
+    stack: ["Python", "Scikit-Learn", "Streamlit", "Hugging Face Spaces"],
     metrics: {
-      primary: "<5ms",
-      label: "Per Order Decision Latency",
-      subMetrics: [
-        { value: "Sub-ms", label: "Redis State Cache" },
-        { value: "Multi", label: "Parallel P&L Tracking" }
-      ]
+      primary: "82%+",
+      label: "Churn Prediction Accuracy"
     },
     highlightTitle: "Engineering Highlight",
-    highlightText: "Integrated Redis for sub-millisecond state caching, reducing pipeline overhead and enabling replay of historical tick sequences for strategy backtesting. Statistical alpha signal generation with dynamic threshold tuning and risk guardrails.",
-    colSpan: "xl",
-    featured: true
-  },
-  {
-    id: "multimodal-rag",
-    number: "06",
-    category: "GenAI",
-    categoryLabel: "Generative AI",
-    title: "Enterprise Multimodal Multi-Agent RAG Workspace",
-    shortDesc: "Corporate AI system with three parallel specialized agents (LLaVA for financial charts, OCR for tables, dense retrieval for documents) yielding ~70% faster analysis.",
-    fullDesc: "A corporate AI system with three parallel specialized agents: a vision LLM (LLaVA) for financial chart interpretation, an OCR agent for structured PDF table extraction, and a dense retrieval agent for scanned document Q&A. Achieved ~70% reduction in simulated document analysis time via multi-agent RAG orchestration.",
-    stack: ["Python", "LangChain", "LLaVA", "FAISS", "PyMuPDF", "Tesseract OCR", "Async"],
-    githubUrl: "https://github.com/payalmishra1809/ENTERPRISE-MULTIMODAL-MULTI-AGENT-RAG-WORKSPACE",
-    metrics: {
-      primary: "~70%",
-      label: "Faster than Sequential Ingestion",
-      subMetrics: [
-        { value: "3", label: "Parallel Specialized Agents" },
-        { value: "FAISS", label: "Vector Dense Indexing" }
-      ]
-    },
-    highlightTitle: "Architecture Highlight",
-    highlightText: "Designed for enterprise-scale document ingestion with modular agent interfaces, each component independently swappable or upgradeable. FAISS vector indexing and async agent coordination deliver the 70% speed gain over sequential processing.",
-    colSpan: "xl",
-    featured: true
-  },
-  {
-    id: "hinglish-nlp",
-    number: "07",
-    category: "Research",
-    categoryLabel: "LLM Research & Fine-Tuning",
-    title: "Custom LLM Fine-Tuning for Hinglish NLP",
-    shortDesc: "Fine-tuned Llama-3-8B on 15,000+ Hinglish samples with QLoRA 4-bit quantization, yielding +18% accuracy gain on e-commerce review intent classification.",
-    fullDesc: "Fine-tuned Llama-3-8B on a curated 15,000+ multilingual Hinglish dataset for e-commerce review moderation. Applied QLoRA (4-bit quantization) on consumer-grade hardware, achieving an 18% improvement in intent classification accuracy over the base model. Rigorously evaluated with ROUGE-1/2/L and BERTScore metrics.",
-    stack: ["Llama-3-8B", "Hugging Face", "QLoRA", "LoRA", "Pandas", "ROUGE", "BERTScore", "4-bit Quantization"],
-    githubUrl: "https://github.com/payalmishra1809/CUSTOM-LLM-FINE-TUNING-FOR-HINGLISH-NLP",
-    metrics: {
-      primary: "+18%",
-      label: "Intent Classification Accuracy Gain",
-      subMetrics: [
-        { value: "15K+", label: "Hinglish Samples" },
-        { value: "4-bit", label: "QLoRA Quantization" }
-      ]
-    },
-    highlightTitle: "Dataset Engineering & Error Analysis",
-    highlightText: "Curated and cleaned 15,000+ multilingual Hinglish samples: deduplication, label normalization, and stratified train/val/test splits. Error analysis on low-confidence predictions closed the loop between evaluation and data curation.",
-    colSpan: "full",
-    featured: true
-  },
-  {
-    id: "fraud-detection",
-    number: "08",
-    category: "ML",
-    categoryLabel: "Applied Machine Learning",
-    title: "Credit Card Fraud Detection System",
-    shortDesc: "Production-ready fraud detection pipeline achieving 98.21% AUC on Kaggle's 284K transaction dataset with severe 584:1 class imbalance.",
-    fullDesc: "A production-ready fraud detection pipeline achieving 98.21% AUC on Kaggle's 284K transaction dataset with a 0.17% fraud rate. Engineered to handle extreme class imbalance in real-world financial data.",
-    stack: ["Python", "Scikit-Learn", "Imbalanced-learn", "SMOTE", "Pandas", "Matplotlib"],
-    githubUrl: "https://github.com/payalmishra1809/FRAUD-DETECTION-SYSTEM",
-    metrics: {
-      primary: "98.21%",
-      label: "AUC Score on 284K Transactions",
-      subMetrics: [
-        { value: "584:1", label: "Class Imbalance Ratio" },
-        { value: "SMOTE", label: "Oversampling Optimization" }
-      ]
-    },
-    highlightTitle: "Research Impact",
-    highlightText: "The core challenge was the 584:1 class imbalance ratio. By applying SMOTE oversampling and precision-recall optimization instead of standard accuracy metrics, the model achieves high sensitivity without compromising specificity.",
-    colSpan: "xl",
-    featured: true
-  },
-  {
-    id: "child-vaccination",
-    number: "09",
-    category: "Healthcare",
-    categoryLabel: "Healthcare Tech",
-    title: "Child Vaccination Management System",
-    shortDesc: "System compliant with India's National Immunization Schedule (NIS) 2025, modeling child immunization as a timed state machine.",
-    fullDesc: "A production-ready system compliant with India's National Immunization Schedule (NIS) 2025 for healthcare providers and parents. Streamlines schedule tracking and notification workflows.",
-    stack: ["Python", "SQL", "Healthcare Data", "NIS 2025", "State Machine"],
-    githubUrl: "https://github.com/payalmishra1809/CHILD-VACCINATION-SYSTEM",
-    highlightTitle: "Analytical Insight",
-    highlightText: "Modeled real-world immunization schedules as a state-machine: each child as a node, each vaccine as a timed edge. This graph-theoretic approach enables bulk schedule generation and missed-dose detection at scale.",
+    highlightText: "The trained model is wrapped in a lightweight web interface so users can adjust inputs and see churn probability in real time.",
     colSpan: "md"
   },
   {
-    id: "sales-forecasting",
-    number: "10",
+    id: "data-quality-pipeline",
+    number: "03",
     category: "Analytics",
-    categoryLabel: "Time Series Analytics",
-    title: "Time Series Sales Forecasting",
-    shortDesc: "Transforms raw transactional data into daily and monthly series with seasonal decomposition and a baseline 6-month forecast.",
-    fullDesc: "Transforms raw transactional data into daily and monthly sales series, visualizing trends and creating a baseline 6-month forecast to support inventory and planning decisions. Fully implemented in Python.",
-    stack: ["Python", "Pandas", "Matplotlib", "Time Series", "ARIMA Benchmark"],
-    githubUrl: "https://github.com/payalmishra1809/TIME-SERIES-SALES-FORECASTING",
-    highlightTitle: "Analytical Insight",
-    highlightText: "Applied seasonal decomposition to isolate trend, seasonality, and residual noise components. The 6-month forecast baseline serves as a reproducible benchmark for evaluating more complex models.",
+    categoryLabel: "Python Scripting & Data Engineering",
+    title: "Automated Data Quality & Cleaning Pipeline Script",
+    shortDesc: "Python script that detects duplicates, handles missing values and flags anomalies, outputting a cleaned CSV and HTML summary report.",
+    fullDesc: "Developed an automated Python validation script that detects duplicates, handles missing values and flags anomalies, converting raw CSV datasets into cleaned files with an HTML summary report and reducing manual cleaning time.",
+    stack: ["Python", "Pandas", "SQLAlchemy"],
+    highlightTitle: "Automation Highlight",
+    highlightText: "Automated validation guarantees data integrity before downstream reporting, replacing repetitive manual cleaning.",
     colSpan: "md"
   },
   {
-    id: "facial-attendance",
-    number: "11",
-    category: "Vision",
-    categoryLabel: "Computer Vision",
-    title: "Facial Recognition Attendance System",
-    shortDesc: "Real-time edge computer vision attendance tracking via webcam using TensorFlow Lite and OpenCV, logging directly to local CSV.",
-    fullDesc: "Real-time attendance tracking via webcam using TensorFlow Lite and OpenCV, logging directly to CSV.",
-    stack: ["Python", "TensorFlow Lite", "OpenCV", "Edge ML"],
-    githubUrl: "https://github.com/payalmishra1809/FACIAL-ATTENDANCE-SYSTEM",
-    highlightTitle: "Edge Deployment",
-    highlightText: "Runs inference locally without cloud dependency, enabling offline use in low-connectivity educational and industrial settings.",
-    colSpan: "sm"
+    id: "ai-feature-prd",
+    number: "04",
+    category: "Product",
+    categoryLabel: "Product Management",
+    title: "Product Requirements Document & Metric Framework for an AI Feature",
+    shortDesc: "2-page PRD for an AI-driven automation feature with personas, user stories, Figma wireframes and a North Star metrics framework.",
+    fullDesc: "Authored a 2-page PRD for an AI-driven automation feature covering user personas, user stories and acceptance criteria, with Figma wireframes and a metrics framework of North Star, activation and guardrail metrics.",
+    stack: ["Notion", "Google Docs", "Figma", "Whimsical"],
+    metrics: {
+      primary: "2-Page",
+      label: "PRD with Metrics Framework"
+    },
+    highlightTitle: "Product Highlight",
+    highlightText: "Success is defined up front through a North Star metric, activation rates and guardrail metrics that measure feature adoption.",
+    colSpan: "md"
   },
   {
-    id: "us-accidents",
-    number: "12",
-    category: "Analytics",
-    categoryLabel: "Big Data & Spatial Analytics",
-    title: "US Accidents Big Data Analysis",
-    shortDesc: "Analyzed 7.7 million traffic records to identify accident hotspots and peak risk windows via geospatial modeling and sampling.",
-    fullDesc: "Analyzed 7.7 million traffic records to identify accident hotspots and peak risk times via geospatial modeling.",
-    stack: ["Python", "Geospatial", "Sampling", "Big Data", "Pandas"],
-    githubUrl: "https://github.com/payalmishra1809/US-ACCIDENT-DATA-ANALYSIS",
-    highlightTitle: "Big Data Scale",
-    highlightText: "7.7M records processed with strategic sampling to balance computational cost and statistical representativeness across time horizons.",
-    colSpan: "sm"
-  },
-  {
-    id: "world-population",
-    number: "13",
-    category: "Analytics",
-    categoryLabel: "Longitudinal Study",
-    title: "World Population Longitudinal Analysis",
-    shortDesc: "Analyzed World Bank data spanning 1960 to 2023, tracking global demographic changes across 63 years with automated cleaning pipelines.",
-    fullDesc: "Analyzed World Bank data from 1960 to 2023, tracking global growth trends across 63 years of demographic data.",
-    stack: ["Python", "Pandas", "World Bank API", "Longitudinal Analysis"],
-    githubUrl: "https://github.com/payalmishra1809/WORLD-POPULATION-ANALYSIS",
-    highlightTitle: "Research Rigor",
-    highlightText: "Automated cleaning workflows ensure reproducible pipelines, essential for academic-grade longitudinal research.",
-    colSpan: "sm"
+    id: "agile-wbs-board",
+    number: "05",
+    category: "Product",
+    categoryLabel: "Project Management",
+    title: "Agile Project Board & Work Breakdown Structure",
+    shortDesc: "3-sprint Agile roadmap in GitHub Projects with 15-20 cards across epics, user stories and acceptance criteria.",
+    fullDesc: "Structured a 3-sprint Agile roadmap in GitHub Projects, managing a backlog of 15-20 cards across epics, user stories and acceptance criteria, with story point estimation and dependency tracking.",
+    stack: ["GitHub Projects", "Jira", "Trello"],
+    metrics: {
+      primary: "3 Sprints",
+      label: "Agile Release Cycle",
+      subMetrics: [
+        { value: "15-20", label: "Cards in Backlog" }
+      ]
+    },
+    highlightTitle: "Delivery Highlight",
+    highlightText: "Sprint estimation and dependency tracking keep cross-functional feature delivery on schedule.",
+    colSpan: "md"
   }
 ];
 
@@ -296,10 +162,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: "Skill Nexis",
     isCurrent: true,
     badge: "Current Role",
-    description: "Selected for an online internship in the Machine Learning & AI domain, delivering assigned real-world projects against defined deadlines to build applied ML experience.",
-    highlights: [
-      "Applied core machine learning workflows to structured project tasks, strengthening model development and applied problem-solving skills alongside a peer intern cohort."
-    ]
+    description: "Delivering real-world ML projects against defined deadlines, applying core machine learning workflows alongside a peer intern cohort."
   },
   {
     id: "codec-tech",
@@ -308,10 +171,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: "Codec Technologies",
     isCurrent: true,
     badge: "Global Consultancy",
-    description: "Working as a Project Intern on a global hybrid platform, executing assigned AI projects and structured training tasks under a dedicated project head.",
-    highlights: [
-      "Gaining industry-level exposure to applied AI workflows within a consultancy operating across 27+ countries, with performance tracked via weekly project reviews."
-    ]
+    description: "Executing assigned AI projects under a dedicated project head at a consultancy operating across 27+ countries, with weekly project reviews."
   },
   {
     id: "uptoskills",
@@ -319,11 +179,9 @@ export const EXPERIENCES: ExperienceItem[] = [
     role: "Senior Lead Data Analyst",
     organization: "UpToSkills",
     badge: "Rapid 4-Month Promotion",
-    description: "Promoted from Data Analyst Intern to Team Lead to Senior Lead Data Analyst, progressing rapidly through leadership ranks within 4 months.",
+    description: "Promoted from Data Analyst Intern to Team Lead to Senior Lead Data Analyst in 4 months, managing cross-functional teams across concurrent ML projects.",
     highlights: [
-      "Managed cross-functional teams across concurrent ML projects, aligning technical execution with project roadmaps.",
-      "Headed department operations as senior lead: defined team OKRs, ran sprint reviews, and enforced code-quality standards, achieving 100% on-time delivery across all project tracks.",
-      "Standardized Python-based EDA and preprocessing pipelines, adopted across a 15+ intern cohort, dramatically reducing analyst onboarding time and operational friction."
+      "Defined team OKRs and ran sprint reviews, achieving 100% on-time delivery; standardized Python EDA pipelines adopted by a 15+ intern cohort."
     ]
   },
   {
@@ -331,11 +189,9 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: "Apr 2025 — Sep 2025",
     role: "Lead Product Designer & UX Strategist",
     organization: "Andaman Dream Yatra",
-    description: "Led product design and UX strategy for a travel & tourism platform, from client consultations to final UI/UX implementation and client sign-off.",
+    description: "Led client consultations and audience research, using Power BI dashboards to validate design directions.",
     highlights: [
-      "Conducted in-depth client consultations and audience demographic research, utilizing Power BI dashboards to analyze user behavior across age groups and validate design directions.",
-      "Authored end-to-end Product Requirement Documents (PRDs), wireframes, feature specifications, and visual design architectures tailored for public user accessibility.",
-      "Leveraged AI-assisted development tools to prototype the platform, manually refining, structuring, and directing the final UI/UX implementation to ensure seamless human-led design control and client sign-off."
+      "Authored PRDs, wireframes and feature specifications; prototyped with AI-assisted tools and directed final UI/UX to client sign-off."
     ]
   },
   {
@@ -343,20 +199,14 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: "Jul 2024 — Nov 2024",
     role: "Operations Manager",
     organization: "Dweep Packers & Movers",
-    description: "Oversaw end-to-end operational workflows, resource coordination, account reconciliation, and stakeholder communication to optimize internal processes for peak efficiency.",
-    highlights: [
-      "Authored standardized operating procedures (SOPs) and comprehensive documentation for internal bookkeeping, streamlining administrative workflows and executive decision-making."
-    ]
+    description: "Oversaw operational workflows, account reconciliation and stakeholder communication; authored SOPs and documentation for internal bookkeeping."
   },
   {
     id: "psn-shipping",
     period: "Mar 2024 — Jun 2024",
     role: "Business Analyst",
     organization: "PSN Shipping Agency",
-    description: "Facilitated cross-departmental alignment by bridging technical teams and executive management through detailed data reporting, presentations, and process documentation.",
-    highlights: [
-      "Analyzed cargo and shipment datasets to pinpoint revenue leakage, translating raw metrics into clear strategic insights and actionable management briefs."
-    ]
+    description: "Bridged technical teams and executive management through data reporting and presentations; analyzed cargo and shipment data to pinpoint revenue leakage."
   }
 ];
 
@@ -418,15 +268,15 @@ export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
     },
     {
       name: "Statistical Rigor & Metric Honesty",
-      note: "Deep comfort with regression, classification, extreme imbalanced datasets, and time-series forecasting with an emphasis on valid inference over superficial accuracy."
+      note: "Deep comfort with EDA, statistical modeling, and predictive modeling with an emphasis on valid inference over superficial accuracy."
     },
     {
       name: "Rapid Self-Learning & Discipline",
       note: "65+ certifications including Google, Deloitte, and Meta, demonstrating consistent, disciplined, self-directed skill acquisition."
     },
     {
-      name: "Multi-Agent RAG & Multimodal AI",
-      note: "Orchestrated vision LLM, OCR, and dense-retrieval agents in parallel with FAISS indexing, cutting document-analysis time by ~70% versus sequential processing."
+      name: "Product & Agile Delivery",
+      note: "Authored a PRD with a North Star metrics framework and structured a 3-sprint Agile roadmap with epics, user stories, and story point estimation."
     },
     {
       name: "Research Benchmark Methodology",
@@ -456,7 +306,7 @@ export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
     },
     {
       name: "Domain Specialization Convergence",
-      note: "Synthesizing broad interdisciplinary work (finance, healthcare, NLP) into a laser-focused PhD-level dissertation direction in agentic memory."
+      note: "Synthesizing broad interdisciplinary work across data analysis, machine learning, and product into a focused long-term research direction."
     }
   ]
 };
@@ -474,9 +324,6 @@ export const CERTIFICATIONS: { name: string; featured?: boolean }[] = [
   { name: "Yale Introduction to Psychology" },
   { name: "Nuts and Bolts of Machine Learning" },
   { name: "Regression Analysis (Google)" },
-  { name: "LLM Fine-Tuning (Llama-3 / QLoRA)", featured: true },
-  { name: "Multi-Agent RAG Systems" },
-  { name: "HFT Alpha Generator Architecture" },
   { name: "IoT Professional Training (BR Ambedkar Institute)", featured: true },
   { name: "Google ML Crash Course" },
   { name: "Microsoft Office Specialist: Excel (MOS)", featured: true },

@@ -45,8 +45,8 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
 
 **How can I assist you today?**
 • 🎯 **Check Role Fit**: See how Payal matches roles like *ML Engineer*, *Lead Data Analyst*, or *AI Researcher*.
-• 🚀 **Smooth Navigation**: Jump directly to projects, research, benchmarks, or resume.
-• 🛠️ **Skills & Architecture**: Explore her Python, Llama-3 fine-tuning, and sub-5ms low-latency systems.`,
+• 🚀 **Smooth Navigation**: Jump directly to projects, research, experience, or resume.
+• 🛠️ **Skills & Architecture**: Explore her Python, SQL, Scikit-Learn, and Streamlit work.`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       actions: [
         { label: '🎯 Check Role Applicability', actionType: 'query', target: 'Check Role Applicability', iconName: 'Sparkles' },

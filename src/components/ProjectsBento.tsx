@@ -5,18 +5,15 @@ import { Project } from '../types';
 import { SpotlightCard } from './SpotlightCard';
 import { ProjectDetailModal } from './ProjectDetailModal';
 
-const NEW_IDS = ['supply-chain-dashboard', 'requirement-pipeline', 'data-profiling-utility', 'sprint-tracker'];
-
 export const ProjectsBento: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
     { label: 'All Projects', value: 'All' },
-    { label: 'AI & LLM Agents', value: 'GenAI' },
-    { label: 'Systems & Trading', value: 'Systems' },
     { label: 'Machine Learning', value: 'ML' },
     { label: 'Analytics & Dashboards', value: 'Analytics' },
+    { label: 'Product & Management', value: 'Product' },
   ];
 
   const filteredProjects = activeCategory === 'All'
@@ -26,6 +23,7 @@ export const ProjectsBento: React.FC = () => {
         if (activeCategory === 'Systems') return p.category === 'Systems';
         if (activeCategory === 'ML') return p.category === 'ML' || p.category === 'Vision' || p.category === 'Healthcare';
         if (activeCategory === 'Analytics') return p.category === 'Analytics';
+        if (activeCategory === 'Product') return p.category === 'Product';
         return true;
       });
 
@@ -41,10 +39,10 @@ export const ProjectsBento: React.FC = () => {
               <span>Selected Works</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white pb-1 leading-[1.2]">
-              Engineered Systems &amp; Applied AI
+              Data, ML &amp; Product Projects
             </h2>
             <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-              Production architectures, machine learning models, and low-latency data pipelines built with rigorous evaluation standards.
+              Dashboards, machine learning apps, data pipelines, and product and project management deliverables.
             </p>
           </div>
 
@@ -70,18 +68,7 @@ export const ProjectsBento: React.FC = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {filteredProjects.map((project) => {
-            let colSpanClasses = 'lg:col-span-6';
-            if (NEW_IDS.includes(project.id)) {
-              colSpanClasses = 'lg:col-span-6';
-            } else if (project.id === 'hinglish-nlp') {
-              colSpanClasses = 'lg:col-span-12';
-            } else if (project.id === 'hft-pipeline' || project.id === 'multimodal-rag' || project.id === 'fraud-detection') {
-              colSpanClasses = 'lg:col-span-7';
-            } else if (project.colSpan === 'sm') {
-              colSpanClasses = 'lg:col-span-5 md:col-span-1';
-            } else {
-              colSpanClasses = 'lg:col-span-5 md:col-span-1';
-            }
+            const colSpanClasses = project.id === 'agile-wbs-board' ? 'lg:col-span-12' : 'lg:col-span-6';
 
             return (
               <div key={project.id} className={`${colSpanClasses} flex flex-col`}>

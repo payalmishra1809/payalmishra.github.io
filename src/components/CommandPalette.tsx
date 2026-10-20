@@ -29,16 +29,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenCvModal })
 
   const commands = [
     {
-      id: 'benchmarks',
-      title: 'Jump to Interactive Systems Lab',
-      category: 'Lab',
-      icon: Zap,
-      action: () => {
-        document.getElementById('benchmarks')?.scrollIntoView({ behavior: 'smooth' });
-        setIsOpen(false);
-      }
-    },
-    {
       id: 'projects',
       title: 'Explore Selected Work & Case Studies',
       category: 'Projects',

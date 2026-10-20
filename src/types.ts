@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   number: string;
-  category: 'Systems' | 'GenAI' | 'Research' | 'ML' | 'Healthcare' | 'Analytics' | 'Vision';
+  category: 'Systems' | 'GenAI' | 'Research' | 'ML' | 'Healthcare' | 'Analytics' | 'Vision' | 'Product';
   categoryLabel: string;
   title: string;
   shortDesc: string;

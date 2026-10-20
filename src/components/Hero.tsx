@@ -244,11 +244,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
         {/* Minimalist scroll prompt */}
         <div className="mt-16 sm:mt-24 flex justify-center">
           <a
-            href="#benchmarks"
+            href="#experience"
             className="group flex flex-col items-center gap-2 text-zinc-400 hover:text-zinc-800 dark:hover:text-white transition-colors"
-            aria-label="Scroll to Systems Lab"
+            aria-label="Scroll to Experience"
           >
-            <span className="text-xs font-semibold tracking-wider uppercase text-zinc-500">Interactive Systems Lab</span>
+            <span className="text-xs font-semibold tracking-wider uppercase text-zinc-500">Career Trajectory</span>
             <div className="w-9 h-9 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex items-center justify-center shadow-xs group-hover:border-zinc-400 transition-colors">
               <ArrowDown className="w-4 h-4 text-zinc-600 dark:text-zinc-400 animate-bounce" />
             </div>

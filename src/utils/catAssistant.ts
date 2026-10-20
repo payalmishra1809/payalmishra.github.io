@@ -82,26 +82,24 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
   },
   'machine-learning-engineer': {
     roleTitle: 'Machine Learning / AI Engineer',
-    matchScore: 96,
-    matchTier: 'Exceptional Fit',
-    summary: 'Strong production ML engineering capability. Demonstrates end-to-end model development, severe class-imbalance optimization (SMOTE), low-latency systems (<5ms), and fine-tuning open weights (Llama-3-8B).',
+    matchScore: 88,
+    matchTier: 'Strong Fit',
+    summary: 'Hands-on applied ML foundation: an end-to-end churn prediction web app, Python data pipelines, and current internships in Machine Learning & AI at Skill Nexis and Codec Technologies.',
     verifiedStrengths: [
-      'Production ML pipelines: 98.21% ROC-AUC on Kaggle 284K dataset with 584:1 imbalance ratio',
-      'Low-latency systems: Sub-5ms order decision pipeline with Redis caching & WebSocket streams',
-      'Model Fine-Tuning: Llama-3-8B with QLoRA 4-bit quantization yielding +18% classification gain',
-      'Multi-Agent Architectures: Parallel RAG orchestration with FAISS, LLaVA vision, and OCR'
+      'End-to-end ML app: Scikit-Learn churn model (82%+ accuracy) served through a Streamlit interface',
+      'Data preparation: Automated Python validation and cleaning pipeline with Pandas and SQLAlchemy',
+      'Current roles: Machine Learning & AI Intern (Skill Nexis) and AI Intern (Codec Technologies)',
+      'Standardized Python EDA and preprocessing pipelines adopted across a 15+ intern cohort'
     ],
     proofPoints: [
-      'Systems: HFT Alpha Generator handles live order-book tick data in under 5 milliseconds',
-      'Multi-Agent RAG: three parallel agents (vision LLM, OCR, dense retrieval) cutting analysis time ~70%',
-      'Stack: Scikit-Learn, Hugging Face, LangChain, FAISS, Redis, WebSocket, REST'
+      'Projects: Customer Churn Prediction Web App and Automated Data Quality Pipeline',
+      'Certifications: Google Advanced Data Analytics, Google Generative AI'
     ],
     considerations: [
-      'Transparently expanding from single-node high-throughput systems into large-scale distributed clusters (Ray/PySpark) as noted in the Binary Profile.'
+      'Early-career in production ML; growing quickly through active internships and shipped projects.'
     ],
     recommendedActions: [
       { label: 'Explore ML Projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
-      { label: 'Test Live Benchmarks', actionType: 'navigate', target: 'benchmarks', iconName: 'Zap' },
       { label: 'Contact for ML Roles', actionType: 'navigate', target: 'contact', iconName: 'Mail' }
     ]
   },
@@ -126,50 +124,27 @@ export const PREDEFINED_ROLES: Record<string, RoleEvaluationResult> = {
     ],
     recommendedActions: [
       { label: 'Read Research Highlight', actionType: 'navigate', target: 'research', iconName: 'ArrowRight' },
-      { label: 'Review Research Methodology', actionType: 'navigate', target: 'benchmarks', iconName: 'Zap' },
+      
       { label: 'Discuss Research Collaboration', actionType: 'navigate', target: 'contact', iconName: 'Mail' }
-    ]
-  },
-  'quant-systems': {
-    roleTitle: 'Quantitative Developer / High-Throughput Systems',
-    matchScore: 91,
-    matchTier: 'Strong Fit',
-    summary: 'High-speed systems engineering demonstrated through an end-to-end simulated high-frequency trading pipeline with sub-5ms latency and asynchronous Redis state caching.',
-    verifiedStrengths: [
-      'Sub-5ms order execution and decision latency engine processing live WebSocket tick data',
-      'Redis sub-millisecond in-memory cache for ultra-fast state retrieval and tick replay',
-      'Python, NumPy, and Pandas for real-time P&L tracking across multiple simulated instruments',
-      'Statistical alpha signal generation with dynamic threshold tuning and risk bounds'
-    ],
-    proofPoints: [
-      'Latency SLA: Consistently delivers order decisions in under 5ms under simulated market volatility',
-      'Architecture: Independent modular components for ingest, signal calculation, and execution'
-    ],
-    considerations: [
-      'Background is in Python and asynchronous low-latency frameworks; open to deepening low-level C++ template metaprogramming.'
-    ],
-    recommendedActions: [
-      { label: 'View HFT Alpha Pipeline', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
-      { label: 'Test Systems Benchmark', actionType: 'navigate', target: 'benchmarks', iconName: 'Zap' }
     ]
   },
   'data-scientist': {
     roleTitle: 'Data Scientist / Applied Scientist',
-    matchScore: 97,
-    matchTier: 'Exceptional Fit',
-    summary: 'Comprehensive foundation across statistical modeling, machine learning, hypothesis testing, time series forecasting, and spatial big data analytics (7.7M record US accidents dataset).',
+    matchScore: 90,
+    matchTier: 'Strong Fit',
+    summary: 'Solid foundation across Python, SQL, EDA, statistical modeling and data visualization, with a Scikit-Learn churn model and an interactive sales analytics dashboard.',
     verifiedStrengths: [
-      'Statistical modeling, time series, and seasonal decomposition (ARIMA benchmark)',
-      'Big data scale: Analyzed 7.7M records of US traffic data with geospatial modeling',
-      'Class imbalance expertise: SMOTE oversampling, precision-recall curve optimization, 98.2% AUC',
-      'Longitudinal analysis: 63-year demographic tracking of World Bank data with automated cleaning pipelines'
+      'Statistical modeling and EDA with Pandas, NumPy, Matplotlib and Seaborn',
+      'Interactive analytics: Streamlit sales dashboard over 10,000+ transaction records using SQL window functions',
+      'Predictive modeling: Scikit-Learn churn prediction with 82%+ accuracy',
+      'Data quality: Automated duplicate, missing-value and anomaly checks'
     ],
     proofPoints: [
       'National ranking: 2nd Place in All-India Data Science League',
-      'Certifications: Google Advanced Data Analytics, Yale Introduction to Psychology, Stanford & DeepLearning.AI'
+      'Certifications: Google Advanced Data Analytics, Deloitte Data Analytics Simulation'
     ],
     considerations: [
-      'Combines mathematical intuition with clean, reproducible, production-grade code.'
+      'Combines analytical rigor with clean, reproducible Python code.'
     ],
     recommendedActions: [
       { label: 'See Data Science Projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
@@ -215,9 +190,6 @@ export function evaluateCustomRole(query: string): RoleEvaluationResult {
   if (normalized.includes('research') || normalized.includes('scientist') || normalized.includes('neuro') || normalized.includes('phd') || normalized.includes('nlp')) {
     return PREDEFINED_ROLES['ai-research-scientist'];
   }
-  if (normalized.includes('quant') || normalized.includes('hft') || normalized.includes('trading') || normalized.includes('latency') || normalized.includes('redis')) {
-    return PREDEFINED_ROLES['quant-systems'];
-  }
   if (normalized.includes('data scientist') || normalized.includes('data science') || normalized.includes('statistician') || normalized.includes('modeling')) {
     return PREDEFINED_ROLES['data-scientist'];
   }
@@ -234,24 +206,24 @@ export function evaluateCustomRole(query: string): RoleEvaluationResult {
   if (normalized.includes('backend') || normalized.includes('software') || normalized.includes('python') || normalized.includes('developer')) {
     score = 88;
     tier = 'Strong Fit';
-    matchedStrengths.push('Python, REST APIs, WebSocket streaming, Redis in-memory storage, and asynchronous I/O');
-    matchedStrengths.push('Systems engineering: Sub-5ms order latency pipeline with structured modular services');
-    matchedStrengths.push('Database & Query: Advanced SQL, FAISS vector indexing, and CSV/JSON state engines');
-    proofPoints.push('Built production web applications and simulated enterprise distributed microservices');
+    matchedStrengths.push('Python, SQL, REST APIs, Git, Streamlit and Pandas');
+    matchedStrengths.push('Full-stack data applications: Streamlit dashboards and an ML web app');
+    matchedStrengths.push('Automation: Python data validation and cleaning pipeline with SQLAlchemy');
+    proofPoints.push('Built and deployed interactive Streamlit applications');
   } else if (normalized.includes('product') || normalized.includes('manager') || normalized.includes('lead')) {
     score = 89;
     tier = 'Strong Fit';
-    matchedStrengths.push('Rapid 4-month promotion to Senior Team Lead managing 15+ concurrent interns');
+    matchedStrengths.push('Rapid 4-month promotion to Senior Lead Data Analyst managing a 15+ intern cohort');
     matchedStrengths.push('100% on-time delivery track across all assigned data and ML project cohorts');
-    matchedStrengths.push('Translating complex algorithmic research into practical user-facing software');
-    proofPoints.push('Delivered client tourism web portal with measurable SEO uplift');
+    matchedStrengths.push('Authored a PRD with a North Star metrics framework and an Agile sprint roadmap');
+    proofPoints.push('Led product design and UX strategy for a client travel platform at Andaman Dream Yatra');
   } else {
     // Default general technical evaluation
     score = 85;
     tier = 'Viable / Adaptable';
     matchedStrengths.push('B.Tech in Computer Science & Engineering (8.33 CGPA) with exceptional problem-solving acumen');
     matchedStrengths.push('65+ verified certifications covering AI, Cloud, Cybersecurity, Data Analytics, and UX');
-    matchedStrengths.push('Fast-learning velocity: self-taught advanced neuro-AI benchmarking, QLoRA, and low-latency pipelines');
+    matchedStrengths.push('Fast-learning velocity: promoted from intern to Senior Lead in 4 months');
     proofPoints.push('Demonstrated leadership, independent research initiative, and engineering execution');
   }
 
@@ -294,13 +266,12 @@ export function generateCatAssistantResponse(input: string): ChatMessage {
       return {
         id,
         sender: 'cat',
-        text: `*Purrr* 🐾 Taking you straight to Payal's **Selected Projects**! She has 9 engineered systems and case studies featured here, including the sub-5ms HFT Alpha Pipeline, Multimodal RAG, and Hinglish LLM Fine-Tuning.`,
+        text: `*Purrr* 🐾 Taking you straight to Payal's **Selected Projects**! Five projects are featured: an E-Commerce Sales Dashboard, a Churn Prediction Web App, a Data Quality Pipeline, an AI-feature PRD, and an Agile Project Board.`,
         timestamp,
         actions: [
-          { label: '🚀 Jump to Projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
-          { label: '⚡ Run Live Benchmarks', actionType: 'navigate', target: 'benchmarks', iconName: 'Zap' }
+          { label: '🚀 Jump to Projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' }
         ],
-        quickSuggestions: ['Tell me about HFT Alpha Pipeline', 'How about the Fraud Detection model?', 'Check ML Engineer role fit']
+        quickSuggestions: ['Tell me about the Churn Prediction app', 'Check ML Engineer role fit', 'What are her top skills?']
       };
     }
     if (lower.includes('research') || lower.includes('paper') || lower.includes('neuromembench') || lower.includes('benchmark')) {
@@ -310,8 +281,7 @@ export function generateCatAssistantResponse(input: string): ChatMessage {
         text: `*Paws up!* 🐾 Navigating to the **Research Highlight** section. Here you can explore Payal's solo-author paper on *NeuroMemBench: Evaluating Memory Architectures for Long-Horizon Neuro-AI Agent Workflows*.`,
         timestamp,
         actions: [
-          { label: '🔬 View Research Paper Section', actionType: 'navigate', target: 'research', iconName: 'ArrowRight' },
-          { label: '⚡ Interactive Benchmark Lab', actionType: 'navigate', target: 'benchmarks', iconName: 'Zap' }
+          { label: '🔬 View Research Paper Section', actionType: 'navigate', target: 'research', iconName: 'ArrowRight' }
         ],
         quickSuggestions: ['What are the findings of NeuroMemBench?', 'Is Payal fit for AI Researcher?', 'View CV']
       };
@@ -333,13 +303,13 @@ export function generateCatAssistantResponse(input: string): ChatMessage {
       return {
         id,
         sender: 'cat',
-        text: `*Head bump!* 🐾 Navigating to the **Technical Domain Mastery** section! Payal's stack spans Python, LangChain, FAISS, Redis, SQL, QLoRA, and Time Series.`,
+        text: `*Head bump!* 🐾 Navigating to the **Technical Domain Mastery** section! Payal's stack spans Python, SQL, Pandas, NumPy, Scikit-Learn, Streamlit, Power BI, and Tableau.`,
         timestamp,
         actions: [
           { label: '🛠️ Jump to Skills Section', actionType: 'navigate', target: 'skills', iconName: 'ArrowRight' },
           { label: '📜 View Certifications (65+)', actionType: 'navigate', target: 'certifications', iconName: 'ArrowRight' }
         ],
-        quickSuggestions: ['What are her top 3 skills?', 'Does Payal know LLMs & RAG?', 'Role Fit Checker']
+        quickSuggestions: ['What are her top 3 skills?', 'Does Payal know Power BI?', 'Role Fit Checker']
       };
     }
     if (lower.includes('binary') || lower.includes('strength') || lower.includes('weakness') || lower.includes('growth') || lower.includes('audit')) {
@@ -434,7 +404,7 @@ ${evaluation.summary}`,
         'Check Senior Lead Data Analyst fit',
         'Check Machine Learning Engineer fit',
         'Check AI Research Scientist fit',
-        'Check Quant Systems fit'
+        'Check Data Scientist fit'
       ]
     };
   }
@@ -455,20 +425,19 @@ ${evaluation.summary}`,
       sender: 'cat',
       text: `*Meow!* 🐾 Payal's core technical expertise spans four pillars:
       
-1. **Applied Machine Learning & GenAI**:
-   • Fine-Tuning LLaMA-3-8B with QLoRA (+18% accuracy gain)
-   • Multi-agent RAG pipelines (LangChain, FAISS, LLaVA vision, OCR)
-   • Fraud classification with SMOTE handling severe 584:1 imbalance (98.2% AUC)
+1. **Applied Machine Learning**:
+   • Scikit-Learn churn prediction web app (82%+ accuracy)
+   • Python data validation and cleaning pipeline
 
-2. **Neuro-AI & Agent Memory Research**:
-   • Author of *NeuroMemBench* (6-task computational neuroscience benchmark)
-   • Structured State machine holding constant ~1,371 char context footprint
+2. **Data Analysis & Visualization**:
+   • Streamlit and Power BI dashboards over 10,000+ transaction records
+   • SQL window functions, Pandas, NumPy, Tableau
 
-3. **Systems & Low-Latency Architecture**:
-   • High-frequency tick data pipeline with sub-5ms order latency
-   • Redis in-memory caching and WebSocket streams
+3. **Product & Project Management**:
+   • PRD with North Star, activation and guardrail metrics
+   • Agile roadmap with epics, user stories and sprint estimation
 
-4. **Analytics & Data Leadership**:
+4. **Leadership**:
    • Promoted to Senior Lead Data Analyst in 4 months at UpToSkills
    • SQL, Pandas, NumPy, EDA, statistical modeling, and Power BI`,
       timestamp,
@@ -499,8 +468,7 @@ ${evaluation.summary}`,
 • **Results**: Maintained a constant **1,371-character footprint** while achieving **9/10 task completions** vs just **5/10** for standard full-history and sliding-window approaches!`,
       timestamp,
       actions: [
-        { label: '🔬 View Research Paper Section', actionType: 'navigate', target: 'research', iconName: 'ArrowRight' },
-        { label: '⚡ Test Interactive Agent Benchmarks', actionType: 'navigate', target: 'benchmarks', iconName: 'Zap' }
+        { label: '🔬 View Research Paper Section', actionType: 'navigate', target: 'research', iconName: 'ArrowRight' }
       ],
       quickSuggestions: [
         'Is Payal fit for an AI Researcher role?',
@@ -623,9 +591,9 @@ ${evaluation.summary}`,
       sender: 'cat',
       text: `*Meow!* 🐾 Welcome to Payal Mishra's portfolio! I'm **Nova**, her AI assistant. I can help you:
 
-1. **Check Role Applicability**: Tell me what role you're hiring for (e.g., *ML Engineer*, *Lead Data Analyst*, *AI Researcher*, *Quant Developer*).
+1. **Check Role Applicability**: Tell me what role you're hiring for (e.g., *ML Engineer*, *Lead Data Analyst*, *Data Scientist*, *Business Analyst*).
 2. **Navigate the Site**: Say "Take me to projects", "Show research paper", or "Go to experience".
-3. **Explore Skills & Systems**: Ask about her Python stack, 98.2% AUC models, or <5ms HFT engine.
+3. **Explore Skills & Systems**: Ask about her Python stack, churn prediction app, or sales dashboard.
 4. **Access Credentials**: Request her verified CV or 65+ certifications.
 
 What would you like to explore?`,
@@ -651,10 +619,10 @@ What would you like to explore?`,
     sender: 'cat',
     text: `*Paws at work!* 🐾 Based on your question regarding **"${query}"**:
 
-Payal brings a blend of **applied ML engineering**, **empirical neuro-AI benchmarking** (*NeuroMemBench*), and **demonstrated team leadership** (Senior Lead Data Analyst promotion in 4 months).
+Payal brings a blend of **applied ML**, **data analysis and dashboards**, and **demonstrated team leadership** (Senior Lead Data Analyst promotion in 4 months).
 
-• **Core Tech**: Python, Scikit-Learn, Llama-3-8B (QLoRA), Redis, WebSocket, SQL, Pandas.
-• **Verifiable Metrics**: 98.2% ROC-AUC, sub-5ms latency, 100% on-time sprint completions.
+• **Core Tech**: Python, SQL, Pandas, NumPy, Scikit-Learn, Streamlit, Power BI.
+• **Verifiable Metrics**: 82%+ churn model accuracy, 10,000+ records analyzed, 100% on-time delivery.
 • **Continuous Learning**: 65+ industry credentials and B.Tech CSE (8.33 CGPA).
 
 You can also test whether she is a fit for a specific role or jump directly to any portfolio section!`,

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider, usePortfolioTheme } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { InteractiveBenchmarks } from './components/InteractiveBenchmarks';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { ResearchHighlight } from './components/ResearchHighlight';
 import { ProjectsBento } from './components/ProjectsBento';
@@ -49,7 +48,6 @@ function PortfolioMain() {
       {/* Main Content Sections */}
       <main className="relative z-10">
         <Hero onOpenCvModal={() => setIsCvModalOpen(true)} />
-        <InteractiveBenchmarks />
         <ExperienceTimeline />
         <ResearchHighlight />
         <ProjectsBento />
