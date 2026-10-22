@@ -53,7 +53,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           Curriculum Vitae
         </h3>
         <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed mb-6 font-normal">
-          Review Payal Mishra&apos;s full academic transcripts, production systems experience, and research credentials.
+          Review Payal Mishra&apos;s education, work experience, projects, and skills.
         </p>
 
         {/* Action Links */}

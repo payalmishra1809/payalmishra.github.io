@@ -3,12 +3,10 @@ import { ThemeProvider, usePortfolioTheme } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
-import { ResearchHighlight } from './components/ResearchHighlight';
 import { ProjectsBento } from './components/ProjectsBento';
 import { SkillsSection } from './components/SkillsSection';
 import { BinaryProfile } from './components/BinaryProfile';
 import { CertificationsMarquee } from './components/CertificationsMarquee';
-import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CvModal } from './components/CvModal';
@@ -49,12 +47,10 @@ function PortfolioMain() {
       <main className="relative z-10">
         <Hero onOpenCvModal={() => setIsCvModalOpen(true)} />
         <ExperienceTimeline />
-        <ResearchHighlight />
         <ProjectsBento />
         <SkillsSection />
         <BinaryProfile />
         <CertificationsMarquee />
-        <TestimonialsSection />
         <ContactSection onOpenCvModal={() => setIsCvModalOpen(true)} />
       </main>
 
@@ -70,7 +66,7 @@ function PortfolioMain() {
         onClose={() => setIsCvModalOpen(false)}
       />
 
-      {/* Floating Cat-Faced AI Assistant (Nova) */}
+      {/* Floating Cat Assistant (Nova) */}
       <CatChatbot onOpenCvModal={() => setIsCvModalOpen(true)} />
     </div>
   );

@@ -40,21 +40,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenCvModal })
     },
     {
       id: 'experience',
-      title: 'Career Progression (Intern to Senior Lead)',
+      title: 'Work Experience',
       category: 'Experience',
       icon: Briefcase,
       action: () => {
         document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-        setIsOpen(false);
-      }
-    },
-    {
-      id: 'research',
-      title: 'NeuroMemBench Working Paper',
-      category: 'Research',
-      icon: Cpu,
-      action: () => {
-        document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' });
         setIsOpen(false);
       }
     },

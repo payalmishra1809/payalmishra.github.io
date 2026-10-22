@@ -19,7 +19,7 @@ export const CertificationsMarquee: React.FC = () => {
             Industry Certifications
           </h2>
           <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-            Continuous professional mastery across 65+ credentials from Google, Meta, DeepLearning.AI, Deloitte, and Yale.
+            Continuous professional mastery across 65+ credentials from Google, Meta, Deloitte, IBM, and Yale.
           </p>
         </div>
       </div>

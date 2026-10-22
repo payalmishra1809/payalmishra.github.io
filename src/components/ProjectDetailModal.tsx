@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X, Github, ExternalLink, Sparkles, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { Project } from '../types';
+import { ProjectChart } from './ProjectChart';
 
 interface ProjectDetailModalProps {
   project: Project | null;
@@ -51,9 +52,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
         </div>
 
         {/* Title */}
-        <h3 className="font-display text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white leading-normal pb-1 mb-4">
+        <h3 className="font-display text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white leading-normal pb-1 mb-3">
           {project.title}
         </h3>
+
+        {project.status && (
+          <div className="mb-5">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/70 dark:border-amber-800/60">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+              {project.status}
+            </span>
+          </div>
+        )}
 
         {/* Key Metrics Banner if available */}
         {project.metrics && (
@@ -87,7 +97,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
         {/* Detailed Description */}
         <div className="mb-8">
           <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-300 mb-2">
-            System Overview &amp; Engineering Scope
+            Project Overview
           </h4>
           <p className="text-zinc-600 dark:text-zinc-300 text-base leading-relaxed font-normal">
             {project.fullDesc}
@@ -104,6 +114,25 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             {project.highlightText}
           </p>
         </div>
+
+        {/* Project Visuals */}
+        {project.charts && project.charts.length > 0 && (
+          <div className="mb-8">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-300">
+                Project Visuals
+              </h4>
+              <span className="text-[11px] font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-800/60 px-2.5 py-1 rounded-full">
+                Sample charts will be replaced with real results
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {project.charts.map((chart) => (
+                <ProjectChart key={chart.title} chart={chart} />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Tech Stack */}
         <div className="mb-8">
@@ -132,6 +161,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             Close Case Study
           </button>
 
+          <div className="flex flex-wrap items-center justify-end gap-2">
+          {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-300 dark:border-zinc-600 text-xs font-semibold text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+          >
+            <ExternalLink className="w-4 h-4" />
+            <span>Live Prototype</span>
+          </a>
+          )}
           {project.githubUrl && (
           <a
             href={project.githubUrl}
@@ -144,6 +185,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           )}
+          </div>
         </div>
       </div>
     </div>

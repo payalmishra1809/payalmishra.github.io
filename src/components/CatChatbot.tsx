@@ -39,26 +39,25 @@ export const CatChatbot: React.FC<CatChatbotProps> = ({ onOpenCvModal }) => {
     const welcomeMsg: ChatMessage = {
       id: 'welcome-1',
       sender: 'cat',
-      text: `*Purrr!* 🐾 Hello! I am **Nova**, Payal Mishra's AI Cat Assistant.
+      text: `*Purrr!* 🐾 Hi, I'm **Nova**, Payal's cat assistant.
 
-I'm here to help you navigate her portfolio and evaluate if Payal is a great match for your team or research lab!
+I can tell you about Payal in simple words. Tap a button or ask me anything.
 
-**How can I assist you today?**
-• 🎯 **Check Role Fit**: See how Payal matches roles like *ML Engineer*, *Lead Data Analyst*, or *AI Researcher*.
-• 🚀 **Smooth Navigation**: Jump directly to projects, research, experience, or resume.
-• 🛠️ **Skills & Architecture**: Explore her Python, SQL, Scikit-Learn, and Streamlit work.`,
+• **Management**: how she leads teams and delivers on time
+• **Data analytics**: what she does with data and dashboards
+• **Her projects, skills and resume**`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       actions: [
-        { label: '🎯 Check Role Applicability', actionType: 'query', target: 'Check Role Applicability', iconName: 'Sparkles' },
-        { label: '💻 Explore Selected Projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
-        { label: '🔬 View NeuroMemBench Paper', actionType: 'navigate', target: 'research', iconName: 'Zap' },
-        { label: '📄 Open Curriculum Vitae', actionType: 'modal', target: 'cv', iconName: 'FileText' }
+        { label: '🧑‍💼 Her management skills', actionType: 'query', target: 'How good is Payal at management?', iconName: 'Sparkles' },
+        { label: '📊 Her data analytics work', actionType: 'query', target: 'What does Payal do in data analytics?', iconName: 'ArrowRight' },
+        { label: '💻 See her projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
+        { label: '📄 Open her resume', actionType: 'modal', target: 'cv', iconName: 'FileText' }
       ],
       quickSuggestions: [
-        'Is Payal fit for Senior Lead Data Analyst?',
-        'Is Payal fit for Machine Learning Engineer?',
-        'Tell me about the NeuroMemBench research',
-        'What are her top technical skills?'
+        'How good is Payal at management?',
+        'What has she worked on?',
+        'Is she a good fit for a data analyst role?',
+        'How can I contact her?'
       ]
     };
     setMessages([welcomeMsg]);
@@ -151,17 +150,16 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
       {
         id: 'reset-' + Date.now(),
         sender: 'cat',
-        text: `*Purrr!* 🐾 Chat history cleared! Ask me anything about Payal's role eligibility, tech stack, research paper, or portfolio navigation.`,
+        text: `*Purrr!* 🐾 Chat cleared! Ask me about Payal's management skills, data work, projects, or resume.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         actions: [
-          { label: '🎯 Evaluate Role Fit', actionType: 'query', target: 'Check Role Applicability', iconName: 'Sparkles' },
-          { label: '🚀 Explore Projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' }
+          { label: '🧑‍💼 Her management skills', actionType: 'query', target: 'How good is Payal at management?', iconName: 'Sparkles' },
+          { label: '🚀 See projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' }
         ],
         quickSuggestions: [
-          'Is Payal fit for Senior Lead Data Analyst?',
-          'Is Payal fit for ML Engineer?',
-          'What are Payal\'s top skills?',
-          'Open CV'
+          'How good is Payal at management?',
+          'What are her top skills?',
+          'Open resume'
         ]
       }
     ]);
@@ -169,10 +167,10 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
 
   // Quick Action Buttons for top roles
   const quickRoles = [
-    { label: 'Senior Lead Data Analyst', key: 'senior-lead-data-analyst' },
-    { label: 'ML / AI Engineer', key: 'machine-learning-engineer' },
-    { label: 'AI Research Scientist', key: 'ai-research-scientist' },
-    { label: 'Quantitative Systems', key: 'quant-systems' }
+    { label: 'Management', question: 'How good is Payal at management?' },
+    { label: 'Data Analytics', question: 'What does Payal do in data analytics?' },
+    { label: 'Projects', question: 'What has she worked on?' },
+    { label: 'Skills', question: 'What are her top skills?' }
   ];
 
   const renderActionIcon = (iconName?: string) => {
@@ -197,7 +195,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
   };
 
   return (
-    <aside aria-label="Nova AI Portfolio Cat Assistant" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 select-none">
+    <aside aria-label="Nova Portfolio Cat Assistant" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 select-none">
       {/* 1. FLOATING PROMPT TOOLTIP (When Chatbot is Closed) */}
       {!isOpen && hasUnreadTooltip && (
         <div className="absolute bottom-16 right-0 mb-2 w-72 sm:w-80 p-3.5 rounded-2xl bg-white dark:bg-[#0f121d] border border-zinc-200 dark:border-zinc-700/80 shadow-xl text-left animate-in fade-in slide-in-from-bottom-3 duration-300">
@@ -205,7 +203,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
             <div className="flex items-center gap-2">
               <CatAvatar size="xs" />
               <span className="font-display font-bold text-xs text-zinc-950 dark:text-white">
-                Nova · Portfolio AI Cat
+                Nova · Portfolio Cat
               </span>
             </div>
             <button
@@ -220,7 +218,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
             </button>
           </div>
           <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-2 leading-relaxed">
-            *Meow!* 🐾 Looking for a specific role match (e.g. <strong>ML Engineer</strong> or <strong>Data Analyst</strong>) or need quick navigation? Click to chat!
+            *Meow!* 🐾 Want to know how Payal fits a <strong>Data Analyst</strong> or <strong>Product / Project</strong> role? Just ask me!
           </p>
           <div className="mt-2.5 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800 pt-2">
             <button
@@ -249,7 +247,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
             if (soundEnabled) playCatAudio('meow');
           }}
           className="group relative flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-full bg-white/95 dark:bg-[#0f121d]/95 backdrop-blur-md border border-zinc-200/90 dark:border-zinc-700/80 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-500 cursor-pointer"
-          aria-label="Open Cat AI Assistant"
+          aria-label="Open Cat Assistant"
         >
           {/* Animated Glow Accent */}
           <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-blue-500/20 via-emerald-500/20 to-purple-500/20 blur-xs opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -263,10 +261,10 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
 
             <div className="text-left">
               <span className="block font-display font-bold text-xs text-zinc-950 dark:text-white leading-none">
-                Nova AI
+                Nova
               </span>
               <span className="block text-[10px] font-medium text-zinc-500 dark:text-zinc-300 mt-0.5 leading-none">
-                Role Fit &amp; Nav 🐾
+                Ask me anything 🐾
               </span>
             </div>
           </div>
@@ -297,7 +295,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
                     Nova
                   </h3>
                   <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold uppercase tracking-wider">
-                    Portfolio AI
+                    Portfolio Cat
                   </span>
                 </div>
                 <span className="block text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
@@ -354,12 +352,12 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
           {/* Quick Role Assessment Banner */}
           <div className="px-3.5 py-2 bg-zinc-100/70 dark:bg-[#131726]/70 border-b border-zinc-200/60 dark:border-zinc-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs">
             <span className="text-[11px] font-semibold text-zinc-500 dark:text-zinc-300 shrink-0 flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-amber-500" /> Role Fit:
+              <Sparkles className="w-3 h-3 text-amber-500" /> Ask about:
             </span>
             {quickRoles.map((role) => (
               <button
-                key={role.key}
-                onClick={() => handleSendMessage(`Is Payal a good fit for ${role.label}?`)}
+                key={role.label}
+                onClick={() => handleSendMessage(role.question)}
                 className="shrink-0 px-2.5 py-1 rounded-md text-[11px] font-medium bg-white dark:bg-[#0f121d] border border-zinc-200/80 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-xs transition-all duration-200 transform cursor-pointer shadow-2xs"
               >
                 {role.label}
@@ -510,13 +508,6 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
               <span>Projects</span>
             </button>
             <button
-              onClick={() => handleNavigate('research')}
-              className="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/90 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-2xs transition-all duration-200 transform"
-            >
-              <Zap className="w-3 h-3" />
-              <span>Research</span>
-            </button>
-            <button
               onClick={() => handleNavigate('experience')}
               className="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/90 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-2xs transition-all duration-200 transform"
             >
@@ -551,7 +542,7 @@ I'm here to help you navigate her portfolio and evaluate if Payal is a great mat
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask Nova (e.g. 'Is Payal fit for ML Engineer?')..."
+                placeholder="Ask Nova (e.g. 'Is Payal good at management?')..."
                 className="flex-1 text-xs px-3.5 py-2.5 rounded-xl bg-zinc-100 dark:bg-[#161b2c] border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-400 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400"
               />
               <button

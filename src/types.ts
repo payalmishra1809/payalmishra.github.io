@@ -1,3 +1,12 @@
+export interface ProjectChartData {
+  title: string;
+  type: 'line' | 'bar' | 'donut';
+  labels: string[];
+  series: { name: string; values: number[] }[];
+  unit?: string;
+  tag?: string;
+}
+
 export interface Project {
   id: string;
   number: string;
@@ -8,6 +17,7 @@ export interface Project {
   fullDesc: string;
   stack: string[];
   githubUrl?: string;
+  liveUrl?: string;
   metrics?: {
     primary: string;
     label: string;
@@ -17,6 +27,8 @@ export interface Project {
   highlightText: string;
   colSpan?: 'xl' | 'lg' | 'md' | 'sm' | 'full';
   featured?: boolean;
+  status?: 'In Progress' | 'Planned';
+  charts?: ProjectChartData[];
 }
 
 export interface ExperienceItem {

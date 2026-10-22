@@ -65,21 +65,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
 
             {/* Main Headline with generous leading and padding to prevent descender clipping on g, y, p */}
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.2] pb-2 sm:pb-3 mb-4 sm:mb-6 overflow-visible">
-              Data Science &amp;{' '}
+              Data Analytics &amp;{' '}
               <span className="italic font-serif-display font-normal text-zinc-700 dark:text-zinc-200">
-                AI Research
+                Product
               </span>{' '}
-              Enthusiast.
+              Management.
             </h1>
 
             {/* Sub-headline summary */}
             <p className="text-zinc-600 dark:text-zinc-200 text-base sm:text-lg leading-relaxed max-w-2xl mb-8 font-normal">
-              B.Tech Computer Science Engineering student and{' '}
-              <strong className="text-zinc-950 dark:text-white font-semibold">Senior Lead Data Analyst</strong>. Promoted
-              from Data Analyst Intern to Senior Lead in 4 months, bridging technical execution and management. Combines{' '}
+              B.Tech Computer Science Engineering student building technical projects in{' '}
+              <strong className="text-zinc-950 dark:text-white font-semibold">security, data, and APIs</strong>, with hands-on experience in data analysis,
+              product design, and operations. Combines{' '}
               <span className="font-semibold text-zinc-950 dark:text-white">Python &amp; SQL</span>, data visualization (Power BI / Tableau),
-              and end-to-end documentation, leading cross-functional teams to{' '}
-              <span className="font-mono-code font-semibold text-zinc-900 dark:text-white">100%</span> on-time delivery.
+              and clear documentation, working in teams that delivered{' '}
+              <span className="font-mono-code font-semibold text-zinc-900 dark:text-white">100%</span> on time.
             </p>
 
             {/* Key Statistics Grid */}
@@ -209,7 +209,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
                       Payal Mishra
                     </span>
                     <span className="block text-xs font-medium text-zinc-500 dark:text-zinc-300 mt-0.5 pb-0.5 leading-normal">
-                      Senior Lead Data Analyst · B.Tech CSE
+                      B.Tech CSE
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-200/60 dark:border-emerald-800/60">

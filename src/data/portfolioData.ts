@@ -2,8 +2,8 @@ import { Project, ExperienceItem, EducationItem, Testimonial, BinaryItem, SkillC
 
 export const PERSONAL_INFO = {
   name: "Payal Mishra",
-  headline: "Data Science & Research Enthusiast",
-  subHeadline: "B.Tech CSE Student · Senior Lead Data Analyst · ML & AI Intern",
+  headline: "Data Analytics & Product Management",
+  subHeadline: "B.Tech CSE (3rd Year)",
   location: "Sri Vijaya Puram, Andaman & Nicobar Islands, India",
   email: "payalmishra.tech@gmail.com",
   github: "https://github.com/payalmishra1809",
@@ -11,175 +11,534 @@ export const PERSONAL_INFO = {
   cvViewUrl: "./PAYAL_MISHRA_CV.pdf",
   cvDownloadUrl: "./PAYAL_MISHRA_CV.pdf",
   formspreeUrl: "https://formspree.io/f/xkoapdlp",
-  availabilityBadge: "Available for Internships, Full-Time Roles & Research",
+  availabilityBadge: "Available for Internships & Full-Time Roles",
   lastUpdated: "October 2026",
-  bio: `B.Tech Computer Science Engineering student and Senior Lead Data Analyst who bridges deep technical execution and management expertise, progressing from Data Analyst Intern to Senior Lead Data Analyst in 4 months. Combines robust coding capabilities in Python and SQL with strong UX design, data visualization (Power BI/Tableau), and comprehensive end-to-end project documentation. Proven track record of translating complex client requirements into technical specifications, architecting data workflows, and leading cross-functional teams to 100% on-time delivery. Equally equipped for technical software/data roles and strategic management positions, backed by 30+ shipped projects and 65+ certifications.`,
+  bio: `B.Tech Computer Science Engineering student (3rd year) with hands-on experience across data analysis, product design, and operations. Combines Python and SQL with data visualization (Power BI/Tableau), UX design, and end-to-end project documentation. Experienced in translating client requirements into technical specifications and working in cross-functional teams that delivered 100% on time. Currently building technical projects in zero-trust security, train ETA prediction, data pipelines, and REST APIs, alongside a full product and project management case study. 30+ shipped projects and 65+ certifications.`,
   stats: [
     { value: "30+", label: "Shipped Projects" },
     { value: "65+", label: "Certifications" },
     { value: "100%", label: "On-Time Delivery" },
-    { value: "4 Mo", label: "Intern → Senior Lead" }
-  ]
-};
-
-export const RESEARCH_PAPER = {
-  title: "NeuroMemBench: Evaluating Memory Architectures for Long-Horizon Neuro-AI Agent Workflows",
-  status: "Comprehensive Review & Benchmark Paper · In Preparation",
-  authors: "Payal Mishra",
-  authorNote: "Sole Author",
-  affiliation: "Department of Computer Science & Engineering, Dr. B.R. Ambedkar Institute of Technology, Port Blair, A&N Islands",
-  abstract: "Introduces NeuroMemBench, a self-built benchmark suite of six computational-neuroscience agent tasks used to stress-test three LLM agent memory architectures — Full History, Sliding-Window Summarization, and a custom Schema-Driven Structured State design — inside an isolated tool-execution sandbox. Across multi-trial sweeps on gemini-3.5-flash-lite, the structured-state approach held context footprint constant while nearly doubling task-completion fidelity, showing that deterministic, schema-bound state tracking is what long-horizon scientific agents actually need over free-form natural-language summarization.",
-  metrics: [
-    { value: "9 vs 5", label: "Task Completions: Structured State vs Baselines" },
-    { value: "1,371", label: "Avg. Chars — Constant Context Footprint" },
-    { value: "6 Tasks", label: "Custom Neuroscience Benchmark Suite" }
-  ],
-  tags: [
-    "LLM Agents",
-    "Memory Architectures",
-    "Agent Benchmarking",
-    "Computational Neuroscience",
-    "Tool Use",
-    "Sandbox Evaluation"
-  ],
-  architecturesCompared: [
-    {
-      name: "Full History",
-      type: "Baseline",
-      description: "Appends all conversation turns and tool returns directly to context.",
-      drawback: "Context bloats exponentially, degrades reasoning on long sequences.",
-      score: "5/10 completions"
-    },
-    {
-      name: "Sliding-Window Summarization",
-      type: "Baseline",
-      description: "Compresses past interactions into periodic natural-language summaries.",
-      drawback: "Lossy compression frequently drops essential numeric and neuro-scientific parameters.",
-      score: "5/10 completions"
-    },
-    {
-      name: "Schema-Driven Structured State",
-      type: "Proposed",
-      description: "Maintains deterministic JSON state machine updated via dedicated schema validation.",
-      drawback: "Constant ~1,371 char footprint across arbitrary step counts without hallucinated degradation.",
-      score: "9/10 completions"
-    }
+    { value: "15+", label: "Interns Using My Pipelines" }
   ]
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: "ecommerce-dashboard",
+    id: "carbon-score",
     number: "01",
-    category: "Analytics",
-    categoryLabel: "Data Analysis & BI",
-    title: "Interactive E-Commerce Sales & Customer Insights Dashboard",
-    shortDesc: "Streamlit dashboard analyzing revenue trends across 10,000+ customer transaction records, powered by SQL window functions and aggregations.",
-    fullDesc: "Designed and deployed an interactive Streamlit dashboard analyzing revenue trends across 10,000+ customer transaction records, using SQL window functions and aggregation queries to surface top product categories and regional sales metrics.",
-    stack: ["Python (Pandas)", "Streamlit", "Power BI", "SQL"],
+    category: "Systems",
+    categoryLabel: "Zero-Trust Security & Geospatial",
+    title: "CarbonScope: Zero-Trust Industrial Emission Tracking",
+    shortDesc: "A zero-trust platform that signs industrial emission readings at the source and cross-checks them against service-provider and CPCB portal records to expose tampering and silent data loss.",
+    fullDesc: "CarbonScope is a zero-trust system for India's industrial emission monitoring. Today, readings from 4,433 mandated industries pass through several parties, so values can be altered or silently dropped without a trace. CarbonScope signs each raw sensor reading at the source (SHA-256 hash and Ed25519 signature), cross-checks it against the service provider's data and the CPCB portal record, enforces CPCB rules such as the 85% data availability and 72-hour dropout limits as code, and shows everything on a public 3D map with a Proof of Integrity badge on every reading.",
+    stack: ["Python", "FastAPI", "PostgreSQL (Supabase)", "TimescaleDB", "PostGIS", "Redis", "Next.js", "Deck.gl", "SHA-256 / Ed25519"],
     metrics: {
-      primary: "10,000+",
-      label: "Customer Transaction Records Analyzed"
+      "primary": "4,433",
+      "label": "Industries in scope (CPCB OCEMS)",
+      "subMetrics": [
+        {
+          "value": "17",
+          "label": "Red Category verticals"
+        }
+      ]
     },
-    highlightTitle: "Analytical Insight",
-    highlightText: "SQL window functions and aggregation queries feed the dashboard so category and regional performance can be explored interactively.",
+    highlightTitle: "Security Approach",
+    highlightText: "Never trust, always verify: any change to a reading after capture breaks its signature, so tampering by the industry, the service provider or the portal can be detected.",
+    status: "In Progress",
+    charts: [
+      {
+        "title": "Monthly data availability vs 85% CPCB threshold",
+        "type": "line",
+        "labels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun"
+        ],
+        "series": [
+          {
+            "name": "Availability %",
+            "values": [
+              91,
+              89,
+              86,
+              93,
+              90,
+              94
+            ]
+          },
+          {
+            "name": "CPCB threshold",
+            "values": [
+              85,
+              85,
+              85,
+              85,
+              85,
+              85
+            ]
+          }
+        ],
+        "unit": "%"
+      },
+      {
+        "title": "Reconciliation flags by type",
+        "type": "bar",
+        "labels": [
+          "Manipulation",
+          "Silent drop",
+          "Gap",
+          "Anomaly",
+          "Integrity"
+        ],
+        "series": [
+          {
+            "name": "Flags",
+            "values": [
+              7,
+              12,
+              4,
+              9,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Factory status on the public map",
+        "type": "donut",
+        "labels": [
+          "Compliant",
+          "Near limit",
+          "Violation"
+        ],
+        "series": [
+          {
+            "name": "Factories",
+            "values": [
+              70,
+              20,
+              10
+            ]
+          }
+        ]
+      }
+    ],
     colSpan: "md"
   },
   {
-    id: "churn-prediction",
+    id: "rail-setu",
     number: "02",
-    category: "ML",
-    categoryLabel: "Machine Learning",
-    title: "End-to-End Customer Churn Prediction Web App",
-    shortDesc: "Scikit-Learn churn model with 82%+ accuracy, served through a Streamlit app that returns real-time churn probabilities.",
-    fullDesc: "Built and deployed an end-to-end machine learning web app predicting customer churn with 82%+ accuracy using Scikit-Learn and Streamlit, engineering tenure and contract features and serving real-time inference.",
-    stack: ["Python", "Scikit-Learn", "Streamlit", "Hugging Face Spaces"],
+    category: "Systems",
+    categoryLabel: "Smart India Hackathon 2026",
+    title: "RailSetu: Dynamic ETA Prediction for Coaching Trains",
+    shortDesc: "Explainable, self-correcting train ETA system that gives a delay range, explains why a train is late and flags knock-on delays. Built for Smart India Hackathon 2026.",
+    fullDesc: "RailSetu was built for Smart India Hackathon 2026 (Problem Statement 26028, Transportation & Logistics) by a 6-member team, where I am the team lead and architect of the prediction and delay-graph engine. Instead of a single guess, it gives passengers a range-based ETA, explains in plain language why a train is late, flags delays that spread between neighbouring track sections, and tightens its estimate as the train gets closer. A passenger app and a staff dashboard run on a FastAPI and PostgreSQL/PostGIS backend with Redis, WebSocket and push notifications. Where live railway data is not public, a transparent, swappable simulator is used. A live mobile-first prototype is available.",
+    stack: ["Python", "FastAPI", "LightGBM", "PostgreSQL + PostGIS", "Redis", "WebSocket", "React"],
+    githubUrl: "https://github.com/payalmishra1809/TRAIN_ETA_SYSTEM",
+    liveUrl: "https://train-eta-system.vercel.app/",
     metrics: {
-      primary: "82%+",
-      label: "Churn Prediction Accuracy"
+      "primary": "≤4.2 min",
+      "label": "Target error (vs ~11.8 min NTES baseline)",
+      "subMetrics": [
+        {
+          "value": "6",
+          "label": "Team members"
+        }
+      ]
     },
-    highlightTitle: "Engineering Highlight",
-    highlightText: "The trained model is wrapped in a lightweight web interface so users can adjust inputs and see churn probability in real time.",
+    highlightTitle: "Why It Matters",
+    highlightText: "A few minutes of removed uncertainty per passenger adds up across a network that carries billions of passengers a year.",
+    status: "In Progress",
+    charts: [
+      {
+        "title": "Average ETA error: baseline vs RailSetu target",
+        "type": "bar",
+        "labels": [
+          "NTES baseline",
+          "RailSetu target"
+        ],
+        "series": [
+          {
+            "name": "Minutes",
+            "values": [
+              11.8,
+              4.2
+            ]
+          }
+        ],
+        "unit": "Min",
+        "tag": "Target"
+      },
+      {
+        "title": "Predicted vs actual delay, in minutes",
+        "type": "line",
+        "labels": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "T6",
+          "T7",
+          "T8"
+        ],
+        "series": [
+          {
+            "name": "Predicted",
+            "values": [
+              12,
+              5,
+              18,
+              9,
+              25,
+              7,
+              14,
+              30
+            ]
+          },
+          {
+            "name": "Actual",
+            "values": [
+              10,
+              6,
+              20,
+              8,
+              27,
+              5,
+              15,
+              28
+            ]
+          }
+        ],
+        "unit": "Min"
+      }
+    ],
+    colSpan: "md"
+  },
+  {
+    id: "ecommerce-dashboard",
+    number: "03",
+    category: "Analytics",
+    categoryLabel: "Data Analysis & BI",
+    title: "Interactive E-Commerce Sales & Customer Insights Dashboard",
+    shortDesc: "Streamlit dashboard on a 10,000+ record sales dataset showing growth, top products and order value, powered by SQL.",
+    fullDesc: "An interactive Streamlit dashboard built on a 10,000+ record e-commerce sales dataset. SQL window functions and aggregations will surface monthly sales growth, top products by category and order value distribution, with the dashboard hosted publicly.",
+    stack: ["Python (Pandas)", "Streamlit", "Power BI", "SQL"],
+    metrics: {
+      "primary": "10,000+",
+      "label": "Target dataset size (records)"
+    },
+    highlightTitle: "Analytical Insight",
+    highlightText: "SQL window functions and aggregation queries feed the dashboard so category and sales performance can be explored interactively.",
+    status: "Planned",
+    charts: [
+      {
+        "title": "Monthly revenue",
+        "type": "line",
+        "labels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
+        "series": [
+          {
+            "name": "Revenue",
+            "values": [
+              42,
+              45,
+              51,
+              48,
+              55,
+              60,
+              58,
+              63,
+              67,
+              72,
+              80,
+              92
+            ]
+          }
+        ],
+        "unit": "K"
+      },
+      {
+        "title": "Sales by category",
+        "type": "bar",
+        "labels": [
+          "Technology",
+          "Furniture",
+          "Office",
+          "Clothing"
+        ],
+        "series": [
+          {
+            "name": "Sales",
+            "values": [
+              84,
+              62,
+              48,
+              30
+            ]
+          }
+        ],
+        "unit": "K"
+      }
+    ],
     colSpan: "md"
   },
   {
     id: "data-quality-pipeline",
-    number: "03",
+    number: "04",
     category: "Analytics",
     categoryLabel: "Python Scripting & Data Engineering",
     title: "Automated Data Quality & Cleaning Pipeline Script",
-    shortDesc: "Python script that detects duplicates, handles missing values and flags anomalies, outputting a cleaned CSV and HTML summary report.",
-    fullDesc: "Developed an automated Python validation script that detects duplicates, handles missing values and flags anomalies, converting raw CSV datasets into cleaned files with an HTML summary report and reducing manual cleaning time.",
+    shortDesc: "Reusable Python script that finds duplicates, handles missing values, checks ranges and outputs a cleaned CSV plus an HTML report.",
+    fullDesc: "A reusable Python script that takes any raw CSV, detects duplicate records, flags or fills missing values, checks numerical ranges for anomalies, and outputs a cleaned CSV with an HTML summary report.",
     stack: ["Python", "Pandas", "SQLAlchemy"],
     highlightTitle: "Automation Highlight",
-    highlightText: "Automated validation guarantees data integrity before downstream reporting, replacing repetitive manual cleaning.",
+    highlightText: "Automated checks guarantee data integrity before reporting, replacing repetitive manual cleaning.",
+    status: "Planned",
+    charts: [
+      {
+        "title": "Issues found vs fixed per dataset",
+        "type": "bar",
+        "labels": [
+          "Orders",
+          "Customers",
+          "Products",
+          "Payments"
+        ],
+        "series": [
+          {
+            "name": "Found",
+            "values": [
+              120,
+              85,
+              40,
+              65
+            ]
+          },
+          {
+            "name": "Fixed",
+            "values": [
+              118,
+              85,
+              38,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Types of issues",
+        "type": "donut",
+        "labels": [
+          "Duplicates",
+          "Missing values",
+          "Out of range"
+        ],
+        "series": [
+          {
+            "name": "Issues",
+            "values": [
+              40,
+              35,
+              25
+            ]
+          }
+        ]
+      }
+    ],
     colSpan: "md"
   },
   {
-    id: "ai-feature-prd",
-    number: "04",
-    category: "Product",
-    categoryLabel: "Product Management",
-    title: "Product Requirements Document & Metric Framework for an AI Feature",
-    shortDesc: "2-page PRD for an AI-driven automation feature with personas, user stories, Figma wireframes and a North Star metrics framework.",
-    fullDesc: "Authored a 2-page PRD for an AI-driven automation feature covering user personas, user stories and acceptance criteria, with Figma wireframes and a metrics framework of North Star, activation and guardrail metrics.",
-    stack: ["Notion", "Google Docs", "Figma", "Whimsical"],
-    metrics: {
-      primary: "2-Page",
-      label: "PRD with Metrics Framework"
-    },
-    highlightTitle: "Product Highlight",
-    highlightText: "Success is defined up front through a North Star metric, activation rates and guardrail metrics that measure feature adoption.",
-    colSpan: "md"
-  },
-  {
-    id: "agile-wbs-board",
+    id: "shipment-tracking-api",
     number: "05",
+    category: "Systems",
+    categoryLabel: "REST API & Dashboard",
+    title: "Shipment Tracking REST API & Dashboard",
+    shortDesc: "A REST API and dashboard to create, update and track shipments, backed by a SQL database.",
+    fullDesc: "A REST API and dashboard to create, update and track shipments, backed by a SQL database through SQLAlchemy. It builds on my experience analyzing cargo and shipment data at PSN Shipping Agency.",
+    stack: ["Python", "SQL", "SQLAlchemy", "REST APIs", "Streamlit", "Git"],
+    highlightTitle: "Engineering Highlight",
+    highlightText: "One clean API handles shipment records, and a dashboard turns them into a live view of what is delivered, moving or delayed.",
+    status: "Planned",
+    charts: [
+      {
+        "title": "Shipments by status",
+        "type": "donut",
+        "labels": [
+          "Delivered",
+          "In transit",
+          "Delayed"
+        ],
+        "series": [
+          {
+            "name": "Shipments",
+            "values": [
+              55,
+              30,
+              15
+            ]
+          }
+        ]
+      },
+      {
+        "title": "API requests by endpoint",
+        "type": "bar",
+        "labels": [
+          "/shipments",
+          "/track",
+          "/status",
+          "/reports"
+        ],
+        "series": [
+          {
+            "name": "Requests",
+            "values": [
+              420,
+              310,
+              180,
+              90
+            ]
+          }
+        ]
+      }
+    ],
+    colSpan: "md"
+  },
+  {
+    id: "travel-app-product-plan",
+    number: "06",
     category: "Product",
-    categoryLabel: "Project Management",
-    title: "Agile Project Board & Work Breakdown Structure",
-    shortDesc: "3-sprint Agile roadmap in GitHub Projects with 15-20 cards across epics, user stories and acceptance criteria.",
-    fullDesc: "Structured a 3-sprint Agile roadmap in GitHub Projects, managing a backlog of 15-20 cards across epics, user stories and acceptance criteria, with story point estimation and dependency tracking.",
-    stack: ["GitHub Projects", "Jira", "Trello"],
+    categoryLabel: "Product & Project Management",
+    title: "Travel Itinerary App: End-to-End Product & Delivery Plan",
+    shortDesc: "A complete product and delivery plan for a travel itinerary app: PRD, wireframes, success metrics, work breakdown and a 3-sprint Agile roadmap.",
+    fullDesc: "A full product and project management case study for a travel itinerary app. It covers a product requirements document with user personas, Figma wireframes, success metrics (North Star, activation and guardrails), a work breakdown structure, a 3-sprint Agile roadmap with 15-20 cards, and a risk and stakeholder plan. It draws on my product design work for Andaman Dream Yatra.",
+    stack: ["Notion", "Figma", "Jira", "GitHub Projects", "Trello", "Whimsical"],
     metrics: {
-      primary: "3 Sprints",
-      label: "Agile Release Cycle",
-      subMetrics: [
-        { value: "15-20", label: "Cards in Backlog" }
+      "primary": "3 Sprints",
+      "label": "Agile release plan",
+      "subMetrics": [
+        {
+          "value": "15-20",
+          "label": "Backlog cards"
+        }
       ]
     },
     highlightTitle: "Delivery Highlight",
-    highlightText: "Sprint estimation and dependency tracking keep cross-functional feature delivery on schedule.",
+    highlightText: "Every step from idea to launch is planned: requirements, success metrics, sprints, risks and who needs to be kept informed.",
+    status: "Planned",
+    charts: [
+      {
+        "title": "Sprint burndown, story points left",
+        "type": "line",
+        "labels": [
+          "Day 1",
+          "Day 3",
+          "Day 5",
+          "Day 7",
+          "Day 9",
+          "Day 10"
+        ],
+        "series": [
+          {
+            "name": "Ideal",
+            "values": [
+              20,
+              16,
+              12,
+              8,
+              4,
+              0
+            ]
+          },
+          {
+            "name": "Actual",
+            "values": [
+              20,
+              18,
+              13,
+              10,
+              5,
+              1
+            ]
+          }
+        ],
+        "unit": "Pts"
+      },
+      {
+        "title": "Story points per sprint",
+        "type": "bar",
+        "labels": [
+          "Sprint 1",
+          "Sprint 2",
+          "Sprint 3"
+        ],
+        "series": [
+          {
+            "name": "Planned",
+            "values": [
+              18,
+              20,
+              22
+            ]
+          },
+          {
+            "name": "Completed",
+            "values": [
+              16,
+              19,
+              21
+            ]
+          }
+        ],
+        "unit": "Pts"
+      },
+      {
+        "title": "Backlog by type",
+        "type": "donut",
+        "labels": [
+          "Epics",
+          "User stories",
+          "Tasks"
+        ],
+        "series": [
+          {
+            "name": "Cards",
+            "values": [
+              3,
+              12,
+              5
+            ]
+          }
+        ]
+      }
+    ],
     colSpan: "md"
   }
 ];
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "skill-nexis",
-    period: "Aug 2026 — Present",
-    role: "Machine Learning & AI Intern",
-    organization: "Skill Nexis",
-    isCurrent: true,
-    badge: "Current Role",
-    description: "Delivering real-world ML projects against defined deadlines, applying core machine learning workflows alongside a peer intern cohort."
-  },
-  {
-    id: "codec-tech",
-    period: "Aug 2026 — Present",
-    role: "Artificial Intelligence Intern",
-    organization: "Codec Technologies",
-    isCurrent: true,
-    badge: "Global Consultancy",
-    description: "Executing assigned AI projects under a dedicated project head at a consultancy operating across 27+ countries, with weekly project reviews."
-  },
-  {
     id: "uptoskills",
     period: "Dec 2025 — Mar 2026",
     role: "Senior Lead Data Analyst",
     organization: "UpToSkills",
     badge: "Rapid 4-Month Promotion",
-    description: "Promoted from Data Analyst Intern to Team Lead to Senior Lead Data Analyst in 4 months, managing cross-functional teams across concurrent ML projects.",
+    description: "Promoted from Data Analyst Intern to Team Lead to Senior Lead Data Analyst within 4 months, managing cross-functional teams across concurrent data projects.",
     highlights: [
       "Defined team OKRs and ran sprint reviews, achieving 100% on-time delivery; standardized Python EDA pipelines adopted by a 15+ intern cohort."
     ]
@@ -191,7 +550,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: "Andaman Dream Yatra",
     description: "Led client consultations and audience research, using Power BI dashboards to validate design directions.",
     highlights: [
-      "Authored PRDs, wireframes and feature specifications; prototyped with AI-assisted tools and directed final UI/UX to client sign-off."
+      "Authored PRDs, wireframes and feature specifications, and directed the final UI/UX to client sign-off."
     ]
   },
   {
@@ -259,12 +618,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
   plus: [
     {
-      name: "End-to-End ML Pipelines",
-      note: "From raw data ingestion through EDA, feature engineering, model training, and evaluation using Python, Pandas, and Scikit-Learn."
-    },
-    {
       name: "Team Leadership under Pressure",
-      note: "Progressed from intern to Senior Lead Data Analyst within 4 months, coordinating multiple data science cohorts simultaneously with 100% on-time delivery."
+      note: "Progressed from intern to Senior Lead Data Analyst within 4 months, leading intern teams to 100% on-time delivery."
     },
     {
       name: "Statistical Rigor & Metric Honesty",
@@ -276,37 +631,25 @@ export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
     },
     {
       name: "Product & Agile Delivery",
-      note: "Authored a PRD with a North Star metrics framework and structured a 3-sprint Agile roadmap with epics, user stories, and story point estimation."
-    },
-    {
-      name: "Research Benchmark Methodology",
-      note: "Designed and ran a full benchmark study end-to-end for NeuroMemBench (task suite design, sandboxed evaluation, multi-trial sweeps, quantitative writeup)."
+      note: "Writes PRDs and Agile roadmaps, and is building a full product delivery plan as a case study."
     }
   ],
   minus: [
     {
-      name: "Deep Learning Mathematical Foundations",
-      note: "Bridging applied ML experience with rigorous mathematical depth in non-convex optimization landscapes, loss surface dynamics, and neural tangent kernels."
+      name: "Machine Learning & AI Fundamentals",
+      note: "Currently learning the foundations before applying them in projects."
     },
     {
-      name: "Formal Peer-Reviewed Publication",
-      note: "Authored an independent working paper (NeuroMemBench); actively preparing the work for submission through formal conference/journal peer review."
+      name: "Formal Product Management Training",
+      note: "Building on hands-on PRD and Agile experience with structured product strategy and roadmapping practice."
     },
     {
-      name: "Large-Scale Distributed Compute",
-      note: "Scaling beyond single-node Pandas and multi-threading toward distributed clusters with PySpark, Ray, and cloud-native parallel processing."
+      name: "Large-Scale Data Tools",
+      note: "Scaling beyond single-machine Pandas toward larger data platforms and cloud-based processing."
     },
     {
-      name: "Transformer Theoretical Internals",
-      note: "Deepening theoretical grasp of self-attention mechanisms, state-space models (Mamba), and mechanistic interpretability beyond high-level APIs."
-    },
-    {
-      name: "Causal Inference & Counterfactuals",
-      note: "Mastering causal graphs, Bayesian structural equation modeling, and Pearl's do-calculus to disentangle correlation from causation in observational data."
-    },
-    {
-      name: "Domain Specialization Convergence",
-      note: "Synthesizing broad interdisciplinary work across data analysis, machine learning, and product into a focused long-term research direction."
+      name: "Advanced Statistics",
+      note: "Deepening causal inference and experiment design to separate correlation from causation in business data."
     }
   ]
 };
@@ -320,16 +663,12 @@ export const CERTIFICATIONS: { name: string; featured?: boolean }[] = [
   { name: "Google Cybersecurity Professional", featured: true },
   { name: "Meta JavaScript Programming" },
   { name: "Google UX Design Professional" },
-  { name: "Google Generative AI", featured: true },
   { name: "Yale Introduction to Psychology" },
-  { name: "Nuts and Bolts of Machine Learning" },
   { name: "Regression Analysis (Google)" },
   { name: "IoT Professional Training (BR Ambedkar Institute)", featured: true },
-  { name: "Google ML Crash Course" },
   { name: "Microsoft Office Specialist: Excel (MOS)", featured: true },
   { name: "NPTEL Design Thinking" },
   { name: "Cisco Introduction to Cybersecurity" },
-  { name: "Google AI Essentials" },
   { name: "Accenture Web Analytics" },
   { name: "Google Fundamentals of Digital Marketing" },
   { name: "Full Stack Development" },
@@ -338,48 +677,12 @@ export const CERTIFICATIONS: { name: string; featured?: boolean }[] = [
   { name: "Google Linux and SQL" },
   { name: "Investment Risk Management" },
   { name: "Building Dynamic UI (Google)" },
-  { name: "Generative AI with LLMs (DeepLearning.AI)", featured: true },
   { name: "Python for Data Science (IBM)" },
   { name: "SQL for Data Science (Coursera)" },
   { name: "Data Visualization with Tableau" },
   { name: "Agile Project Management (Google)" },
   { name: "Foundations of Project Management" },
-  { name: "Neural Networks and Deep Learning", featured: true },
-  { name: "Version Control with Git" },
-  { name: "Prompt Engineering for ChatGPT" }
+  { name: "Version Control with Git" }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: "asma-rani",
-    tag: "Senior Assistant Professor",
-    quote: "Highlights Payal's breadth of hands-on AI work, her rise from Data Analyst Intern to Senior Lead within four months, and a solid foundation across Python, ML, and statistical modeling.",
-    author: "Dr. Asma Rani",
-    role: "Senior Assistant Professor, Dr. B.R. Ambedkar Institute of Technology",
-    type: "academic"
-  },
-  {
-    id: "shrabani-mallick",
-    tag: "Head of Department (CSE)",
-    quote: "As Department Head, notes her work across ML, LLMs, and multi-agent systems, along with strong analytical ability, professionalism, and a genuine aptitude for research.",
-    author: "Dr. Shrabani Mallick",
-    role: "Associate Professor & HoD (CSE), Dr. B.R. Ambedkar Institute of Technology",
-    type: "academic"
-  },
-  {
-    id: "harsabardhan-barik",
-    tag: "Assistant Professor",
-    quote: "Describes her as sincere, hardworking, and genuinely motivated to learn, with a strong practical grasp of the skills needed to make good use of a research internship.",
-    author: "Harsabardhan Barik",
-    role: "Assistant Professor (Senior Scale), CSE, Dr. B.R. Ambedkar Institute of Technology",
-    type: "academic"
-  },
-  {
-    id: "kartik-joshi",
-    tag: "Industry Collaborator",
-    quote: "Speaks to her research-oriented mindset from their collaboration on a credit-card fraud detection project, highlighting strong analytical thinking, a fast grasp of ML concepts, and disciplined delivery under deadlines.",
-    author: "Kartik Joshi",
-    role: "Software Engineer, Generative AI, AlgoLeap, Hyderabad",
-    type: "professional"
-  }
-];
+export const TESTIMONIALS: Testimonial[] = [];

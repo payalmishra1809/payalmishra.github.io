@@ -18,7 +18,7 @@ export const BinaryProfile: React.FC = () => {
             The Binary Profile
           </h2>
           <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-            A transparent assessment of verifiable technical strengths alongside active doctoral-level growth frontiers, framing near-term operational impact alongside long-term research ambition.
+            An honest look at what I do well today, and what I am actively learning next.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export const BinaryProfile: React.FC = () => {
                   Active Growth Frontiers
                 </h3>
                 <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                  Research &amp; Systems Specialization
+                  What I am learning next
                 </span>
               </div>
             </div>

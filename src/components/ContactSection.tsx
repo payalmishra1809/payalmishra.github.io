@@ -61,7 +61,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenCvModal })
             Let&apos;s Build Together
           </h2>
           <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-            Interested in discussing senior data analyst opportunities, AI research collaborations, or technical advisory roles? Send an inquiry directly below.
+            Interested in data analytics, product, or project management opportunities? Send an inquiry directly below.
           </p>
         </div>
 
@@ -98,13 +98,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenCvModal })
                   )}
                 </button>
 
-                <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  className="py-2.5 px-4 rounded-full bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-xs flex items-center justify-center gap-1.5"
-                >
-                  <span>Open Client</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
               </div>
             </SpotlightCard>
 
@@ -194,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenCvModal })
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="Senior Lead Data Analyst Role / Research Collaboration"
+                    placeholder="Internship / Data Analyst / Product Role"
                     className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#131726] border border-zinc-200 dark:border-zinc-700 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                   />
                 </div>

@@ -11,21 +11,13 @@ export const ProjectsBento: React.FC = () => {
 
   const categories = [
     { label: 'All Projects', value: 'All' },
-    { label: 'Machine Learning', value: 'ML' },
-    { label: 'Analytics & Dashboards', value: 'Analytics' },
-    { label: 'Product & Management', value: 'Product' },
+    { label: 'Technical', value: 'Technical' },
+    { label: 'Project Management', value: 'Product' },
   ];
 
   const filteredProjects = activeCategory === 'All'
     ? PROJECTS
-    : PROJECTS.filter((p) => {
-        if (activeCategory === 'GenAI') return p.category === 'GenAI' || p.category === 'Research';
-        if (activeCategory === 'Systems') return p.category === 'Systems';
-        if (activeCategory === 'ML') return p.category === 'ML' || p.category === 'Vision' || p.category === 'Healthcare';
-        if (activeCategory === 'Analytics') return p.category === 'Analytics';
-        if (activeCategory === 'Product') return p.category === 'Product';
-        return true;
-      });
+    : PROJECTS.filter((p) => (activeCategory === 'Product' ? p.category === 'Product' : p.category !== 'Product'));
 
   return (
     <section id="projects" className="py-24 sm:py-32 relative overflow-hidden bg-zinc-50/50 dark:bg-transparent border-t border-zinc-200/80 dark:border-zinc-800">
@@ -39,10 +31,10 @@ export const ProjectsBento: React.FC = () => {
               <span>Selected Works</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white pb-1 leading-[1.2]">
-              Data, ML &amp; Product Projects
+              Data &amp; Product Projects
             </h2>
             <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
-              Dashboards, machine learning apps, data pipelines, and product and project management deliverables.
+              Dashboards, data pipelines, and product and project management deliverables.
             </p>
           </div>
 
@@ -68,7 +60,7 @@ export const ProjectsBento: React.FC = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {filteredProjects.map((project) => {
-            const colSpanClasses = project.id === 'agile-wbs-board' ? 'lg:col-span-12' : 'lg:col-span-6';
+            const colSpanClasses = 'lg:col-span-6';
 
             return (
               <div key={project.id} className={`${colSpanClasses} flex flex-col`}>
@@ -91,6 +83,13 @@ export const ProjectsBento: React.FC = () => {
                         </div>
                       )}
                     </div>
+
+                    {project.status && (
+                      <span className="inline-flex items-center gap-1.5 mb-3 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/70 dark:border-amber-800/60">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                        {project.status}
+                      </span>
+                    )}
 
                     {/* Title */}
                     <h3 className="font-display font-bold text-xl sm:text-2xl text-zinc-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-3 pb-0.5 leading-snug">
@@ -130,7 +129,7 @@ export const ProjectsBento: React.FC = () => {
                       }}
                       className="inline-flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                     >
-                      <span>Read System Case Study</span>
+                      <span>View Details &amp; Visuals</span>
                       <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </button>
 
