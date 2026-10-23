@@ -183,7 +183,7 @@ export const ProjectChart: React.FC<{ chart: ProjectChartData }> = ({ chart }) =
       <div className="flex items-start justify-between gap-2 mb-2">
         <div className="text-xs font-semibold text-zinc-800 dark:text-zinc-100">{chart.title}</div>
         <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-800/60 px-2 py-0.5 rounded-full">
-          {chart.tag ?? 'Sample'}
+          {chart.tag ?? 'Illustrative'}
         </span>
       </div>
       {multi && <Legend names={chart.series.map((s) => s.name)} />}

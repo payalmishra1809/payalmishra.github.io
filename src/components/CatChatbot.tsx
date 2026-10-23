@@ -39,24 +39,12 @@ export const CatChatbot: React.FC<CatChatbotProps> = ({ onOpenCvModal }) => {
     const welcomeMsg: ChatMessage = {
       id: 'welcome-1',
       sender: 'cat',
-      text: `*Purrr!* 🐾 Hi, I'm **Nova**, Payal's cat assistant.
-
-I can tell you about Payal in simple words. Tap a button or ask me anything.
-
-• **Management**: how she leads teams and delivers on time
-• **Data analytics**: what she does with data and dashboards
-• **Her projects, skills and resume**`,
+      text: `*Purrr!* 🐾 Hi, I'm Nova! Ask me anything about Payal, or tap a question below.`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      actions: [
-        { label: '🧑‍💼 Her management skills', actionType: 'query', target: 'How good is Payal at management?', iconName: 'Sparkles' },
-        { label: '📊 Her data analytics work', actionType: 'query', target: 'What does Payal do in data analytics?', iconName: 'ArrowRight' },
-        { label: '💻 See her projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' },
-        { label: '📄 Open her resume', actionType: 'modal', target: 'cv', iconName: 'FileText' }
-      ],
+      actions: [],
       quickSuggestions: [
-        'How good is Payal at management?',
-        'What has she worked on?',
-        'Is she a good fit for a data analyst role?',
+        'What are her strengths?',
+        'What has she built?',
         'How can I contact her?'
       ]
     };
@@ -150,28 +138,19 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
       {
         id: 'reset-' + Date.now(),
         sender: 'cat',
-        text: `*Purrr!* 🐾 Chat cleared! Ask me about Payal's management skills, data work, projects, or resume.`,
+        text: `*Purrr!* 🐾 Chat cleared! What would you like to know about Payal?`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        actions: [
-          { label: '🧑‍💼 Her management skills', actionType: 'query', target: 'How good is Payal at management?', iconName: 'Sparkles' },
-          { label: '🚀 See projects', actionType: 'navigate', target: 'projects', iconName: 'ArrowRight' }
-        ],
+        actions: [],
         quickSuggestions: [
-          'How good is Payal at management?',
-          'What are her top skills?',
-          'Open resume'
+          'What are her strengths?',
+          'What has she built?',
+          'How can I contact her?'
         ]
       }
     ]);
   };
 
   // Quick Action Buttons for top roles
-  const quickRoles = [
-    { label: 'Management', question: 'How good is Payal at management?' },
-    { label: 'Data Analytics', question: 'What does Payal do in data analytics?' },
-    { label: 'Projects', question: 'What has she worked on?' },
-    { label: 'Skills', question: 'What are her top skills?' }
-  ];
 
   const renderActionIcon = (iconName?: string) => {
     switch (iconName) {
@@ -218,7 +197,7 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
             </button>
           </div>
           <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-2 leading-relaxed">
-            *Meow!* 🐾 Want to know how Payal fits a <strong>Data Analyst</strong> or <strong>Product / Project</strong> role? Just ask me!
+            *Meow!* 🐾 Have a question about Payal? Just ask me!
           </p>
           <div className="mt-2.5 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800 pt-2">
             <button
@@ -294,12 +273,9 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
                   <h3 className="font-display font-bold text-sm text-zinc-950 dark:text-white leading-none">
                     Nova
                   </h3>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold uppercase tracking-wider">
-                    Portfolio Cat
-                  </span>
                 </div>
                 <span className="block text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
-                  Online · Purring &amp; Ready 🐾
+                  Ask me about Payal 🐾
                 </span>
               </div>
             </div>
@@ -347,22 +323,6 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
                 <ChevronDown className="w-4 h-4" />
               </button>
             </div>
-          </div>
-
-          {/* Quick Role Assessment Banner */}
-          <div className="px-3.5 py-2 bg-zinc-100/70 dark:bg-[#131726]/70 border-b border-zinc-200/60 dark:border-zinc-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs">
-            <span className="text-[11px] font-semibold text-zinc-500 dark:text-zinc-300 shrink-0 flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-amber-500" /> Ask about:
-            </span>
-            {quickRoles.map((role) => (
-              <button
-                key={role.label}
-                onClick={() => handleSendMessage(role.question)}
-                className="shrink-0 px-2.5 py-1 rounded-md text-[11px] font-medium bg-white dark:bg-[#0f121d] border border-zinc-200/80 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-xs transition-all duration-200 transform cursor-pointer shadow-2xs"
-              >
-                {role.label}
-              </button>
-            ))}
           </div>
 
           {/* Messages Container */}
@@ -451,7 +411,7 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
                     {/* Action Links & Buttons */}
                     {msg.actions && msg.actions.length > 0 && (
                       <div className="mt-3 flex flex-wrap gap-1.5">
-                        {msg.actions.map((act, aIdx) => (
+                        {msg.actions.slice(0, 2).map((act, aIdx) => (
                           <button
                             key={aIdx}
                             onClick={() => handleActionClick(act)}
@@ -473,7 +433,7 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
                 {/* Quick follow-up suggestions */}
                 {msg.quickSuggestions && msg.quickSuggestions.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1">
-                    {msg.quickSuggestions.map((sug, suIdx) => (
+                    {msg.quickSuggestions.slice(0, 2).map((sug, suIdx) => (
                       <button
                         key={suIdx}
                         onClick={() => handleSendMessage(sug)}
@@ -491,46 +451,11 @@ I can tell you about Payal in simple words. Tap a button or ask me anything.
             {isTyping && (
               <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 text-xs">
                 <CatAvatar size="xs" isPurring={true} />
-                <span className="italic text-[11px]">Nova is thinking &amp; typing... 🐾</span>
+                <span className="italic text-[11px]">Nova is typing... 🐾</span>
               </div>
             )}
 
             <div ref={messagesEndRef} />
-          </div>
-
-          {/* Quick Shortcuts Bar */}
-          <div className="px-3 py-1.5 bg-zinc-50 dark:bg-[#0c0e17] border-t border-zinc-200/60 dark:border-zinc-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs">
-            <button
-              onClick={() => handleNavigate('projects')}
-              className="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/90 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-2xs transition-all duration-200 transform"
-            >
-              <Compass className="w-3 h-3" />
-              <span>Projects</span>
-            </button>
-            <button
-              onClick={() => handleNavigate('experience')}
-              className="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/90 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-2xs transition-all duration-200 transform"
-            >
-              <Briefcase className="w-3 h-3" />
-              <span>Experience</span>
-            </button>
-            <button
-              onClick={() => {
-                onOpenCvModal();
-                if (window.innerWidth < 640) setIsOpen(false);
-              }}
-              className="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/90 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-2xs transition-all duration-200 transform"
-            >
-              <FileText className="w-3 h-3" />
-              <span>Resume</span>
-            </button>
-            <button
-              onClick={() => handleNavigate('contact')}
-              className="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/90 dark:hover:bg-blue-950/40 hover:-translate-y-0.5 hover:shadow-2xs transition-all duration-200 transform"
-            >
-              <Mail className="w-3 h-3" />
-              <span>Contact</span>
-            </button>
           </div>
 
           {/* Input Bar */}

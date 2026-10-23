@@ -84,46 +84,25 @@ export const PROJECTS: Project[] = [
         "unit": "%"
       },
       {
-        "title": "Reconciliation flags by type",
+        "title": "Hidden correction factor: actual vs reported PM (mg/Nm³)",
         "type": "bar",
         "labels": [
-          "Manipulation",
-          "Silent drop",
-          "Gap",
-          "Anomaly",
-          "Integrity"
+          "Actual reading",
+          "Reported to CPCB",
+          "Limit"
         ],
         "series": [
           {
-            "name": "Flags",
+            "name": "PM",
             "values": [
-              7,
-              12,
-              4,
-              9,
-              2
+              145.3,
+              90.1,
+              100
             ]
           }
-        ]
-      },
-      {
-        "title": "Factory status on the public map",
-        "type": "donut",
-        "labels": [
-          "Compliant",
-          "Near limit",
-          "Violation"
         ],
-        "series": [
-          {
-            "name": "Factories",
-            "values": [
-              70,
-              20,
-              10
-            ]
-          }
-        ]
+        "unit": "mg/Nm³",
+        "tag": "Spec scenario"
       }
     ],
     colSpan: "md"
@@ -540,7 +519,9 @@ export const EXPERIENCES: ExperienceItem[] = [
     badge: "Rapid 4-Month Promotion",
     description: "Promoted from Data Analyst Intern to Team Lead to Senior Lead Data Analyst within 4 months, managing cross-functional teams across concurrent data projects.",
     highlights: [
-      "Defined team OKRs and ran sprint reviews, achieving 100% on-time delivery; standardized Python EDA pipelines adopted by a 15+ intern cohort."
+      "Aligned technical execution with project roadmaps across several data projects running at the same time.",
+      "Defined team OKRs, ran sprint reviews and enforced code-quality standards, achieving 100% on-time delivery across all project tracks.",
+      "Standardized Python-based EDA and preprocessing pipelines, adopted across a 15+ intern cohort, reducing analyst onboarding time."
     ]
   },
   {
@@ -548,9 +529,11 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: "Apr 2025 — Sep 2025",
     role: "Lead Product Designer & UX Strategist",
     organization: "Andaman Dream Yatra",
-    description: "Led client consultations and audience research, using Power BI dashboards to validate design directions.",
+    description: "Led product design and UX strategy for a travel & tourism platform, from first client conversations to final sign-off.",
     highlights: [
-      "Authored PRDs, wireframes and feature specifications, and directed the final UI/UX to client sign-off."
+      "Ran client consultations and audience demographic research, using Power BI dashboards to analyze user behavior across age groups and validate design directions.",
+      "Authored Product Requirement Documents (PRDs), wireframes, feature specifications and visual design architectures built for public accessibility.",
+      "Directed the final UI/UX implementation through to client sign-off."
     ]
   },
   {
@@ -558,14 +541,24 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: "Jul 2024 — Nov 2024",
     role: "Operations Manager",
     organization: "Dweep Packers & Movers",
-    description: "Oversaw operational workflows, account reconciliation and stakeholder communication; authored SOPs and documentation for internal bookkeeping."
+    description: "Oversaw end-to-end operational workflows, resource coordination, account reconciliation and stakeholder communication to run internal processes efficiently.",
+    highlights: [
+      "Coordinated people and resources day to day and kept stakeholders informed across the business.",
+      "Authored standardized operating procedures (SOPs) and documentation for internal bookkeeping, streamlining administrative workflows.",
+      "Prepared clear records that supported executive decision-making."
+    ]
   },
   {
     id: "psn-shipping",
     period: "Mar 2024 — Jun 2024",
     role: "Business Analyst",
     organization: "PSN Shipping Agency",
-    description: "Bridged technical teams and executive management through data reporting and presentations; analyzed cargo and shipment data to pinpoint revenue leakage."
+    description: "Bridged technical teams and executive management through detailed data reporting, presentations and process documentation.",
+    highlights: [
+      "Analyzed cargo and shipment datasets to pinpoint revenue leakage.",
+      "Translated raw metrics into clear strategic insights and actionable management briefs.",
+      "Facilitated alignment between departments through presentations and process documentation."
+    ]
   }
 ];
 
@@ -617,6 +610,22 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
   plus: [
+    {
+      name: "Python, SQL & Data Analysis",
+      note: "Builds data workflows with Pandas and NumPy, and standardized Python EDA pipelines that were adopted across a 15+ intern cohort."
+    },
+    {
+      name: "Data Visualization & BI",
+      note: "Power BI, Tableau, Matplotlib and Seaborn for dashboards and reports, including Power BI audience analysis at Andaman Dream Yatra."
+    },
+    {
+      name: "Backend, APIs & Databases",
+      note: "Works with Python backends, REST APIs, PostgreSQL/PostGIS, Redis and WebSocket updates as part of the RailSetu team prototype."
+    },
+    {
+      name: "Secure System Design",
+      note: "Designing CarbonScope's zero-trust pipeline with SHA-256 hashing, Ed25519 signatures and an append-only hash chain."
+    },
     {
       name: "Team Leadership under Pressure",
       note: "Progressed from intern to Senior Lead Data Analyst within 4 months, leading intern teams to 100% on-time delivery."

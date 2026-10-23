@@ -122,9 +122,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-300">
                 Project Visuals
               </h4>
-              <span className="text-[11px] font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-800/60 px-2.5 py-1 rounded-full">
-                Sample charts will be replaced with real results
-              </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {project.charts.map((chart) => (

@@ -65,11 +65,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
 
             {/* Main Headline with generous leading and padding to prevent descender clipping on g, y, p */}
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.2] pb-2 sm:pb-3 mb-4 sm:mb-6 overflow-visible">
-              Data Analytics &amp;{' '}
-              <span className="italic font-serif-display font-normal text-zinc-700 dark:text-zinc-200">
-                Product
-              </span>{' '}
-              Management.
+              Data Analytics &amp;<br />
+              Product Management.
             </h1>
 
             {/* Sub-headline summary */}

@@ -89,84 +89,78 @@ export function generateCatAssistantResponse(input: string): ChatMessage {
 
   // Resume / CV
   if (has(lower, ['cv', 'resume', 'curriculum'])) {
-    return reply(
-      `*Purrr* 🐾 Here is Payal's resume. You can read it or download it.`,
-      [openCv, goContact]
-    );
+    return reply(`Here is Payal's resume. 🐾`, [openCv]);
   }
 
   // Contact
-  if (has(lower, ['contact', 'email', 'reach', 'hire', 'hiring', 'talk to', 'linkedin', 'get in touch'])) {
+  if (has(lower, ['contact', 'email', 'reach', 'hire', 'hiring', 'linkedin', 'get in touch'])) {
     return reply(
-      `You can email Payal at **payalmishra.tech@gmail.com**, or use the contact form at the bottom of the page. She is open to internships and full-time roles.`,
-      [goContact, openCv],
-      ['What has she worked on?', 'How good is Payal at management?']
+      `You can email Payal at **payalmishra.tech@gmail.com** or use the contact form. She is open to internships and full-time roles.`,
+      [goContact]
     );
   }
 
-  // Specific projects: CarbonScope / RailSetu
+  // CarbonScope
   if (/\b(carbonscope|carbon|zero trust|zero-trust|security|emission|emissions)\b/.test(lower)) {
     return reply(
-      `**CarbonScope** is one of Payal's real projects, and it is still in progress. 🐾
-
-In India, factories must report their smoke and gas emissions, but the numbers pass through several hands and can be changed or lost without anyone knowing. CarbonScope uses a **zero-trust** idea: nobody is trusted, every reading is **digitally signed at the source** and double-checked against the other records. It also shows everything on a public 3D map so anyone can see it.`,
+      `**CarbonScope** (in progress) makes factory pollution data tamper-proof. Every reading is digitally signed and double-checked, so nobody can quietly change it. 🐾`,
       [goProjects],
-      ['Tell me about RailSetu', 'What has she worked on?']
+      ['Tell me about RailSetu']
     );
   }
+
+  // RailSetu
   if (/\b(rail|railsetu|train|trains|eta|hackathon)\b/.test(lower)) {
     return reply(
-      `**RailSetu** is one of Payal's real projects, built for **Smart India Hackathon 2026** with a 6-member team. She is the **team lead**. 🐾
-
-It predicts when a coaching train will arrive. Instead of one guess, it gives a **range**, explains **why** a train is late, and warns when one delay will cause others. There is a live prototype you can try.`,
+      `**RailSetu** predicts when a train will arrive and explains why it is late. Payal led this 6-person team for Smart India Hackathon 2026. 🐾`,
       [goProjects],
-      ['Tell me about CarbonScope', 'What has she worked on?']
+      ['Tell me about CarbonScope']
+    );
+  }
+
+  // Strengths
+  if (has(lower, ['strength', 'good at', 'best at', 'special', 'why'])) {
+    return reply(
+      `Payal's main strengths: 🐾
+
+• **Data work**: Python, SQL, Power BI
+• **Leading a team**: 100% on-time delivery
+• **Product thinking**: PRDs and Agile planning`,
+      [goExperience, goProjects],
+      ['What has she built?']
     );
   }
 
   // Management
   if (has(lower, ['manage', 'lead', 'leader', 'team', 'product', 'project manager', 'agile', 'sprint', 'okr', 'stakeholder', 'operations'])) {
     return reply(
-      `Payal has solid management and product skills too. 🐾
+      `Payal is good at leading and planning. 🐾
 
-• **Ran operations**: as Operations Manager at Dweep Packers & Movers she managed day-to-day workflows, account checks and step-by-step procedures (SOPs).
-• **Led a team**: at UpToSkills she was promoted from intern to Team Lead to **Senior Lead Data Analyst in just 4 months**, and her teams hit **100% on-time delivery** with sprint reviews and team goals (OKRs).
-• **Helped others work faster**: her standard Python templates were used by **15+ interns**.
-• **Product work**: she wrote product requirement documents and wireframes for Andaman Dream Yatra.
-• **Now building**: a full product and project plan for a travel app, with a 3-sprint Agile roadmap.`,
-      [goExperience, goProjects],
-      ['What does Payal do in data analytics?', 'What has she worked on?']
+• Promoted to **Senior Lead Data Analyst in 4 months**
+• Her teams hit **100% on-time delivery**
+• Wrote product plans and ran daily operations`,
+      [goExperience],
+      ['What has she built?']
     );
   }
 
   // Data analytics
   if (has(lower, ['analyst', 'analytics', 'analysis', 'data', 'dashboard', 'power bi', 'sql', 'excel', 'tableau', 'report'])) {
     return reply(
-      `Data analytics is the other big strength. 🐾
-
-• **Turns data into answers**: she uses Python, SQL, Power BI and Tableau.
-• **Dashboards**: she is building a sales dashboard on a **10,000+ record dataset** to show trends and top products.
-• **Data cleaning tool**: she is building a Python script that finds duplicates and missing values and makes a clean file plus a report.
-• **Real business work**: at PSN Shipping Agency she studied cargo and finance data to find where the company was losing revenue.`,
+      `Payal turns data into answers using Python, SQL, Power BI and Tableau. 🐾 She has built reports that found where a shipping company was losing revenue.`,
       [goProjects, goSkills],
-      ['What are her top skills?', 'Open resume']
+      ['What are her strengths?']
     );
   }
 
   // Projects
-  if (has(lower, ['project', 'built', 'worked on', 'portfolio', 'work on', 'made'])) {
+  if (has(lower, ['project', 'built', 'build', 'worked on', 'portfolio', 'work on', 'made'])) {
     return reply(
-      `Payal has 6 projects, and most are technical. 🐾
+      `Payal has 6 projects. 🐾
 
-**In progress (real projects):**
-1. **CarbonScope**: a zero-trust system that makes factory emission data tamper-proof.
-2. **RailSetu**: predicts train arrival times (Smart India Hackathon 2026, she is team lead).
-
-**Planned next:**
-3. **Sales dashboard**: sales trends from a 10,000+ record dataset.
-4. **Data cleaning tool**: a Python script that cleans messy data.
-5. **Shipment tracking API**: a REST API and dashboard for tracking shipments.
-6. **Travel app product plan**: a full project management case study with a 3-sprint plan.`,
+• **CarbonScope**: tamper-proof pollution data
+• **RailSetu**: train arrival predictions
+• **Plus 4 more**: a sales dashboard, a data cleaning tool, a shipment API and a product plan`,
       [goProjects],
       ['Tell me about CarbonScope', 'Tell me about RailSetu']
     );
@@ -175,15 +169,13 @@ It predicts when a coaching train will arrive. Instead of one guess, it gives a 
   // Skills
   if (has(lower, ['skill', 'tech', 'stack', 'tools', 'language', 'python', 'know'])) {
     return reply(
-      `Here are Payal's main skills: 🐾
+      `Her main skills: 🐾
 
-• **Data**: Python, SQL, Pandas, NumPy, Power BI, Tableau
+• **Data**: Python, SQL, Pandas, Power BI, Tableau
 • **Building**: Git, Streamlit, REST APIs
-• **Management**: leading teams, Agile and sprint planning, setting goals, working with stakeholders
-• **Product tools**: Jira, Trello, Notion, Figma
-• **Writing**: product requirement documents, technical documents, SOPs`,
-      [goSkills, goProjects],
-      ['How good is Payal at management?', 'Open resume']
+• **Planning**: Agile, Jira, Trello, Figma`,
+      [goSkills],
+      ['What has she built?']
     );
   }
 
@@ -192,64 +184,52 @@ It predicts when a coaching train will arrive. Instead of one guess, it gives a 
     return reply(
       `Payal's work so far: 🐾
 
-• **UpToSkills**: Senior Lead Data Analyst (promoted from intern in 4 months)
-• **Andaman Dream Yatra**: Lead Product Designer & UX Strategist
+• **UpToSkills**: Senior Lead Data Analyst
+• **Andaman Dream Yatra**: Lead Product Designer
 • **Dweep Packers & Movers**: Operations Manager
 • **PSN Shipping Agency**: Business Analyst`,
-      [goExperience, openCv],
-      ['How good is Payal at management?', 'What has she worked on?']
+      [goExperience, openCv]
     );
   }
 
-  // Education / student
+  // Education
   if (has(lower, ['education', 'student', 'college', 'degree', 'b.tech', 'btech', 'study', 'gpa', 'year', 'graduat', 'certif'])) {
     return reply(
-      `Payal is a **3rd-year B.Tech Computer Science Engineering student** at Dr. B.R. Ambedkar Institute of Technology, with a GPA of 8.33/10. She has also earned **65+ certifications** and won **2nd place** in an all-India Data Science League. 🐾`,
-      [openCv],
-      ['What has she worked on?', 'How good is Payal at management?']
+      `Payal is a **3rd-year B.Tech Computer Science** student with an 8.33 GPA, 65+ certifications and a 2nd place in an all-India Data Science League. 🐾`,
+      [openCv]
     );
   }
 
-  // AI / ML / research questions: be honest
+  // AI / ML questions: be honest
   if (has(lower, ['machine learning', ' ml', 'ml ', 'ai ', ' ai', 'deep learning', 'llm', 'research', 'data scientist', 'scientist'])) {
     return reply(
-      `Honest answer: Payal is still **learning** AI and machine learning, so it is not her focus right now. 🐾
-
-Where she is strong today is **data analytics** and **management**. Ask me about those!`,
-      [goExperience, goProjects],
-      ['How good is Payal at management?', 'What does Payal do in data analytics?']
+      `Payal is still **learning** AI and machine learning. Her strengths today are **data analytics** and **leading teams**. 🐾`,
+      [goProjects],
+      ['What are her strengths?']
     );
   }
 
-  // Role fit (generic)
+  // Role fit
   if (has(lower, ['fit', 'role', 'suitable', 'good for', 'match', 'right for', 'position'])) {
     return reply(
-      `Payal fits best in **internships and entry-level roles** in software, data analytics, and product / project management. 🐾
-
-She has worked in a team that delivered 100% on time, and has experience in data analysis, product design and operations. Most of her projects are technical. She is a 3rd-year student, so internships and entry-level roles suit her best.`,
-      [goExperience, goProjects],
-      ['How good is Payal at management?', 'What does Payal do in data analytics?']
+      `Payal suits **internships and entry-level roles** in software, data analytics, and product or project management. 🐾`,
+      [goExperience, goProjects]
     );
   }
 
   // Greetings
-  if ((/\b(hi|hello|hey|meow|help)\b/.test(lower) || lower.includes('who are you'))) {
+  if (/\b(hi|hello|hey|meow|help)\b/.test(lower) || lower.includes('who are you')) {
     return reply(
-      `*Meow!* 🐾 I'm Nova, Payal's cat assistant. I can tell you about her **management skills**, **data analytics work**, **projects** and **resume**. What would you like to know?`,
-      [goProjects, openCv],
-      ['How good is Payal at management?', 'What has she worked on?', 'How can I contact her?']
+      `*Meow!* 🐾 I'm Nova. Ask me about Payal's strengths, projects or experience.`,
+      [],
+      ['What are her strengths?', 'What has she built?']
     );
   }
 
   // Fallback
   return reply(
-    `*Tilts head* 🐾 I'm not sure about that one, but I can help with:
-
-• Payal's **management** skills
-• Her **data analytics** work
-• Her **projects**, **skills**, and **experience**
-• How to **contact** her`,
-    [goProjects, openCv],
-    ['How good is Payal at management?', 'What has she worked on?', 'How can I contact her?']
+    `*Tilts head* 🐾 I'm not sure about that one. Try asking about her strengths, projects or experience.`,
+    [],
+    ['What are her strengths?', 'What has she built?']
   );
 }
