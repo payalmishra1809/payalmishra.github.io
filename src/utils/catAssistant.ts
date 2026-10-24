@@ -156,11 +156,11 @@ export function generateCatAssistantResponse(input: string): ChatMessage {
   // Projects
   if (has(lower, ['project', 'built', 'build', 'worked on', 'portfolio', 'work on', 'made'])) {
     return reply(
-      `Payal has 6 projects. 🐾
+      `Payal has 12 projects. 🐾
 
 • **CarbonScope**: tamper-proof pollution data
 • **RailSetu**: train arrival predictions
-• **Plus 4 more**: a sales dashboard, a data cleaning tool, a shipment API and a product plan`,
+• **Plus 10 more**: dashboards, data analysis, a fraud detection pipeline, a facial attendance system, a shipment API and a product plan`,
       [goProjects],
       ['Tell me about CarbonScope', 'Tell me about RailSetu']
     );

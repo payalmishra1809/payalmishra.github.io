@@ -204,7 +204,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: "Data Analysis & BI",
     title: "Interactive E-Commerce Sales & Customer Insights Dashboard",
     shortDesc: "Streamlit dashboard on a 10,000+ record sales dataset showing growth, top products and order value, powered by SQL.",
-    fullDesc: "An interactive Streamlit dashboard built on a 10,000+ record e-commerce sales dataset. SQL window functions and aggregations will surface monthly sales growth, top products by category and order value distribution, with the dashboard hosted publicly.",
+    fullDesc: "An interactive Streamlit dashboard built on a 10,000+ record e-commerce sales dataset. SQL window functions and aggregations surface monthly sales growth, top products by category and order value distribution.",
     stack: ["Python (Pandas)", "Streamlit", "Power BI", "SQL"],
     metrics: {
       "primary": "10,000+",
@@ -212,7 +212,6 @@ export const PROJECTS: Project[] = [
     },
     highlightTitle: "Analytical Insight",
     highlightText: "SQL window functions and aggregation queries feed the dashboard so category and sales performance can be explored interactively.",
-    status: "Planned",
     charts: [
       {
         "title": "Monthly revenue",
@@ -288,7 +287,6 @@ export const PROJECTS: Project[] = [
     stack: ["Python", "Pandas", "SQLAlchemy"],
     highlightTitle: "Automation Highlight",
     highlightText: "Automated checks guarantee data integrity before reporting, replacing repetitive manual cleaning.",
-    status: "Planned",
     charts: [
       {
         "title": "Issues found vs fixed per dataset",
@@ -353,7 +351,6 @@ export const PROJECTS: Project[] = [
     stack: ["Python", "SQL", "SQLAlchemy", "REST APIs", "Streamlit", "Git"],
     highlightTitle: "Engineering Highlight",
     highlightText: "One clean API handles shipment records, and a dashboard turns them into a live view of what is delivered, moving or delayed.",
-    status: "Planned",
     charts: [
       {
         "title": "Shipments by status",
@@ -399,8 +396,126 @@ export const PROJECTS: Project[] = [
     colSpan: "md"
   },
   {
-    id: "travel-app-product-plan",
+    id: "world-population-analysis",
     number: "06",
+    category: "Analytics",
+    categoryLabel: "Data Analysis & Visualization",
+    title: "World Population Analysis",
+    shortDesc: "Python data analysis of global population trends from 1960 to 2023 using World Bank datasets, with automated data cleaning and top-10 country visualizations.",
+    fullDesc: "A Python-based data analysis of global population trends from 1960 to 2023 using World Bank datasets. It features automated data cleaning and top-10 country visualizations.",
+    stack: ["Python", "Data Analysis", "Data Visualization", "World Bank Data"],
+    githubUrl: "https://github.com/payalmishra1809/WORLD-POPULATION-ANALYSIS",
+    highlightTitle: "Analytical Insight",
+    highlightText: "Automated cleaning turns raw World Bank data into clear top-10 country views of 63 years of population change.",
+    colSpan: "md"
+  },
+  {
+    id: "facial-attendance-system",
+    number: "07",
+    category: "Vision",
+    categoryLabel: "Computer Vision & Web App",
+    title: "Facial Attendance System",
+    shortDesc: "Automated attendance using facial recognition: captures faces via webcam, matches them against a database and logs to CSV or Firebase.",
+    fullDesc: "Automated attendance using facial recognition. It captures faces via webcam, matches them against a database, and logs attendance to CSV or Firebase. Built for educational and workplace use with Python, OpenCV and Flask.",
+    stack: ["Python", "OpenCV", "Flask", "Firebase"],
+    githubUrl: "https://github.com/payalmishra1809/FACIAL-ATTENDANCE-SYSTEM",
+    highlightTitle: "Practical Use",
+    highlightText: "Replaces manual roll calls with a webcam check-in that logs attendance automatically.",
+    colSpan: "md"
+  },
+  {
+    id: "time-series-sales-forecasting",
+    number: "08",
+    category: "Analytics",
+    categoryLabel: "Time Series Analysis",
+    title: "Time Series Sales Forecasting",
+    shortDesc: "Daily and monthly sales trend analysis with a 6-month demand forecast.",
+    fullDesc: "Time series sales forecasting covering daily and monthly trends, with a 6-month demand forecast.",
+    stack: ["Python", "Time Series Forecasting", "Data Visualization"],
+    githubUrl: "https://github.com/payalmishra1809/TIME-SERIES-SALES-FORECASTING",
+    metrics: {
+      "primary": "6 Months",
+      "label": "Demand forecast horizon"
+    },
+    highlightTitle: "Business Value",
+    highlightText: "Shows daily and monthly patterns and projects demand six months ahead to support planning.",
+    colSpan: "md"
+  },
+  {
+    id: "child-vaccination-system",
+    number: "09",
+    category: "Healthcare",
+    categoryLabel: "Healthcare Tech",
+    title: "Child Vaccination Management System",
+    shortDesc: "Desktop application for healthcare providers and parents to register children, track vaccination schedules per India's NIS 2025 and generate PDF reports.",
+    fullDesc: "A complete desktop application for healthcare providers and parents to register children, track vaccination schedules per India's National Immunization Schedule (NIS) 2025, and generate PDF reports.",
+    stack: ["Python", "Desktop App", "PDF Reports", "India NIS 2025"],
+    githubUrl: "https://github.com/payalmishra1809/CHILD-VACCINATION-SYSTEM",
+    highlightTitle: "Practical Use",
+    highlightText: "Keeps a child's vaccination schedule in one place so no dose is missed.",
+    colSpan: "md"
+  },
+  {
+    id: "fraud-detection-system",
+    number: "10",
+    category: "ML",
+    categoryLabel: "Applied Machine Learning",
+    title: "Credit Card Fraud Detection System",
+    shortDesc: "Machine learning pipeline that detects fraudulent credit card transactions in a Kaggle dataset of 284,807 transactions with a 0.17% fraud rate.",
+    fullDesc: "A machine learning pipeline for detecting fraudulent credit card transactions using a Kaggle dataset of 284,807 transactions, where only 0.17% are fraud.",
+    stack: ["Python", "Fraud Detection", "Kaggle Dataset", "Data Analysis"],
+    githubUrl: "https://github.com/payalmishra1809/FRAUD-DETECTION-SYSTEM",
+    metrics: {
+      "primary": "284,807",
+      "label": "Transactions analyzed",
+      "subMetrics": [
+        {
+          "value": "0.17%",
+          "label": "Fraud rate"
+        }
+      ]
+    },
+    highlightTitle: "Core Challenge",
+    highlightText: "Fraud is extremely rare, so the pipeline has to find the few bad transactions among hundreds of thousands of normal ones.",
+    charts: [
+      {
+        "title": "Transactions: legitimate vs fraud",
+        "type": "donut",
+        "labels": [
+          "Legitimate",
+          "Fraud"
+        ],
+        "series": [
+          {
+            "name": "Share",
+            "values": [
+              99.83,
+              0.17
+            ]
+          }
+        ],
+        "tag": "Dataset"
+      }
+    ],
+    colSpan: "md"
+  },
+  {
+    id: "us-accident-data-analysis",
+    number: "11",
+    category: "Analytics",
+    categoryLabel: "Exploratory Data Analysis",
+    title: "US Accident Data Analysis",
+    shortDesc: "High-scale exploratory data analysis of the US Accidents (2016-2023) dataset covering the contiguous United States.",
+    fullDesc: "High-scale Exploratory Data Analysis (EDA) on the US Accidents (2016-2023) dataset. Spanning the entire contiguous United States, the dataset provides a breakdown of millions of accident records.",
+    stack: ["Python", "EDA", "Data Visualization"],
+    githubUrl: "https://github.com/payalmishra1809/US-ACCIDENT-DATA-ANALYSIS",
+    highlightTitle: "Scale",
+    highlightText: "Handles a very large dataset to find when and where accidents happen across the whole country.",
+    colSpan: "md"
+  },
+  {
+    id: "travel-app-product-plan",
+    number: "12",
     category: "Product",
     categoryLabel: "Product & Project Management",
     title: "Travel Itinerary App: End-to-End Product & Delivery Plan",
@@ -419,7 +534,6 @@ export const PROJECTS: Project[] = [
     },
     highlightTitle: "Delivery Highlight",
     highlightText: "Every step from idea to launch is planned: requirements, success metrics, sprints, risks and who needs to be kept informed.",
-    status: "Planned",
     charts: [
       {
         "title": "Sprint burndown, story points left",
@@ -640,7 +754,7 @@ export const BINARY_PROFILE: { plus: BinaryItem[]; minus: BinaryItem[] } = {
     },
     {
       name: "Product & Agile Delivery",
-      note: "Writes PRDs and Agile roadmaps, and is building a full product delivery plan as a case study."
+      note: "Writes PRDs and Agile roadmaps, and created a full product delivery plan as a case study."
     }
   ],
   minus: [
