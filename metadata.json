@@ -1,0 +1,8 @@
+{
+  "name": "Payal Mishra Portfolio",
+  "description": "Portfolio for Payal Mishra: Business Analysis, Data Analytics & Product Management. B.Tech CSE student with data analytics, product, and project management work, plus an interactive cat assistant (Nova) that answers questions about her experience and projects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,173 @@
+import React, { useState } from 'react';
+import { Github, ArrowUpRight, Sparkles, Filter, Terminal, Cpu, Database, Activity, Code2 } from 'lucide-react';
+import { PROJECTS } from '../data/portfolioData';
+import { Project } from '../types';
+import { SpotlightCard } from './SpotlightCard';
+import { ProjectDetailModal } from './ProjectDetailModal';
+
+const STATUS_STYLES: Record<string, { pill: string; dot: string }> = {
+  'Completed': { pill: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200/70 dark:border-emerald-800/60', dot: 'bg-emerald-500' },
+  'Deployed': { pill: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200/70 dark:border-emerald-800/60', dot: 'bg-emerald-500' },
+  'Prototype': { pill: 'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200/70 dark:border-blue-800/60', dot: 'bg-blue-500' },
+  'In Progress': { pill: 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/70 dark:border-amber-800/60', dot: 'bg-amber-500' },
+};
+
+export const ProjectsBento: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const categories = [
+    { label: 'All Projects', value: 'All' },
+    { label: 'Technical', value: 'Technical' },
+    { label: 'Project Management', value: 'Product' },
+  ];
+
+  const filteredProjects = activeCategory === 'All'
+    ? PROJECTS
+    : PROJECTS.filter((p) => (activeCategory === 'Product' ? p.category === 'Product' : p.category !== 'Product'));
+
+  return (
+    <section id="projects" className="py-24 sm:py-32 relative overflow-hidden bg-zinc-50/50 dark:bg-transparent border-t border-zinc-200/80 dark:border-zinc-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-3">
+              <Code2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+              <span>Selected Works</span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white pb-1 leading-[1.2]">
+              Data &amp; Product Projects
+            </h2>
+            <p className="mt-3 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed">
+              Dashboards, data pipelines, and product and project management deliverables.
+            </p>
+          </div>
+
+          {/* Interactive Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-700/80 self-start md:self-auto shadow-xs">
+            {categories.map((cat) => (
+              <button
+                key={cat.value}
+                type="button"
+                onClick={() => setActiveCategory(cat.value)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 transform cursor-pointer ${
+                  activeCategory === cat.value
+                    ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-xs -translate-y-0.5 hover:-translate-y-1 hover:shadow-sm'
+                    : 'text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-blue-950/40 hover:-translate-y-1 hover:shadow-xs'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+          {filteredProjects.map((project) => {
+            const colSpanClasses = 'lg:col-span-6';
+
+            return (
+              <div key={project.id} className={`${colSpanClasses} flex flex-col`}>
+                <SpotlightCard
+                  className="h-full p-6 sm:p-8 flex flex-col justify-between group cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div>
+                    {/* Header Row */}
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex items-center gap-2 text-xs font-mono-code text-zinc-500 dark:text-zinc-400 font-semibold">
+                        <span>{project.number}</span>
+                        <span>·</span>
+                        <span className="text-zinc-700 dark:text-zinc-200 uppercase">{project.categoryLabel}</span>
+                      </div>
+
+                      {project.metrics && (
+                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-mono-code font-bold text-zinc-900 dark:text-white transition-transform group-hover:scale-105">
+                          {project.metrics.primary}
+                        </div>
+                      )}
+                    </div>
+
+                    {project.status && (
+                      <span className={`inline-flex items-center gap-1.5 mb-3 px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${STATUS_STYLES[project.status]?.pill ?? ''}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${STATUS_STYLES[project.status]?.dot ?? 'bg-zinc-400'}`} />
+                        {project.status}
+                      </span>
+                    )}
+
+                    {/* Title */}
+                    <h3 className="font-display font-bold text-xl sm:text-2xl text-zinc-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-3 pb-0.5 leading-snug">
+                      {project.title}
+                    </h3>
+
+                    {/* Short Description */}
+                    <p className="text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                      {project.shortDesc}
+                    </p>
+
+                    {/* Tech Stack Pills */}
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {project.stack.slice(0, 5).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800/90 border border-zinc-200/60 dark:border-zinc-700/80 text-xs font-mono-code text-zinc-700 dark:text-zinc-200 transition-all hover:bg-zinc-200/80 dark:hover:bg-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 cursor-default"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.stack.length > 5 && (
+                        <span className="px-2 py-1 text-xs font-mono-code text-zinc-500 dark:text-zinc-400">
+                          +{project.stack.length - 5}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Actions Footer */}
+                  <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(project);
+                      }}
+                      className="inline-flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                    >
+                      <span>View Details &amp; Visuals</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </button>
+
+                    {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="p-2 rounded-full text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:scale-110 transition-all"
+                      title="View GitHub Repository"
+                      aria-label={`${project.title} GitHub Source`}
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                    )}
+                  </div>
+
+                </SpotlightCard>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+
+      {/* Project Detail Modal */}
+      <ProjectDetailModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+    </section>
+  );
+};
